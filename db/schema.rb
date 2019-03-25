@@ -10,10 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_150422) do
+ActiveRecord::Schema.define(version: 2019_03_25_172730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversion_words", force: :cascade do |t|
+    t.string "name"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_conversion_words_on_tag_id"
+  end
+
+  create_table "event_tags", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_tags_on_event_id"
+    t.index ["tag_id"], name: "index_event_tags_on_tag_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.integer "price"
+    t.string "name"
+    t.string "category"
+    t.date "date"
+    t.time "beginning_hour"
+    t.time "end_hour"
+    t.text "description"
+    t.bigint "venue_id"
+    t.string "url"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["venue_id"], name: "index_events_on_venue_id"
+  end
+
+  create_table "saved_events", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_saved_events_on_event_id"
+    t.index ["user_id"], name: "index_saved_events_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +71,24 @@ ActiveRecord::Schema.define(version: 2019_03_25_150422) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venues", force: :cascade do |t|
+    t.string "name"
+    t.string "kind"
+    t.string "address"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "conversion_words", "tags"
+  add_foreign_key "event_tags", "events"
+  add_foreign_key "event_tags", "tags"
+  add_foreign_key "events", "venues"
+  add_foreign_key "saved_events", "events"
+  add_foreign_key "saved_events", "users"
 end
