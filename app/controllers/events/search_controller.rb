@@ -1,4 +1,6 @@
 class Events::SearchController < ApplicationController
+  skip_before_action :authenticate_user!
+
   STEPS = {
     "posee_dynamique" => {
       question: "Soirée posée ou dynamique?",
@@ -179,7 +181,7 @@ class Events::SearchController < ApplicationController
     answer = params[:answer] # => "many"
     session[@step] = answer # => on garde la reponse dans la session pour utiliser apres pour la recherche
 
-    next_step = NEXT_STEPS[@step][answer] if NEXT_STEPS.key?(@step) # => on test si il y a de next_step
+    next_step = NEXT_STEPS[@step][answer] if NEXT_STEPS[@step] # => on test si il y a de next_step
 
     if next_step
       redirect_to events_search_path(step: next_step)
