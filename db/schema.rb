@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_25_172730) do
+ActiveRecord::Schema.define(version: 2019_03_26_163544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2019_03_25_172730) do
     t.string "name"
     t.string "category"
     t.date "date"
-    t.time "beginning_hour"
-    t.time "end_hour"
+    t.string "beginning_hour"
+    t.string "end_hour"
     t.text "description"
     t.bigint "venue_id"
     t.string "url"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_172730) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "photo"
   end
 
   add_foreign_key "conversion_words", "tags"
