@@ -52,7 +52,7 @@ venue_1 = Venue.create(name: "", kind: "", address: "", url: "")
 
 # /////////////////// Events ////////////////
 Venue.all.each do |venue|
-  Event.create(price: 0, name: "soirée au #{venue.name}", category: "soirée bar", venue: venue, beginning_hour: '2019-01-01 19:30:00', end_hour: '2019-01-01 02:00:00', description: "soirée trop cool @ #{venue.name}", url: venue.url)
+  Event.create(price: 0, name: "soirée au #{venue.name}", category: "soirée bar", venue: venue, beginning_hour: '19h00', end_hour: '02h15', description: "soirée trop cool @ #{venue.name}", url: venue.url)
 end
 
 puts "Generating conversion words..."
