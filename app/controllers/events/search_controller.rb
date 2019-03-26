@@ -1,43 +1,43 @@
 class Events::SearchController < ApplicationController
   STEPS = {
     "posee_dynamique" => {
-      question: "Plutot soirée posée ou soirée dynamique?",
-      answers: ["posee", "dynamique"]
+      question: "Soirée posée ou dynamique?",
+      answers: ["posée", "dynamique"]
     },
 
-    "combien_persones" => {
-      question: "Est-tu seul, à deux ou en groupe ?",
-      answers: ["seul", "couple", "groupe"]
+    "combien_personnes" => {
+      question: "Solo, à deux ou en groupe?",
+      answers: ["solo", "couple", "groupe"]
     },
 
     "musique_activite" => {
-      question: "Plutot ecouter de la musique et danser ou faire une activité?",
-      answers: ["activite", "musique"]
+      question: "Ecouter musique/danser ou faire une activité?",
+      answers: ["activité", "musique"]
     },
 
     "combien_coute" => {
-      question: "Est-tu pret à payer quelques € ou c'est la deche?",
-      answers: ["chere", "bon_marche"]
+      question: "Est-tu pret à payer quelques € ou c'est la dèche?",
+      answers: ["payant", "gratuit / prix libre"]
     },
 
     "ritme_activite" => {
-      question: "Es-tu pret a bouger un peu?",
-      answers: ["activite_sport", "activite_tranquile"]
+      question: "Sportif ou pas trop?",
+      answers: ["sportif", "tranquille"]
     },
 
     "concert" => {
       question: "Quel type de musique?",
-      answers: ["electro", "rock", "rap", "latine"]
+      answers: ["electro", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
     },
 
     "bar_ambiance" => {
       question: "Quel type de musique?",
-      answers: ["electro", "rock", "rap", "latine"]
+      answers: ["electro", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
     },
 
     "changer_idees_rencontre" => {
-      question: "Plutot changer les idées ou rencontrer du monde?",
-      answers: ["rencontre", "idees"]
+      question: "Regarder ou discuter?", # a changer
+      answers: ["regarder", "social"]
     },
 
     "culture_comptoir" => {
@@ -45,57 +45,57 @@ class Events::SearchController < ApplicationController
       answers: ["culture", "comptoir"]
     },
 
-    "boison_musique" => {
-      question: "Tu fais plus attention à ce que tu bois ou à l'ambiance musical?",
-      answers: ["boison", "musique"]
+    "boisson_musique" => {
+      question: "Tu fais plus attention à ce que tu bois ou à la musique?",
+      answers: ["boisson", "musique"]
     },
 
     "bar_pose_musique" => {
       question: "Quel type de musique?",
-      answers: ["tripHop", "rock", "reggae", "soul"]
+      answers: ["soul", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
     },
 
     "type_culture" => {
-      question: "Quel type? Politique, art, histoire, ecologie...",
-      answers: ["art", "social", "ecologie", "histoire"]
+      question: "Quel type?",
+      answers: ["documentaire", "danse", "ecologie", "histoire"]
     },
 
     "cinema_theatre" => {
-      question: "Plutot aller au cinema ou au theatre?",
-      answers: ["cinema", "theatre"]
+      question: "Plutot aller au cinéma ou au théâtre?",
+      answers: ["cinéma", "théâtre"]
     },
 
     "cinema" => {
-      question: "Quel type de cinema?",
-      answers: ["comedie", "drame", "action", "fantasie"]
+      question: "Quel type de cinéma?",
+      answers: ["comedie", "drame", "action", "science-fiction", "romance", "horreur"]
     },
 
     "theatre" => {
       question: "Quel type de theatre",
-      answers: ["comedie", "drame", "musical", "monologue"]
+      answers: ["comedie", "drame", "musical", "one-man-show"]
     }
   }
 
   NEXT_STEPS = {
     "posee_dynamique" => {
-      "posee" =>   "changer_idees_rencontre",
-      "dynamique" => "combien_persones"
+      "posée" =>   "changer_idees_rencontre",
+      "dynamique" => "combien_personnes"
     },
 
-    "combien_persones" => {
-      "seul" => "combien_coute",
+    "combien_personnes" => {
+      "solo" => "combien_coute",
       "couple" => "musique_activite",
       "groupe" => "musique_activite"
     },
 
     "musique_activite" => {
-      "activite" => "ritme_activite",
+      "activité" => "ritme_activite",
       "musique" => "combien_coute"
     },
 
     "combien_coute" => {
-      "chere" => "concert",
-      "bon_marche" => "bar_ambiance"
+      "payant" => "concert",
+      "gratuit / prix libre" => "bar_ambiance"
     },
 
     "ritme_activite" => nil, # {
@@ -118,17 +118,17 @@ class Events::SearchController < ApplicationController
     # },
 
     "changer_idees_rencontre" => {
-      "rencontre" => "culture_comptoir",
-      "idees" => "cinema_theatre"
+      "social" => "culture_comptoir",
+      "regarder" => "cinema_theatre"
     },
 
     "culture_comptoir" => {
       "culture" => "type_culture",
-      "comptoir" => "boison_musique"
+      "comptoir" => "boisson_musique"
     },
 
-    "boison_musique" => {
-      "boison" => nil,
+    "boisson_musique" => {
+      "boisson" => nil,
       "musique" => "bar_pose_musique"
     },
 
@@ -147,8 +147,8 @@ class Events::SearchController < ApplicationController
     # },
 
     "cinema_theatre" => {
-      "cinema" => "cinema",
-      "theatre" => "theatre"
+      "cinéma" => "cinéma",
+      "théâtre" => "théâtre"
     },
 
     "cinema" => nil, #{
