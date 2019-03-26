@@ -1,5 +1,6 @@
 class Events::SearchController < ApplicationController
   skip_before_action :authenticate_user!
+  FIRST_STEP = "posee_dynamique"
 
   STEPS = {
     "posee_dynamique" => {
@@ -153,14 +154,14 @@ class Events::SearchController < ApplicationController
       "théâtre" => "théâtre"
     },
 
-    "cinema" => nil, #{
+    "cinema" => nil, # {
     #   "comedie" => nil,
     #   "drame" => nil,
     #   "action" => nil,
     #   "fantasie" => nil
     # },
 
-    "theatre" => nil, #{
+    "theatre" => nil, # {
       # "comedie" => nil,
       # "drame" => nil,
       # "musical" => nil,
@@ -169,7 +170,7 @@ class Events::SearchController < ApplicationController
   }
 
   def show # question
-    @step = params[:step] # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
+    @step = params[:step].presence || FIRST_STEP # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
 
     @question = STEPS[@step][:question] # => On let dans une variable le valeur de :question du STEP
     @answers  = STEPS[@step][:answers] # => pareil que le precedent, mais avec les :answers

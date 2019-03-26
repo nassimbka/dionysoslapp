@@ -65,40 +65,57 @@ ConversionWord.create(name: "", tag: )
 # documentaire => culture
 # spectacle de danse => culture
 # faire un gros travail de word conversion sur culture pour se retrouver avec plus de résultats
-
+# ecrire "posée" dans les tags
 
 puts "Generating tags..."
 
 # //////////////////// Tags /////////////////
-Tag.create(name: "comptoir")
-Tag.create(name: "boisson")
-Tag.create(name: "culture")
-Tag.create(name: "activité")
-Tag.create(name: "musique")
-Tag.create(name: "payant")
-Tag.create(name: "activité sportive")
-Tag.create(name: "posé")
-Tag.create(name: "électro")
-Tag.create(name: "rock")
-Tag.create(name: "hip-Hop")
-Tag.create(name: "latino")
-Tag.create(name: "jazz")
-Tag.create(name: "musiques du monde")
-Tag.create(name: "gratuit / prix libre")
-Tag.create(name: "dynamique")
-Tag.create(name: "solo")
-Tag.create(name: "groupe")
-Tag.create(name: "social")
 Tag.create(name: "à regarder")
-Tag.create(name: "boisson")
-Tag.create(name: "musique")
+Tag.create(name: "activité sportive")
+
+[
+  "action",
+  "activité",
+  "boisson",
+  "cinéma",
+  "comedie",
+  "comptoir",
+  "couple",
+  "culture",
+  "danse",
+  "documentaire",
+  "drame",
+  "dynamique",
+  "ecologie",
+  "electro",
+  "gratuit / prix libre",
+  "groupe",
+  "hip-Hop",
+  "histoire",
+  "horreur",
+  "jazz",
+  "latino",
+  "musical",
+  "musique",
+  "musiques du monde",
+  "one-man-show",
+  "payant",
+  "posée",
+  "regarder",
+  "rock",
+  "romance",
+  "science-fiction",
+  "social",
+  "solo",
+  "soul",
+  "sportif",
+  "théâtre",
+  "tranquille",
+].each do |name|
+  Tag.create!(name: name)
+end
+
 #
-# solo
-# groupe
-# social
-# à regarder pour cinéma et théâtre
-# boisson
-# musique
 
 # ///////
 
