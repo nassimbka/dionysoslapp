@@ -23,7 +23,7 @@ class Events::SearchController < ApplicationController
       answers: ["payant", "gratuit / prix libre"]
     },
 
-    "ritme_activite" => {
+    "rythme_activite" => {
       question: "Sportif ou pas trop?",
       answers: ["sportif", "tranquille"]
     },
@@ -60,7 +60,7 @@ class Events::SearchController < ApplicationController
 
     "type_culture" => {
       question: "Quel type?",
-      answers: ["documentaire", "danse", "ecologie", "histoire", "art", "expositions"]
+      answers: ["documentaire", "danse", "exposition", "conférence"]
     },
 
     "cinema_theatre" => {
@@ -92,7 +92,7 @@ class Events::SearchController < ApplicationController
     },
 
     "musique_activite" => {
-      "activité" => "ritme_activite",
+      "activité" => "rythme_activite",
       "musique" => "combien_coute"
     },
 
@@ -101,12 +101,12 @@ class Events::SearchController < ApplicationController
       "gratuit / prix libre" => "bar_ambiance"
     },
 
-    "ritme_activite" => nil, # {
+    "rythme_activite" => nil, # {
     #   "activite_sport" => nil,
     #   "activite_tranquile" => nil
     # },
 
-    "concert" => nil, #{
+    "concert" => nil, # {
     #   "electro" => nil,
     #   "rock" => nil,
     #   "rap" => nil,
@@ -150,8 +150,8 @@ class Events::SearchController < ApplicationController
     # },
 
     "cinema_theatre" => {
-      "cinéma" => "cinéma",
-      "théâtre" => "théâtre"
+      "cinéma" => "cinema",
+      "théâtre" => "theatre"
     },
 
     "cinema" => nil, # {
@@ -170,19 +170,21 @@ class Events::SearchController < ApplicationController
   }
 
   def show # question
-    @step = params[:step].presence || FIRST_STEP # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
+    @step = params[:step].presence || FIRST_STEP  # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
+    session[:search] = nil if @step == FIRST_STEP # => On RESET le wizzard
 
     @question = STEPS[@step][:question] # => On let dans une variable le valeur de :question du STEP
     @answers  = STEPS[@step][:answers] # => pareil que le precedent, mais avec les :answers
   end
 
   def create # answer
-    @step = params[:step] # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
-
+    step   = params[:step] # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
     answer = params[:answer] # => "many"
-    session[@step] = answer # => on garde la reponse dans la session pour utiliser apres pour la recherche
 
-    next_step = NEXT_STEPS[@step][answer] if NEXT_STEPS[@step] # => on test si il y a de next_step
+    session[:search] ||= {}
+    session[:search][step] = answer # => on garde la reponse dans la session pour utiliser apres pour la recherche
+
+    next_step = NEXT_STEPS[step][answer] if NEXT_STEPS[step] # => on test si il y a de next_step
 
     if next_step
       redirect_to events_search_path(step: next_step)
