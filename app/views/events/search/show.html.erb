@@ -1,11 +1,9 @@
- <div class="show-container-<%= @answers.length %>">
-<% @answers.each do |answer| %>
-<%= link_to events_search_path(step: @step, answer: answer),class: "link-card-#{@answers.length}", method: :post do %>
-
-  <div class="answer-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "tags/#{answer.parameterize}.jpg" %>)">
-    <%= answer %>
-  </div>
-
-<% end %>
-<% end %>
+<div class="show-container-<%= @answers.length %>">
+  <% @answers.each do |answer| %>
+    <%= link_to events_search_path(step: @step, answer: answer),class: "link-card-#{@answers.length}", method: :post do %>
+      <div class="answer-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "tags/#{answer.parameterize}.jpg" %>)">
+        <%= answer %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
