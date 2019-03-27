@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+.home-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-home {
+   img {
+    max-width: 1000px;
+  }
+  margin-bottom: 180px;
+}
+
+.start-button {
+  a {
+    font-family: 'Permanent Marker', cursive;
+    text-decoration: none;
+    color: $white;
+    padding: 3px 19px;
+    border-radius: 5px;
+    transition: all .5s ease;
+    font-size: 3em;
+    border-bottom: 8px solid $orange;
+    &:hover {
+      background-color: $orange;
+    }
+  }
+}
