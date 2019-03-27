@@ -23,7 +23,7 @@ class Events::SearchController < ApplicationController
       answers: ["payant", "gratuit / prix libre"]
     },
 
-    "ritme_activite" => {
+    "rythme_activite" => {
       question: "Sportif ou pas trop?",
       answers: ["sportif", "tranquille"]
     },
@@ -60,7 +60,7 @@ class Events::SearchController < ApplicationController
 
     "type_culture" => {
       question: "Quel type?",
-      answers: ["documentaire", "danse", "ecologie", "histoire"]
+      answers: ["documentaire", "danse", "exposition", "conférence"]
     },
 
     "cinema_theatre" => {
@@ -92,7 +92,7 @@ class Events::SearchController < ApplicationController
     },
 
     "musique_activite" => {
-      "activité" => "ritme_activite",
+      "activité" => "rythme_activite",
       "musique" => "combien_coute"
     },
 
@@ -101,12 +101,12 @@ class Events::SearchController < ApplicationController
       "gratuit / prix libre" => "bar_ambiance"
     },
 
-    "ritme_activite" => nil, # {
+    "rythme_activite" => nil, # {
     #   "activite_sport" => nil,
     #   "activite_tranquile" => nil
     # },
 
-    "concert" => nil, #{
+    "concert" => nil, # {
     #   "electro" => nil,
     #   "rock" => nil,
     #   "rap" => nil,
