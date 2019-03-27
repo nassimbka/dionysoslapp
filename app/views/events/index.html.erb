@@ -1,2 +1,15 @@
 <h1>Events#index</h1>
 <p>Find me in app/views/events/index.html.erb</p>
+
+<%= session[:search] %>
+<hr>
+<h1><%= @events.all.length %></h1>
+<div>
+  <% @events.each do |event| %>
+    <h2><%= event.name %></h2>
+    <p>matching: <%= event.matching %></p>
+    <p><%= event.tags.map(&:name) %></p>
+  <% end %>
+</div>
+<hr>
+<%= @events.inspect %>
