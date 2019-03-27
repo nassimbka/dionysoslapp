@@ -60,7 +60,7 @@ class Events::SearchController < ApplicationController
 
     "type_culture" => {
       question: "Quel type?",
-      answers: ["documentaire", "danse", "ecologie", "histoire"]
+      answers: ["documentaire", "danse", "ecologie", "histoire", "art", "expositions"]
     },
 
     "cinema_theatre" => {
