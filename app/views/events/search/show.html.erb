@@ -4,10 +4,10 @@
       <p><%= @question %></p>
       <% @answers.each do |answer| %>
         <%= link_to events_search_path(step: @step, answer: answer), method: :post do %>
-          <div style="hjh: url(<%= image_path "tags/#{answer.parameterizes}.jpg" %>)">
+          <!-- <div style="hjh: url(<%#= image_path "tags/#{answer.parameterize}.jpg" %>)"> -->
 
           <%= answer %>
-          </div>
+          <!-- </div> -->
         <% end %>
       <% end %>
     </div>
