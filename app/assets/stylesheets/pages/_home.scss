@@ -17,10 +17,11 @@
 
 .start-button {
   a {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     text-decoration: none;
     color: $white;
-    padding: 5px 15px;
+    padding: 3px 19px;
+    border-radius: 5px;
     transition: all .5s ease;
     font-size: 3em;
     border-bottom: 8px solid $orange;
