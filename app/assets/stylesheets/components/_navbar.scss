@@ -1,12 +1,36 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
+  background: $dark-black;
   flex-grow: 0;
+  padding: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-logo {
+  width: 175px;
+  margin:  0 20px;
+}
+
+.nav-links {
+    padding: 0px;
+    margin: 0px;
+    font-size: 24px;
+    font-weight: bold;
+
+  ul  {
+    list-style-type: none;
+  }
+
+  li {
+    display: inline;
+  }
+
+  a {
+    text-decoration: none;
+    color: $light-gray;
+    margin-right: 25px;
+  }
+}
+
+.link-orange a {
+  color: $orange;
 }
