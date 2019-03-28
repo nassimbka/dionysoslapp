@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_153834) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.string "phone_number"
   end
 
   add_foreign_key "conversion_words", "tags"
