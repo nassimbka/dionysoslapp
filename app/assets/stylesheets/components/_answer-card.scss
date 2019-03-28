@@ -17,7 +17,7 @@
 }
 
 .link-card-2 {
-  height: 100vh;
+  height: calc(100vh - 60px);
   flex: 0 0 50%;
   font-size: 3em;
   color: $white;
@@ -30,7 +30,7 @@
 }
 
 .link-card-3 {
-  height: 100vh;
+  height: calc(100vh - 60px);
   flex: 0 0 33%;
   font-size: 3em;
   color: $white;
