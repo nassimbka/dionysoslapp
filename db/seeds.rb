@@ -60,10 +60,17 @@ puts "Generating tags..."
   Tag.create!(name: name)
 end
 
-# puts "Generating conversion words..."
+puts "Generating conversion words..."
 
 # ////////////// Conversion words ///////////
-# ConversionWord.create!(name: "", tag: )
+ConversionWord.create!(name: "thriller", tag: Tag.find_by(name: "horreur"))
+ConversionWord.create!(name: "epouvante", tag: Tag.find_by(name: "horreur"))
+ConversionWord.create!(name: "epouvante-horreur", tag: Tag.find_by(name: "horreur"))
+ConversionWord.create!(name: "comedie-dramatique", tag: Tag.find_by(name: "drame"))
+ConversionWord.create!(name: "fantastique", tag: Tag.find_by(name: "science-fiction"))
+ConversionWord.create!(name: "aventure", tag: Tag.find_by(name: "action"))
+
+
 
 # tranquille => posé
 # couple => groupe
@@ -199,10 +206,11 @@ end
 theatre_de_jeanne = Venue.create!(name: "Théâtre de Jeanne", kind: "théâtre", address: "5 rue des Salorges 44000 Nantes", url: "www.theatre-jeanne.com", photo: File.open(Rails.root.join('db/fixtures/venues/jeanne.jpg', phone_number: '02 51 83 51 34'))) #théâtre, culture, posé, seul, en groupe
 event_tags[theatre_de_jeanne.id] = ["posée", "regarder", "théâtre"]
 
-katorza = Venue.create!(name: "Le Katorza", kind: "cinéma", address: "3 Rue Corneille, 44000 Nantes", url: "www.katorza.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/katorza.jpg', phone_number: '02 51 83 51 34'))) # cinéma
+katorza = Venue.create!(name: "Katorza", kind: "cinéma", address: "3 Rue Corneille, 44000 Nantes", url: "www.katorza.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/katorza.jpg'))) # cinéma
 event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
 
-gaumont = Venue.create!(name: "Cinéma Gaumont Nantes", kind: "cinéma", address: "12 place du commerce, 44000 Nantes ", url: "https://www.cinemaspathegaumont.com/cinemas/cinema-gaumont-nantes", photo: File.open(Rails.root.join('db/fixtures/venues/gaumont.jpg', phone_number: '02 51 83 51 34'))) # cinéma
+gaumont = Venue.create!(name: "Gaumont Nantes", kind: "cinéma", address: "12 place du commerce, 44000 Nantes ", url: "https://www.cinemaspathegaumont.com/cinemas/cinema-gaumont-nantes", photo: File.open(Rails.root.join('db/fixtures/venues/gaumont.jpg'))) # cinéma
+
 event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
 
 cinematographe = Venue.create!(name: "Le Cinématographe", kind: "cinéma", address: "12bis Rue des Carmélites, 44000 Nantes", url: "https://www.lecinematographe.com/", photo: File.open(Rails.root.join('db/fixtures/venues/cinema.jpg', phone_number: '02 51 83 51 34'))) # cinéma, culture
@@ -210,5 +218,7 @@ event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
 
 puts "Generating dynamic events..."
 # TODO dynamic events with scraping
+
+FetchEventsService.new.call
 
 puts "Seeds generated!"

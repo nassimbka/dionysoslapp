@@ -28,6 +28,8 @@ class CinemaScraper
         }
       end
     end
+
+    return films
   end
 
   private
