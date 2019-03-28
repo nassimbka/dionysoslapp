@@ -1,0 +1,43 @@
+
+.show-container-2 {
+  display: flex;
+}
+
+.show-container-3 {
+  display: flex;
+}
+
+.answer-card {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.link-card-2 {
+  height: calc(100vh - 60px);
+  flex: 0 0 50%;
+  font-size: 3em;
+  color: $white;
+  transition: all .5s ease;
+  &:hover {
+    text-decoration: none;
+    color: $orange;
+    border: 12px solid $orange;
+  }
+}
+
+.link-card-3 {
+  height: calc(100vh - 60px);
+  flex: 0 0 33%;
+  font-size: 3em;
+  color: $white;
+  transition: all .5s ease;
+  &:hover {
+    text-decoration: none;
+    color: $orange;
+    border: 12px solid $orange;
+  }
+}
