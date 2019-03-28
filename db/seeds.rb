@@ -153,14 +153,13 @@ puts "Generating generic events..."
 Venue.all.each do |venue|
   event = Event.create!(
     price: 0,
-    name: "soirée @ #{venue.name}",
+    name: "Soirée @ #{venue.name}",
     category: venue.kind,
     venue: venue,
     beginning_hour: '19h00',
     end_hour: '02h15',
-    description: "soirée trop cool @ #{venue.name}",
-    url: venue.url,
-    picture: venue.photo
+    description: "Soirée trop cool @ #{venue.name}",
+    url: venue.url
   )
 
   event_tags[venue.id].each do |tag_name|

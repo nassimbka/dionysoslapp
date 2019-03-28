@@ -1,0 +1,34 @@
+.show-event-container {
+  height: calc(100vh - 70px);
+  background-image: url('background.jpg');
+  background-size: cover;
+}
+
+.title-event {
+  padding: 50px;
+}
+
+.event-photo-present {
+  height: 500px;
+  border: 5px solid $dark-black;
+}
+
+.event-photo-venue {
+  height: 500px;
+  border: 5px solid $dark-black;
+  background-size: cover;
+}
+
+.event-details {
+  height: 500px;
+  padding: 70px;
+  background-color: #aaa4;
+  border-top: 5px solid $orange;
+  border-bottom: 5px solid $orange;
+}
+
+.event-details-content {
+  height: 100%;
+  text-align: center;
+}
+
