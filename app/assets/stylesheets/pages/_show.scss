@@ -1,5 +1,5 @@
 .show-event-container {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 60px);
   background-image: asset-url('background.jpg');
   background-size: cover;
 }
@@ -12,6 +12,8 @@
   height: 500px;
   border: 5px solid $dark-black;
   background-size: cover;
+  background-position: center;
+
 }
 
 .event-photo-venue {
@@ -19,6 +21,16 @@
   border-left: 5px solid rgba(0,0,0,1);
   border-right: 5px solid rgba(0,0,0,1);
   background-size: cover;
+  background-position: center;
+}
+
+.event-photo-cinema {
+  width: 220px;
+  height: 300px;
+  border-left: 5px solid rgba(0,0,0,1);
+  border-right: 5px solid rgba(0,0,0,1);
+  background-size: cover;
+  background-position: center;
 }
 
 .event-details {
@@ -32,5 +44,21 @@
 .event-details-content {
   height: 100%;
   text-align: center;
+  p {
+    color: $white;
+    font-size: 10px;
+  }
+  h4 {
+    color: $white;
+  }
+  h2 {
+    color: $orange;
+  }
 }
 
+.cinema-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}

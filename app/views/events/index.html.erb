@@ -11,7 +11,7 @@
 <div class="primary-result">
 <div class="photo-result">
       <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
-        <%= image_tag "no-picture.jpg" %>
+        <%= cl_image_tag @events.first.venue.photo %>
       <% elsif @events.first.category == "Cinéma" %>
         <%= image_tag @events.first.photo_url %>
       <% else %>
@@ -33,7 +33,7 @@
       <div class="primary-result">
       <div class="photo-result">
       <% if @events.second.category == "Cinéma" && @events.second.photo_url == "/design/images/mascotteNb.png" %>
-        <%= image_tag "no-picture.jpg" %>
+      <%= cl_image_tag @events.second.venue.photo %>
       <% elsif @events.second.category == "Cinéma" %>
         <%= image_tag @events.second.photo_url %>
       <% else %>
@@ -56,7 +56,7 @@
       <div class="primary-result">
       <div class="photo-result">
        <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
-         <%= image_tag "no-picture.jpg" %>
+       <%= cl_image_tag @events.third.venue.photo %>
        <% elsif @events.third.category == "Cinéma" %>
          <%= image_tag @events.third.photo_url %>
        <% else %>
