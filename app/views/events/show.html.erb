@@ -1,13 +1,13 @@
 <div class="show-event-container">
   <div class="title-event text-center">
     <h1><%= @event.name %></h1>
-    <h2><%= @event.category %></h2>
+    <h2><%= @event.category.capitalize %></h2>
   </div>
   <div class= "container-fluid">
     <div class="row mx-0 px-4">
-      <div class="col-lg-7 order-sm-2 col-sm-12 order-lg-1">
+      <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
         <% if @event.picture.present? %>
-          <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.picture %>');">
+          <div class="event-photo-present" style="background-position:covebackground-image: url('<%= cl_image_path @event.picture %>');">
 
           </div>
         <% else %>
@@ -15,12 +15,17 @@
           </div>
         <% end %>
       </div>
-      <div class="col-lg-5 order-sm-1 col-sm-12 order-lg-2">
+      <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
         <div class="event-details">
           <div class="event-details-content">
-            <h3>Horaires: <%= @event.beginning_hour + ' - ' + @event.end_hour %></h3>
+            <h3><%= @event.venue.name %></h3>
+            <br>
+            <br>
             <h3>Adresse: <%= @event.venue.address %></h3>
-            <h3>Telephone: 0101010101</h3>
+            <br>
+            <h3>Telephone: <%= @event.venue.phone_number %></h3>
+            <br>
+            <br>
             <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
           </div>
         </div>
