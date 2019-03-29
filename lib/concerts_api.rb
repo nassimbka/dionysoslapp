@@ -1,8 +1,8 @@
 require 'open-uri'
 require 'json'
 
-
-url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Qr8LLeKRlpqmnKpj&min_date=2019-03-28&max_date=2019-03-28"
+today = Time.now.strftime("%Y-%m-%d")
+url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Qr8LLeKRlpqmnKpj&min_date=#{today}&max_date=#{today}"
 
 
 # url = "https://api.songkick.com/api/3.0/search/locations.json?query=Nantes&apikey=Qr8LLeKRlpqmnKpj"
@@ -10,7 +10,7 @@ url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Q
 user_serialized = open(url).read
 results = JSON.parse(user_serialized)
 
-# p results['resultsPage']['results']['event'][0]['displayName']
+p results['resultsPage']['results']['event'][0]['displayName']
 
 events = results['resultsPage']['results']['event']
 
