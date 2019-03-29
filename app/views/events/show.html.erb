@@ -7,7 +7,7 @@
     <div class="row mx-0 px-4">
       <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
         <% if @event.picture.present? %>
-          <div class="event-photo-present" style="background-position:covebackground-image: url('<%= cl_image_path @event.picture %>');">
+          <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.picture %>');">
 
           </div>
         <% else %>
