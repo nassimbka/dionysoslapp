@@ -8,7 +8,6 @@
       <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
         <% if @event.photo_url == "/design/images/mascotteNb.png" %>
           <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.venue.photo %>');">
-
           </div>
         <% elsif @event.category == "Cinéma" %>
         <div class="cinema-photo">
