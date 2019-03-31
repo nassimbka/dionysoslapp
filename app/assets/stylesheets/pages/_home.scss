@@ -4,12 +4,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .home-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 80%;
   height: 800px;
@@ -18,7 +20,7 @@
 .logo-home {
   margin-top: 50px;
    img {
-    max-width: 400px;
+    max-width: 600px;
   }
 }
 
@@ -39,7 +41,10 @@
 }
 
 .animated-tagline {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
 }
 
 .text-tagline {
@@ -49,52 +54,12 @@
     font-family: 'Permanent Marker', cursive;
     font-size: 3em;
   }
-  margin: 50px 0;
+  margin: 25px 0;
 }
 
-.gifs {
-  display: flex;
-  justify-content: center;
-  .gif1 {
-    height: 110px;
-    width: 140px;
+  .home-gif {
+    height: 200px;
+    width: 700px;
     background-size: cover;
     background-position: center;
   }
-  .gif2 {
-    height: 110px;
-    width: 140px;
-    background-size: cover;
-    background-position: center;
-  }
-  .gif3 {
-    height: 110px;
-    width: 140px;
-    background-size: cover;
-    background-position: center;
-  }
-  .gif4 {
-    height: 110px;
-    width: 140px;
-    background-size: cover;
-    background-position: center;
-  }
-    .gif5 {
-    height: 110px;
-    width: 140px;
-    background-size: cover;
-    background-position: center;
-  }
-    .gif6 {
-    height: 110px;
-    width: 140px;
-    background-size: cover;
-    background-position: center;
-  }
-    .gif7 {
-    height: 110px;
-    width: 140px;
-    background-size: cover;
-    background-position: center;
-  }
-}
