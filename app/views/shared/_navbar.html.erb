@@ -3,6 +3,192 @@
     <%= image_tag "logo-navbar.png", class: "nav-logo" %>
   <% end %>
 
+  <div class="step-bar">
+    <% if session[:search] == nil || params[:step] == "posee_dynamique" %>
+      <i class="fas fa-circle"></i>
+    <% end %>
+    <% case params[:step] %>
+    <% when "changer_idees_rencontre" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "cinema_theatre" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "cinema" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "cinema_theatre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "theatre" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "cinema_theatre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "culture_comptoir" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+       <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "type_culture" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "culture_comptoir") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "boisson_musique" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "culture_comptoir") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "bar_pose_musique" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "changer_idees_rencontre") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "culture_comptoir") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "boisson_musique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "combien_personnes" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "combien_coute" %>
+      <% if session[:search] == {"posee_dynamique"=>"dynamique", "combien_personnes"=>"solo"} %>
+        <%= link_to events_search_path(step: "posee_dynamique") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_personnes") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <i class="fas fa-circle"></i>
+      <% else %>
+        <%= link_to events_search_path(step: "posee_dynamique") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_personnes") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "musique_activite") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+    <% when "musique_activite" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "combien_personnes") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <i class="fas fa-circle"></i>
+    <% when "concert" %>
+      <% if session[:search] == {"posee_dynamique"=>"dynamique", "combien_personnes"=>"solo", "combien_coute"=>"payant"} %>
+        <%= link_to events_search_path(step: "posee_dynamique") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_personnes") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_coute") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <i class="fas fa-circle"></i>
+      <% else %>
+        <%= link_to events_search_path(step: "posee_dynamique") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_personnes") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "musique_activite") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_coute") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+    <% when "bar_ambiance" %>
+      <% if session[:search] == {"posee_dynamique"=>"dynamique", "combien_personnes"=>"solo", "combien_coute"=>"gratuit / prix libre"} %>
+        <%= link_to events_search_path(step: "posee_dynamique") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_personnes") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_coute") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <i class="fas fa-circle"></i>
+      <% else %>
+        <%= link_to events_search_path(step: "posee_dynamique") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_personnes") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "musique_activite") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <%= link_to events_search_path(step: "combien_coute") do %>
+          <i class="fas fa-circle"></i>
+        <% end %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <% when "rythme_activite" %>
+      <%= link_to events_search_path(step: "posee_dynamique") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "combien_personnes") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+      <%= link_to events_search_path(step: "musique_activite") do %>
+        <i class="fas fa-circle"></i>
+      <% end %>
+        <i class="fas fa-circle"></i>
+    <% end %>
+  </div>
+
   <div>
     <ul class="nav-links">
       <li class="link-orange"><%= link_to "Rejouer", root_path%></li>
