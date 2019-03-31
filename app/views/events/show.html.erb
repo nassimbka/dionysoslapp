@@ -7,7 +7,7 @@
     <div class="row mx-0 px-4">
       <div class="col-lg-7 order-sm-2 col-sm-12 order-lg-1">
         <% if @event.picture.present? %>
-          <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.picture %>');">
+          <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.picture %>')">
 
           </div>
         <% else %>
@@ -22,6 +22,10 @@
             <h3>Adresse: <%= @event.venue.address %></h3>
             <h3>Telephone: 0101010101</h3>
             <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+            <p>
+            <%=  fetch_theatre_records.call
+            puts "#{@event['nom']} - #{@event['description']}" %>
+            </p>
           </div>
         </div>
       </div>
