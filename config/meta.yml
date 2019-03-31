@@ -1,0 +1,5 @@
+meta_product_name: "Dionysos L'app"
+meta_title: "Dionysos L'app | Devinez ce que vous allez faire ce soir!"
+meta_description: "Dionysos L'app, c'est savoir quoi faire ce soir à Nantes en quelques clics. Cinéma, théâtre, bar ou club, la nuit nantaise n'a pas de secret pour Dionysos. Jugez-en par vous-même: lancez le jeu!"
+meta_image: "meta-banner.png" # should exist in `app/assets/images/`
+twitter_account: "@DionysoSlapp"   # required for Twitter Cards

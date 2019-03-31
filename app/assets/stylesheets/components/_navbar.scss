@@ -3,18 +3,18 @@
   background: $dark-black;
   flex-grow: 0;
   padding: 0;
-  height: 70px;
+  height: 60px;
 }
 
 .nav-logo {
-  width: 175px;
+  width: 140px;
   margin:  0 20px;
 }
 
 .nav-links {
     padding: 0px;
     margin: 0px;
-    font-size: 24px;
+    font-size: 15px;
     font-weight: bold;
 
   ul  {
@@ -26,6 +26,8 @@
   }
 
   a {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5em;
     text-decoration: none;
     color: $light-gray;
     margin-right: 25px;
