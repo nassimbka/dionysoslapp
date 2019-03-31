@@ -4,21 +4,21 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .home-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 80%;
   height: 800px;
 }
 
 .logo-home {
+  margin-top: 50px;
    img {
-    max-width: 700px;
+    max-width: 400px;
   }
 }
 
@@ -38,11 +38,63 @@
   }
 }
 
-.tagline {
+.animated-tagline {
+  margin-bottom: 20px;
+}
+
+.text-tagline {
+  text-align: center;
   h2 {
     color: $orange;
     font-family: 'Permanent Marker', cursive;
     font-size: 3em;
   }
-  margin: 100px 0;
+  margin: 50px 0;
+}
+
+.gifs {
+  display: flex;
+  justify-content: center;
+  .gif1 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
+  .gif2 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
+  .gif3 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
+  .gif4 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
+    .gif5 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
+    .gif6 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
+    .gif7 {
+    height: 110px;
+    width: 140px;
+    background-size: cover;
+    background-position: center;
+  }
 }
