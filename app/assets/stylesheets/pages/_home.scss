@@ -4,7 +4,8 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .home-container {
@@ -17,8 +18,9 @@
 }
 
 .logo-home {
+  margin-top: 50px;
    img {
-    max-width: 700px;
+    max-width: 600px;
   }
 }
 
@@ -38,11 +40,26 @@
   }
 }
 
-.tagline {
+.animated-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.text-tagline {
+  text-align: center;
   h2 {
     color: $orange;
     font-family: 'Permanent Marker', cursive;
     font-size: 3em;
   }
-  margin: 100px 0;
+  margin: 25px 0;
 }
+
+  .home-gif {
+    height: 200px;
+    width: 700px;
+    background-size: cover;
+    background-position: center;
+  }
