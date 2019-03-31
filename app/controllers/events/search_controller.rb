@@ -175,7 +175,6 @@ class Events::SearchController < ApplicationController
 
     @question = STEPS[@step][:question] # => On let dans une variable le valeur de :question du STEP
     @answers  = STEPS[@step][:answers] # => pareil que le precedent, mais avec les :answers
-    # raise
   end
 
   def create # answer
