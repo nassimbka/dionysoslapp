@@ -4,17 +4,22 @@ require 'open-uri'
 class CultureApi
   def fetch_daily_records
     api_url = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_agenda-evenements-nantes-nantes-metropole&rows=100&facet=emetteur&facet=rubrique&facet=lieu&facet=ville&refine.rubrique=Culture&refine.date=#{Date.today}"
-    event_serialized  = open(api_url).read
+    categories_needed = ['Expositions', 'Film / Projection', 'Danse', 'Conférence', 'Théâtre']
+    event_serialized  = open(culture_api_url).read
     results           = JSON.parse(event_serialized)
     culture_records   = []
 
     results['records'].each do |record|
+      categories = record['fields']['type'].split(',')
+
+      record_is_usable = categories.any? {|category| categories_needed.include?(category)}
+      next unless record_is_usable
+
       beginning_hour = record['fields']['heure_debut']
       if !beginning_hour.nil?
         now            = Time.now
         beginning_time = Time.parse(beginning_hour, now)
         if beginning_time.hour > 18
-          # p record['fields']['heure_debut']
           culture_record = {}
           culture_record[:event] = {
             nom:            record['fields']['nom'],
@@ -38,7 +43,7 @@ class CultureApi
         end
       end
     end
-    # return fetch_daily_records
+    return culture_records
   end
 end
 # venue = Venue.create()
