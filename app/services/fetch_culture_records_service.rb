@@ -9,18 +9,16 @@ class FetchCultureRecordsService
     api_events = CultureApi.new.fetch_daily_records
     api_events.each do |api_event|
       api_venue = api_event[:venue]
-      event = api_event[:event]
+      api_event = api_event[:event]
       venue = Venue.find_or_create_by(name: api_venue[:name]) do |v|
         v.address       = api_venue[:address]
         v.url           = api_venue[:url]
         v.phone_number  = api_venue[:phone_number]
       end
-
       event = Event.create!(
         venue:          venue,
         name:           api_event[:nom],
         price:          api_event[:price],
-        category:       api_event[:category],
         date:           api_event[:date],
         beginning_hour: api_event[:beginning_hour],
         end_hour:       api_event[:end_hour],
@@ -38,6 +36,7 @@ class FetchCultureRecordsService
             Tag.find_by(name: "posée"),
             Tag.find_by(name: "regarder")
           ]
+          event.update!(category: "Théâtre")
         elsif category.casecmp?("Humour")
           EventTag.create!(event: event, tag: Tag.find_by(name: 'comedie'))
         elsif category.casecmp?("Spectacle Musical")
@@ -56,6 +55,7 @@ class FetchCultureRecordsService
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "danse")
             ]
+          event.update(category: "Danse")
         elsif category.casecmp?("Film / Projection")
           culture_tags = [
               Tag.find_by(name: "posée"),
@@ -63,6 +63,7 @@ class FetchCultureRecordsService
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "documentaire")
             ]
+          event.update(category: "Film / Projection")
         elsif category.casecmp?("Expositions")
           culture_tags = [
               Tag.find_by(name: "posée"),
@@ -70,6 +71,7 @@ class FetchCultureRecordsService
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "exposition")
             ]
+          event.update(category: "Exposition")
         elsif category.casecmp?("Conférence")
           culture_tags = [
               Tag.find_by(name: "posée"),
@@ -77,6 +79,7 @@ class FetchCultureRecordsService
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "conférence")
             ]
+          event.update(category: "Conférence")
         end
 
           if culture_tags.present?
@@ -84,6 +87,7 @@ class FetchCultureRecordsService
               EventTag.create!(event: event, tag: culture_tag)
             end
           end
+        p event
       end
     end
   end

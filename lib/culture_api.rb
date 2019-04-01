@@ -3,7 +3,7 @@ require 'open-uri'
 
 class CultureApi
   def fetch_daily_records
-    api_url = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_agenda-evenements-nantes-nantes-metropole&rows=100&facet=emetteur&facet=rubrique&facet=lieu&facet=ville&refine.rubrique=Culture&refine.date=#{Date.today}"
+    culture_api_url = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_agenda-evenements-nantes-nantes-metropole&rows=100&facet=emetteur&facet=rubrique&facet=lieu&facet=ville&refine.rubrique=Culture&refine.date=#{Date.today}"
     categories_needed = ['Expositions', 'Film / Projection', 'Danse', 'Conférence', 'Théâtre']
     event_serialized  = open(culture_api_url).read
     results           = JSON.parse(event_serialized)
