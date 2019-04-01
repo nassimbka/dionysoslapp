@@ -222,5 +222,6 @@ puts "Generating dynamic events..."
 # TODO dynamic events with scraping
 
 FetchCinemaEventsService.new.call
+FetchCultureRecordsService.new.call
 
 puts "Seeds generated!"
