@@ -1,19 +1,101 @@
 require 'open-uri'
 require 'json'
+require 'geocoder'
 
-today = Time.now.strftime("%Y-%m-%d")
-url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Qr8LLeKRlpqmnKpj&min_date=#{today}&max_date=#{today}"
+class ConcertsScraper
+end
 
 
-# url = "https://api.songkick.com/api/3.0/search/locations.json?query=Nantes&apikey=Qr8LLeKRlpqmnKpj"
-# p url
+today = Time.now.strftime("%Y-%m-%d") # recupere la date dans le bon format pour l'insérer dans l'url
+# url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Qr8LLeKRlpqmnKpj&min_date=#{today}&max_date=#{today}" # url query pour récupérer les events du jour
+url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Qr8LLeKRlpqmnKpj&min_date=2019-04-02&max_date=2019-04-02" # url query pour récupérer les events du jour
+
 user_serialized = open(url).read
 results = JSON.parse(user_serialized)
 
-p results['resultsPage']['results']['event'][0]['displayName']
 
-events = results['resultsPage']['results']['event']
 
-events.each do |event|
-  p event['displayName']
+# p results['resultsPage']['results']['event'][0]['displayName']
+
+events = results['resultsPage']['results']['event'] # me récupère tous les events du jour
+# p events.first
+# p url
+p "----------------------------------------------"
+
+
+if events
+  p "---------ici les displayName des events"
+  events.each do |event|
+    p event['displayName'].split('(')[0].rstrip
+  end
+
+  # p "---------ici les name des events"
+
+  # events.each do |event|
+  #   p event['performance'][0]['displayName']
+  # end
+
+  # p "---------ici les date des events"
+
+  # events.each do |event|
+  #   p event['start']['date']
+  # end
+
+  puts "---------ici les event.venue.address"
+
+  events.each do |event|
+    lattitude = event['location']['lat']
+    longitude = event['location']['lng']
+    # p [lattitude, longitude]
+
+    if lattitude && longitude
+      result = Geocoder.search([lattitude, longitude]).first.data
+      # p results.first
+      if result["address"]["house_number"]
+        p "#{result["address"]["house_number"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
+      else
+        p "#{result["address"]["neighbourhood"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
+      end
+    end
+  end
+
+  # p "---------ici les beginning_hour des events"
+
+  # events.each do |event|
+  #   p event['start']['time'][0...-3]
+  # end
+
+  # p "---------ici les venue.name des events"
+
+  # events.each do |event|
+  #   p event['venue']['displayName']
+  # end
+
+  # p "---------ici les url des events"
+
+  # events.each do |event|
+  #   p event['uri']
+  # end
+
+  # p "---------ici les catégories des events"
+
+  # events.each do |event|
+  #   p event['type']
+  # end
+
+  # p "---------ici les venue.uri des events"
+
+  # events.each do |event|
+  #   p event['venue']["uri"]
+  # end
 end
+
+#### Pseudo code
+# Données à récupérer
+# // Pour events: dateOK / price / beginning_hourOK / nameOK / url
+# // Pour venue:  name / address ==> latt et longitude / url
+#
+#
+#
+#
+#
