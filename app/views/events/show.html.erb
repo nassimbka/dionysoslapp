@@ -20,35 +20,35 @@
         <% end %>
       </div>
         <% if @event.category == "Cinéma" %>
-        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-          <div class="event-details">
-            <div class="event-details-content">
-              <h2><%= @event.name %></h2>
-              <h3><%= @event.venue.name %></h3>
-              <br>
-              <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
-              <br>
-              <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
-              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+          <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
+            <div class="event-details">
+              <div class="event-details-content">
+                <h2><%= @event.name %></h2>
+                <h3><%= @event.venue.name %></h3>
+                <br>
+                <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
+                <br>
+                <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
+                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              </div>
             </div>
           </div>
-        </div>
         <% else %>
-      <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-        <div class="event-details">
-          <div class="event-details-content">
-            <h3><%= @event.venue.name %></h3>
-            <br>
-            <br>
-            <h3>Adresse: <%= @event.venue.address %></h3>
-            <br>
-            <h3>Telephone: <%= @event.venue.phone_number %></h3>
-            <br>
-            <br>
-            <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+          <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
+            <div class="event-details">
+              <div class="event-details-content">
+                <h3><%= @event.venue.name %></h3>
+                <br>
+                <br>
+                <h3>Adresse: <%= @event.venue.address %></h3>
+                <br>
+                <h3>Telephone: <%= @event.venue.phone_number %></h3>
+                <br>
+                <br>
+                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
       <% end %>
     </div>

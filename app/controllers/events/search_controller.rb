@@ -75,7 +75,7 @@ class Events::SearchController < ApplicationController
 
     "theatre" => {
       question: "Quel type de theatre",
-      answers: ["comedie", "drame", "musical", "one-man-show"]
+      answers: ["comedie", "drame", "musical"]
     }
   }
 
