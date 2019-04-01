@@ -2,17 +2,15 @@ require 'concerts_api'
 
 class FetchConcertsService
   def call
-    concerts_api = ConcertsApi.new
-
-    # films.each do |title, details|
-    #   venue = Venue.find_by!(name: details[:cinema])
-
-    #   event = Event.create!(
-    #     venue: venue,
-    #     name: details[:title],
-    #   )
-
-      # TODO event_tags
+    api_events = ConcertsApi.new.fetch_daily_concerts
+    api_events.each do |api_event|
+      concert_venue = api_event[:venue]
+      event = api_event[:event]
+      venue = Venue.find_or_create_by(name: concert_venue[:name]) do |v|
+        v.address       = concert_venue[:address]
+        v.url           = concert_venue[:url]
+        v.phone_number  = concert_venue[:phone_number]
+      end
     end
   end
 end

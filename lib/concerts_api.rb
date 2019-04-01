@@ -11,12 +11,12 @@ class ConcertsApi
     results = JSON.parse(user_serialized)
     events = results['resultsPage']['results']['event'] # me récupère tous les events du jour
 
-    concerts_array = []
+    concerts = []
 
     if events
       events.each do |event|
-        concert_record = {}
-        concert_record[:event] = {
+        concert = {}
+        concert[:event] = {
           nom:            event['displayName'].split('(')[0].rstrip,
           price:          'payant',
           category:       'concert',
@@ -28,17 +28,22 @@ class ConcertsApi
           picture:        get_picture_url(event)
         }
 
-        concert_record[:venue] = {
-
+        concert[:venue] = {
+          name:         event['venue']['displayName'],
+          address:      event_address(event),
+          url:          event['venue']["uri"],
+          phone_number: ''
         }
+        concerts << concert
       end
+      return concerts
     else
       p 'No concerts today'
     end
-
   end
 
-private
+  private
+
   def event_description(event)
     url = event["uri"]
     html_file = open(url).read
@@ -57,44 +62,9 @@ private
     clean_url
   end
 
-end
-
-
-# url = "https://api.songkick.com/api/3.0/metro_areas/28901/calendar.json?apikey=Qr8LLeKRlpqmnKpj&min_date=2019-04-02&max_date=2019-04-02" # url query pour récupérer les events du jour
-
-
-
-
-# p results['resultsPage']['results']['event'][0]['displayName']
-
-# p events.first
-# p url
-p "----------------------------------------------"
-
-
-if events
-  events.each do |event|
-    p event['displayName'].split('(')[0].rstrip
-  end
-
-  # p "---------ici les name des events"
-
-  # events.each do |event|
-  #   p event['performance'][0]['displayName']
-  # end
-
-  # p "---------ici les date des events"
-
-  # events.each do |event|
-  #   p event['start']['date']
-  # end
-
-  puts "---------ici les event.venue.address"
-
-  events.each do |event|
+  def event_address(event)
     lattitude = event['location']['lat']
     longitude = event['location']['lng']
-    # p [lattitude, longitude]
 
     if lattitude && longitude
       result = Geocoder.search([lattitude, longitude]).first.data
@@ -103,41 +73,13 @@ if events
       else
         p "#{result["address"]["neighbourhood"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
       end
+    else
+      "Adresse non-communiquée par l'établissement."
     end
   end
 end
 
-  # p "---------ici les beginning_hour des events"
-
-  # events.each do |event|
-  #   p event['start']['time'][0...-3]
-  # end
-
-  # p "---------ici les venue.name des events"
-
-  # events.each do |event|
-  #   p event['venue']['displayName']
-  # end
-
-  # p "---------ici les url des events"
-
-  # events.each do |event|
-  #   p event['uri']
-  # end
-
-  # p "---------ici les catégories des events"
-
-  # events.each do |event|
-  #   p event['type']
-  # end
-
-  # p "---------ici les venue.uri des events"
-
-  # events.each do |event|
-  #   p event['venue']["uri"]
-  # end
-
-  # p "---------ici les address des venues" # OK
+  # p "---------ici les address des venues" #
 
   # events.each do |event| # ici tentative avortée de récupérer les adresses en scrapant les pages de venues
   #   url = event['venue']["uri"]
@@ -149,23 +91,3 @@ end
   #   end
   # end
 
-  # p "---------ici les descriptions des events" # OK
-
-  # events.each do |event|
-  #   url = event["uri"]
-  #   html_file = open(url).read
-  #   html_doc  = Nokogiri::HTML(html_file)
-
-  #   doc = html_doc.search('li.review-container p').first
-  #   p doc.children.text
-  # end
-
-#### Pseudo code
-# Données à récupérer
-# // Pour events: dateOK / price / beginning_hourOK / nameOK / url
-# // Pour venue:  name / address ==> latt et longitude / url
-# // Récupérer description ==> choper le lien de l'event OK
-#
-#
-#
-#
