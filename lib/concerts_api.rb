@@ -1,8 +1,11 @@
 require 'open-uri'
 require 'json'
 require 'geocoder'
+require 'nokogiri'
 
-class ConcertsScraper
+class ConcertsApi
+
+
 end
 
 
@@ -88,13 +91,36 @@ if events
   # events.each do |event|
   #   p event['venue']["uri"]
   # end
+
+  # p "---------ici les address des venues" # OK
+
+  # events.each do |event| # ici tentative avortée de récupérer les adresses en scrapant les pages de venues
+  #   url = event['venue']["uri"]
+  #   html_file = open(url).read
+  #   html_doc  = Nokogiri::HTML(html_file)
+  #   p '!!!'
+  #   doc = html_doc.search('p.venue-hcard span').first.children.each do |child|
+  #     p child.text
+  #   end
+  # end
+
+  # p "---------ici les descriptions des events" # OK
+
+  # events.each do |event|
+  #   url = event["uri"]
+  #   html_file = open(url).read
+  #   html_doc  = Nokogiri::HTML(html_file)
+
+  #   doc = html_doc.search('li.review-container p').first
+  #   p doc.children.text
+  # end
 end
 
 #### Pseudo code
 # Données à récupérer
 # // Pour events: dateOK / price / beginning_hourOK / nameOK / url
 # // Pour venue:  name / address ==> latt et longitude / url
-#
+# // Récupérer description ==> choper le lien de l'event OK
 #
 #
 #
