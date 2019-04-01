@@ -45,3 +45,44 @@ sleep(UlAnswerLoading.length * 1550).then(() => {
     resultWrapper.classList.remove('hide')
   })
 })
+
+
+const result1 = document.querySelector('.result1');
+const result2 = document.querySelector('.result2');
+const result3 = document.querySelector('.result3');
+
+const arrayOfResult = [result1, result2, result3];
+
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+
+let slideIndex = 0
+showSlides(slideIndex);
+
+leftArrow.addEventListener(("click"), (event)=> {
+  plusSlides(-1);
+})
+
+rightArrow.addEventListener(("click"), (event)=> {
+  plusSlides(1);
+})
+
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = arrayOfResult;
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].classList.add('hide');
+  }
+  slides[slideIndex-1].classList.remove('hide');
+}

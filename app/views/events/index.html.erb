@@ -1,4 +1,4 @@
-<div class="wrapper-loading">
+<div class="wrapper-loading" >
 
   <h1 class="hide" id="tagline-end-loading">Nous avons trouvé des soirées se rapprochant de vos réponses!</h1>
 
@@ -22,7 +22,11 @@
 
 <div class="wrapper-index hide" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= image_path "homegifs/homegif.gif" %>);">
 
-  <div class="primary-result">
+  <%= link_to "#", class: "left-arrow" do %>
+    <i class="fas fa-chevron-left arrow"></i>
+  <% end %>
+
+  <div class="primary-result result1">
 
     <div class="photo-result">
       <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
@@ -46,7 +50,7 @@
     </div>
   </div>
 
-  <div class="primary-result hide">
+  <div class="primary-result hide result2">
 
     <div class="photo-result">
       <% if @events.second.category == "Cinéma" && @events.second.photo_url == "/design/images/mascotteNb.png" %>
@@ -64,12 +68,13 @@
       <% if @events.second.category == "Cinéma" %>
       <h3>Film -<%= @events.second.tags.second.name.capitalize %></h3>
       <% end %>
+    </div>
+    <div class="button-result">
       <%= link_to "Voir les détails", event_path(@events.second) %>
     </div>
-
   </div>
 
-  <div class="primary-result hide">
+  <div class="primary-result hide result3">
 
     <div class="photo-result">
       <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
@@ -87,7 +92,14 @@
       <% if @events.third.category == "Cinéma" %>
       <h3>Film -<%= @events.third.tags.second.name.capitalize %></h3>
       <% end %>
+    </div>
+    <div class="button-result">
       <%= link_to "Voir les détails", event_path(@events.third) %>
     </div>
   </div>
+
+  <%= link_to "#", class: "right-arrow" do %>
+    <i class="fas fa-chevron-right arrow"></i>
+  <% end %>
+
 </div>
