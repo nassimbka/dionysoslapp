@@ -36,10 +36,8 @@ class ConcertsApi
         }
         concerts << concert
       end
-      return concerts
-    else
-      p 'No concerts today'
     end
+    return concerts
   end
 
   private
@@ -49,8 +47,13 @@ class ConcertsApi
     html_file = open(url).read
     html_doc  = Nokogiri::HTML(html_file)
 
-    doc = html_doc.search('li.review-container p').first
-    doc.children.text
+    reviews = html_doc.search('li.review-container p').first
+
+    if reviews.nil?
+      'Superbe performance scénique. A voir avec les oreilles et à écouter avec les yeux!'
+    else
+      reviews.children.text
+    end
   end
 
   def get_picture_url(event)
@@ -69,9 +72,9 @@ class ConcertsApi
     if lattitude && longitude
       result = Geocoder.search([lattitude, longitude]).first.data
       if result["address"]["house_number"]
-        p "#{result["address"]["house_number"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
+        "#{result["address"]["house_number"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
       else
-        p "#{result["address"]["neighbourhood"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
+        "#{result["address"]["neighbourhood"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
       end
     else
       "Adresse non-communiquée par l'établissement."

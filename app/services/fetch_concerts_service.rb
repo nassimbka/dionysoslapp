@@ -3,6 +3,8 @@ require 'concerts_api'
 class FetchConcertsService
   def call
     api_events = ConcertsApi.new.fetch_daily_concerts
+
+
     api_events.each do |api_event|
       concert_venue = api_event[:venue]
       event = api_event[:event]
@@ -11,6 +13,24 @@ class FetchConcertsService
         v.url           = concert_venue[:url]
         v.phone_number  = concert_venue[:phone_number]
       end
+
+      event = Event.create!(
+        venue:          venue,
+        name:           api_event[:nom],
+        price:          api_event[:price],
+        category:       api_event[:category],
+        date:           api_event[:date],
+        beginning_hour: api_event[:beginning_hour],
+        description:    api_event[:description],
+        url:            api_event[:url],
+        picture:        api_event[:picture]
+      )
+
+      concert_tags = ['dynamique', 'solo', 'couple', 'groupe', 'musique', 'payant']
+      concert_tags.each do |tag|
+        EventTag.create!(event: event, tag: Tag.find_by(name: tag))
+      end
     end
+
   end
 end
