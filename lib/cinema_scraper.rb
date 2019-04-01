@@ -5,7 +5,6 @@ class CinemaScraper
   CINEMAS = {
     'Katorza' => 'https://nantes.maville.com/cinema/cinemam_salle_-nantes-katorza_cinema-100007859_cine.Htm',
     'Gaumont Nantes' => 'https://nantes.maville.com/cinema/cinemam_salle_-nantes-gaumont-nantes_cinema-100006892_cine.Htm',
-    'Le Cinématographe' => 'https://nantes.maville.com/cinema/cinemam_salle_-nantes-le-cinematographe_cinema-100006872_cine.Htm'
   }
 
   def scrape
@@ -28,6 +27,8 @@ class CinemaScraper
         }
       end
     end
+
+    return films
   end
 
   private

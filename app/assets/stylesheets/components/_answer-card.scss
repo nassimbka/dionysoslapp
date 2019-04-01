@@ -9,6 +9,11 @@
   background-color: $dark-black;
 }
 
+.show-container-4 {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $dark-black;
+}
 
 .show-container-6 {
   display: flex;
@@ -26,6 +31,7 @@
 }
 
 .link-card-2 {
+  font-family: 'Permanent Marker', cursive;
   height: calc(100vh - 60px);
   flex: 0 0 50%;
   font-size: 3em;
@@ -39,6 +45,7 @@
 }
 
 .link-card-3 {
+  font-family: 'Permanent Marker', cursive;
   height: calc(100vh - 60px);
   flex: 0 0 33%;
   font-size: 3em;
@@ -51,7 +58,23 @@
   }
 }
 
+.link-card-4 {
+  font-family: 'Permanent Marker', cursive;
+  height: calc(50vh - 30px);
+  flex: 0 0 50%;
+  font-size: 3em;
+  color: $white;
+  transition: all .5s ease;
+  &:hover {
+    text-decoration: none;
+    color: $orange;
+    border: 12px solid $orange;
+  }
+}
+
+
 .link-card-6 {
+  font-family: 'Permanent Marker', cursive;
   height: calc(50vh - 30px);
   flex: 0 0 33.3%;
   font-size: 3em;

@@ -70,7 +70,7 @@ class Events::SearchController < ApplicationController
 
     "cinema" => {
       question: "Quel type de cinéma?",
-      answers: ["comedie", "drame", "action", "science-fiction", "romance", "horreur"]
+      answers: ["comedie", "drame", "action", "science-fiction", "dessins animés", "horreur"]
     },
 
     "theatre" => {
