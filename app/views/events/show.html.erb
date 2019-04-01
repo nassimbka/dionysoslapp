@@ -5,51 +5,71 @@
   </div>
   <div class= "container-fluid">
     <div class="row mx-0 px-4">
-      <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
-        <% if @event.photo_url == "/design/images/mascotteNb.png" %>
-          <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.venue.photo %>');">
-          </div>
-        <% elsif @event.category == "Cinéma" %>
-        <div class="cinema-photo">
-          <div class="event-photo-cinema" style="background-image: url('<%= image_path @event.photo_url%>'); ">
+      <% if @event.category == "Cinéma" %>
+        <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
+          <% if @event.photo_url == "/design/images/mascotteNb.png" %>
+            <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.venue.photo %>');">
+            </div>
+          <% elsif @event.category == "Cinéma" %>
+            <div class="cinema-photo">
+              <div class="event-photo-cinema" style="background-image: url('<%= image_path @event.photo_url%>'); ">
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
+          <div class="event-details">
+            <div class="event-details-content">
+              <h2><%= @event.name %></h2>
+              <h3><%= @event.venue.name %></h3>
+              <br>
+              <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
+              <br>
+              <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
+              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+            </div>
           </div>
         </div>
-        <% else %>
+      <% end %>
+      <% categories_culture = ['Exposition', 'Film / Projection', 'Danse', 'Conférence', 'Théâtre']
+      if categories_culture.include?(@event.category)%>
+        <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
+          <% if @event.picture.present? %>
+            <div class="event-photo-present" style="background-image: url('<%= image_path @event.picture %>');">
+          <% end %>
+        </div>
+        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
+          <div class="event-details">
+            <div class="event-details-content">
+              <h2><%= @event.name %></h2>
+              <h3><%= @event.venue.name %></h3>
+              <br>
+              <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
+              <br>
+              <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
+              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
           <div class="event-photo-venue" style="background-image: url('<%= cl_image_path @event.venue.photo %>');">
-          </div>
-        <% end %>
-      </div>
-        <% if @event.category == "Cinéma" %>
-          <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-            <div class="event-details">
-              <div class="event-details-content">
-                <h2><%= @event.name %></h2>
-                <h3><%= @event.venue.name %></h3>
-                <br>
-                <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
-                <br>
-                <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
-                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
-              </div>
+        </div>
+        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
+          <div class="event-details">
+            <div class="event-details-content">
+              <h3><%= @event.venue.name %></h3>
+              <br>
+              <br>
+              <h3>Adresse: <%= @event.venue.address %></h3>
+              <br>
+              <h3>Telephone: <%= @event.venue.phone_number %></h3>
+              <br>
+              <br>
+              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
             </div>
           </div>
-        <% else %>
-          <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-            <div class="event-details">
-              <div class="event-details-content">
-                <h3><%= @event.venue.name %></h3>
-                <br>
-                <br>
-                <h3>Adresse: <%= @event.venue.address %></h3>
-                <br>
-                <h3>Telephone: <%= @event.venue.phone_number %></h3>
-                <br>
-                <br>
-                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
-              </div>
-            </div>
-          </div>
-
+        </div>
       <% end %>
     </div>
 

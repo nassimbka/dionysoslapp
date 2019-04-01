@@ -75,7 +75,7 @@ class Events::SearchController < ApplicationController
 
     "theatre" => {
       question: "Quel type de theatre",
-      answers: ["comedie", "drame", "musical"]
+      answers: ["humour", "drame", "musical"]
     }
   }
 
@@ -184,7 +184,7 @@ class Events::SearchController < ApplicationController
     session[:search] ||= {}
     session[:search][step] = answer # => on garde la reponse dans la session pour utiliser apres pour la recherche
 
-    next_step = NEXT_STEPS[step][answer] if NEXT_STEPS[step] # => on test si il y a de next_step
+    next_step = NEXT_STEPS[step][answer.force_encoding("UTF-8")] if NEXT_STEPS[step] # => on test si il y a de next_step
 
     if next_step
       redirect_to events_search_path(step: next_step)

@@ -38,6 +38,7 @@ puts "Generating tags..."
   "groupe",
   "hip-Hop",
   "horreur",
+  "humour",
   "jazz",
   "latino",
   "musical",

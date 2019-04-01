@@ -24,7 +24,7 @@ class FetchCultureRecordsService
         end_hour:       api_event[:end_hour],
         description:    api_event[:description],
         url:            api_event[:url],
-        picture:        api_event[:picture]
+        photo_url:      api_event[:picture]
       )
 
       categories = api_event[:category].split(',')
@@ -87,7 +87,6 @@ class FetchCultureRecordsService
               EventTag.create!(event: event, tag: culture_tag)
             end
           end
-        p event
       end
     end
   end
