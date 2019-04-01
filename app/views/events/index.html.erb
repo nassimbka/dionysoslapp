@@ -22,7 +22,7 @@
         <h1><%= @events.first.name %></h1>
         <h2><%= @events.first.category %> <%= @events.first.venue.name %></h2>
         <% if @events.first.category == "Cinéma" %>
-        <h3>Film -<%= @events.first.tags.second.name.capitalize %></h3>
+        <h3>Film -<%= @events.first.cinema_genre.capitalize %></h3>
         <% end %>
         <%= link_to "Voir les détails", event_path(@events.first) %>
       </div>
@@ -44,7 +44,7 @@
               <h1><%= @events.second.name %></h1>
               <h2><%= @events.second.category %> <%= @events.second.venue.name %></h2>
               <% if @events.second.category == "Cinéma" %>
-              <h3>Film -<%= @events.second.tags.second.name.capitalize %></h3>
+              <h3>Film -<%= @events.second.cinema_genre.capitalize %></h3>
               <% end %>
               <%= link_to "Voir les détails", event_path(@events.second) %>
             </div>
@@ -67,7 +67,7 @@
               <h1><%= @events.third.name %></h1>
               <h2><%= @events.third.category %> <%= @events.third.venue.name %></h2>
               <% if @events.third.category == "Cinéma" %>
-              <h3>Film -<%= @events.third.tags.second.name.capitalize %></h3>
+              <h3>Film -<%= @events.third.cinema_genre.capitalize %></h3>
               <% end %>
               <%= link_to "Voir les détails", event_path(@events.third) %>
             </div>
