@@ -224,5 +224,6 @@ puts "Generating dynamic events..."
 
 FetchCinemaEventsService.new.call
 FetchCultureRecordsService.new.call
+FetchConcertsService.new.call
 
 puts "Seeds generated!"
