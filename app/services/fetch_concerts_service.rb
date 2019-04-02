@@ -16,14 +16,14 @@ class FetchConcertsService
 
       event = Event.create!(
         venue:          venue,
-        name:           api_event[:nom],
-        price:          api_event[:price],
-        category:       api_event[:category],
-        date:           api_event[:date],
-        beginning_hour: api_event[:beginning_hour],
-        description:    api_event[:description],
-        url:            api_event[:url],
-        photo_url:      api_event[:picture]
+        name:           api_event[:event][:nom],
+        price:          api_event[:event][:price],
+        category:       api_event[:event][:category],
+        date:           api_event[:event][:date],
+        beginning_hour: api_event[:event][:beginning_hour],
+        description:    api_event[:event][:description],
+        url:            api_event[:event][:url],
+        photo_url:      api_event[:event][:picture]
       )
 
       concert_tags = ['dynamique', 'solo', 'couple', 'groupe', 'musique', 'payant']
