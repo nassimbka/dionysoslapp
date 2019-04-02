@@ -42,11 +42,11 @@ class FetchCultureRecordsService
         elsif category.casecmp?("Spectacle Musical")
           EventTag.create!(event: event, tag: Tag.find_by(name: 'musical'))
         end
-          if theatre_tags.present?
-            theatre_tags.each do |theatre_tag|
-              EventTag.create!(event: event, tag: theatre_tag)
-            end
+        if theatre_tags.present?
+          theatre_tags.each do |theatre_tag|
+            EventTag.create!(event: event, tag: theatre_tag)
           end
+        end
 
         if category.casecmp?("Danse")
           culture_tags = [
@@ -82,12 +82,11 @@ class FetchCultureRecordsService
           event.update(category: "Conférence")
         end
 
-          if culture_tags.present?
-            culture_tags.each do |culture_tag|
-              EventTag.create!(event: event, tag: culture_tag)
-            end
+        if culture_tags.present?
+          culture_tags.each do |culture_tag|
+            EventTag.create!(event: event, tag: culture_tag)
           end
-        p event
+        end
       end
     end
   end
