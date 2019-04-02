@@ -28,7 +28,9 @@
               <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
               <br>
               <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
-              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              <%= link_to share_event_path, method: :post do %>
+                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              <% end %>
             </div>
           </div>
         </div>
@@ -50,7 +52,9 @@
               <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
               <br>
               <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
-              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              <%= link_to share_event_path, method: :post do %>
+                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              <% end %>
             </div>
           </div>
         </div>
@@ -69,7 +73,9 @@
               <h3>Telephone: <%= @event.venue.phone_number %></h3>
               <br>
               <br>
-              <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              <%= link_to share_event_path, method: :post do %>
+                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
+              <% end %>
             </div>
           </div>
         </div>

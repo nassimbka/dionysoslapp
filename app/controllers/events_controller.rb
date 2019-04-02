@@ -42,6 +42,12 @@ class EventsController < ApplicationController
     @events = @events.distinct.select(selection).order("matching DESC").limit(3)
   end
 
+  def share
+    @event = Event.find(params[:id])
+    EventMailer.share('nassim106@hotmail.com', params[:id]).deliver_now
+    redirect_to event_path(params[:id])
+  end
+
   def show
     @event = Event.find(params[:id])
   end
