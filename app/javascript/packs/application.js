@@ -18,7 +18,7 @@ function sleep(ms) {
 const UlAnswerLoading = document.querySelectorAll('#ul-answer-loading li');
 
 UlAnswerLoading.forEach((li, index) => {
-  sleep(index * 1500).then(() => {
+  sleep(index * 1000).then(() => {
     li.classList.replace('hide', 'display')
   });
 });
@@ -29,14 +29,16 @@ const impatientGif = document.querySelector('.impatient-gif');
 const tagLineEndLoading = document.getElementById('tagline-end-loading')
 const loadingWrapper = document.querySelector('.wrapper-loading')
 const resultWrapper = document.querySelector('.wrapper-index')
+const linkResult = document.querySelector('.link-to-events')
 
 
-sleep(UlAnswerLoading.length * 1550).then(() => {
+sleep(UlAnswerLoading.length * 1050).then(() => {
   tagLineLoading.classList.add('hide')
   impatientGif.classList.add('hide')
   tagLineEndLoading.classList.remove('hide')
-
-  sleep(2500).then(() => {
+  linkResult.classList.remove('hide')
+  linkResult.addEventListener(('click'),(event)=>{
+    event.preventDefault();
     tagLineEndLoading.classList.add('hide')
     UlAnswerLoading.forEach((li, index) => {
       li.classList.replace('display', 'hide')
