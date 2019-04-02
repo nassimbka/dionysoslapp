@@ -1,64 +1,178 @@
-.show-event-container {
+.wrapper-show {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   height: calc(100vh - 60px);
-  background-image: asset-url('background.jpg');
-  background-size: cover;
-}
-
-.title-event {
-  padding: 50px;
-}
-
-.event-photo-present {
-  height: 500px;
-  border: 5px solid $dark-black;
-  background-size: cover;
-  background-position: center;
-
-}
-
-.event-photo-venue {
-  height: 500px;
-  border-left: 5px solid rgba(0,0,0,1);
-  border-right: 5px solid rgba(0,0,0,1);
+  background-color: $light-black;
   background-size: cover;
   background-position: center;
 }
 
-.event-photo-cinema {
-  width: 220px;
-  height: 300px;
-  border-left: 5px solid rgba(0,0,0,1);
-  border-right: 5px solid rgba(0,0,0,1);
-  background-size: cover;
-  background-position: center;
+.container-cinema {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(10, 10, 10, 0.6);
+  margin: auto 400px;
+  width: auto;
+  padding: 0 40px;
+  border-radius: 8px;
 }
 
-.event-details {
-  height: 500px;
-  padding: 70px;
-  background-color: rgba(0,0,0,0.5);
-  border-top: 5px solid $orange;
-  border-bottom: 5px solid $orange;
+.container-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(10, 10, 10, 0.6);
+  margin: auto 250px;
+  width: auto;
+  padding: 0 40px;
+  border-radius: 8px;
 }
 
-.event-details-content {
-  height: 100%;
+.title-show {
   text-align: center;
-  p {
-    color: $white;
-    font-size: 10px;
-  }
-  h4 {
-    color: $white;
-  }
-  h2 {
+  margin-top: 30px;
+  h1 {
+    font-size: 50px;
     color: $orange;
   }
 }
 
-.cinema-photo {
+.title-show-bar {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  h1 {
+    font-size: 40px;
+    color: $orange;
+  }
+  h3 {
+    font-size: 40px;
+  }
+}
+
+.result-presentation {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  height: 500px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.result-details  {
+  // text-align: center;
+  margin-left: 20px;
+  h2 {
+    color: $orange;
+    font-size: 30px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+
+  a {
+    color: #c4c4c4;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.result-photo {
+  margin: 0 20px;
+  img {
+    max-width: 250px;
+  }
+}
+
+.result-resume {
+  // border: 2px solid $orange;
+  padding: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  width: auto;
+  font-weight: bolder;
+  text-align: justify;
+  p {
+    color: white;
+    margin-bottom: 0;
+  }
+}
+
+.result-resume-theatre{
+  // border: 2px solid $orange;
+  padding: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  width: auto;
+  font-weight: bolder;
+  text-align: justify;
+  p {
+    color: white;
+    margin-bottom: 0;
+  }
+}
+
+.result-resume-bar {
+  // border: 2px solid $orange;
+  padding: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+
+  width: auto;
+  font-weight: bolder;
+  text-align: justify;
+  p {
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 0;
+  }
+}
+
+.link-to-email {
+  margin-top: 10px;
+  font-size: 25px;
+  color: $orange;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.link-to-rejouer {
+  // margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 35px;
+  color: $orange;
+  // border-bottom: 2px solid $orange;
+  font-family: 'Permanent Marker', cursive;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+    // border-bottom: 2px solid $white;
+  }
+}
+
+.retour-link {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  a {
+    font-size: 1.8em;
+    color: $orange;
+    text-decoration: none;
+    &:hover {
+      color: $white;
+    }
+  }
 }
