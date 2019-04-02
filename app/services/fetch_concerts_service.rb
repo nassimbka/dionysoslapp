@@ -23,7 +23,7 @@ class FetchConcertsService
         beginning_hour: api_event[:beginning_hour],
         description:    api_event[:description],
         url:            api_event[:url],
-        picture:        api_event[:picture]
+        photo_url:      api_event[:picture]
       )
 
       concert_tags = ['dynamique', 'solo', 'couple', 'groupe', 'musique', 'payant']

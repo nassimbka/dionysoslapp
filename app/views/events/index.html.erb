@@ -46,7 +46,7 @@
       <h1><%= @events.first.name %></h1>
       <h2><%= @events.first.category %> <%= @events.first.venue.name %></h2>
       <% if @events.first.category == "Cinéma" %>
-      <h3>Film -<%= @events.first.tags.second.name.capitalize %></h3>
+      <h3>Film -<%= @events.first.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">
@@ -70,7 +70,7 @@
       <h1><%= @events.second.name %></h1>
       <h2><%= @events.second.category %> <%= @events.second.venue.name %></h2>
       <% if @events.second.category == "Cinéma" %>
-      <h3>Film -<%= @events.second.tags.second.name.capitalize %></h3>
+      <h3>Film -<%= @events.second.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">
@@ -94,7 +94,7 @@
       <h1><%= @events.third.name %></h1>
       <h2><%= @events.third.category %> <%= @events.third.venue.name %></h2>
       <% if @events.third.category == "Cinéma" %>
-      <h3>Film -<%= @events.third.tags.second.name.capitalize %></h3>
+      <h3>Film -<%= @events.third.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">

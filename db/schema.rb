@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_071349) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_url"
-    t.string "cinema_genre"
+    t.string "genre"
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
