@@ -1,94 +1,109 @@
-<div class="wrapper-index" style="background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0)), url(<%= image_path "background.jpg" %>);">
-  <div class="tagline-index">
-      <center><iframe src="https://giphy.com/embed/NhVauDVCe1Quk" width="300" height="120" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></center>
-    <h1>Nous avons trouvé quelque chose pour vous !</h1>
-  </div>
-  <div class="result-container">
+<div class="wrapper-loading" >
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-<div class="primary-result">
-<div class="photo-result">
-      <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
-        <%= cl_image_tag @events.first.venue.photo %>
-      <% elsif @events.first.category == "Cinéma" %>
-        <%= image_tag @events.first.photo_url %>
-      <% else %>
-        <%= cl_image_tag @events.first.venue.photo %>
+  <h1 class="hide" id="tagline-end-loading">Nous avons trouvé des soirées se rapprochant de vos réponses!</h1>
+
+  <div class="loading-stepbar">
+    <ul class="list-inline" id="ul-answer-loading">
+      <% @answers.each do |answer| %>
+        <li class="hide"><%= answer %></li>
       <% end %>
-      </div>
-      <div class="text-result">
-        <h1><%= @events.first.name %></h1>
-        <h2><%= @events.first.category %> <%= @events.first.venue.name %></h2>
-        <% if @events.first.category == "Cinéma" %>
-        <h3>Film -<%= @events.first.tags.second.name.capitalize %></h3>
-        <% end %>
-        <%= link_to "Voir les détails", event_path(@events.first) %>
-      </div>
-    </div>
-    </div>
-    <div class="carousel-item">
+    </ul>
+  </div>
 
-      <div class="primary-result">
-      <div class="photo-result">
+  <%= link_to "#", class: "hide link-to-events" do %>
+    <h1 >Afficher les résultats</h1>
+  <% end %>
+
+  <div class="tagline-index-loading">
+    <h1><%= image_tag "waiting-gifs/gear.gif"%> Analyse de vos réponses en cours...</h1>
+    <h3>Merci de patienter quelques instants</h3>
+  </div>
+
+  <div class="impatient-gif" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0)), url(<%= image_path "waiting-gifs/waiting.gif" %>);">
+  </div>
+
+</div>
+
+<div class="wrapper-index hide" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= image_path "homegifs/homegif.gif" %>);">
+
+  <%= link_to "#", class: "left-arrow" do %>
+    <i class="fas fa-chevron-left arrow"></i>
+  <% end %>
+
+  <div class="primary-result result1">
+
+    <div class="photo-result">
+      <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
+      <%= cl_image_tag @events.first.venue.photo %>
+      <% elsif @events.first.category == "Cinéma" %>
+      <%= image_tag @events.first.photo_url %>
+      <% else %>
+      <%= cl_image_tag @events.first.venue.photo %>
+      <% end %>
+    </div>
+
+    <div class="text-result">
+      <h1><%= @events.first.name %></h1>
+      <h2><%= @events.first.category %> <%= @events.first.venue.name %></h2>
+      <% if @events.first.category == "Cinéma" %>
+      <h3>Film -<%= @events.first.tags.second.name.capitalize %></h3>
+      <% end %>
+    </div>
+    <div class="button-result">
+      <%= link_to "Voir les détails", event_path(@events.first) %>
+    </div>
+  </div>
+
+  <div class="primary-result hide result2">
+
+    <div class="photo-result">
       <% if @events.second.category == "Cinéma" && @events.second.photo_url == "/design/images/mascotteNb.png" %>
       <%= cl_image_tag @events.second.venue.photo %>
       <% elsif @events.second.category == "Cinéma" %>
-        <%= image_tag @events.second.photo_url %>
+      <%= image_tag @events.second.photo_url %>
       <% else %>
-        <%= cl_image_tag @events.second.venue.photo %>
+      <%= cl_image_tag @events.second.venue.photo %>
       <% end %>
-            </div>
-            <div class="text-result">
-              <h1><%= @events.second.name %></h1>
-              <h2><%= @events.second.category %> <%= @events.second.venue.name %></h2>
-              <% if @events.second.category == "Cinéma" %>
-              <h3>Film -<%= @events.second.tags.second.name.capitalize %></h3>
-              <% end %>
-              <%= link_to "Voir les détails", event_path(@events.second) %>
-            </div>
-          </div>
-
     </div>
-    <div class="carousel-item">
 
-      <div class="primary-result">
-      <div class="photo-result">
-       <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
-       <%= cl_image_tag @events.third.venue.photo %>
-       <% elsif @events.third.category == "Cinéma" %>
-         <%= image_tag @events.third.photo_url %>
-       <% else %>
-         <%= cl_image_tag @events.third.venue.photo %>
-       <% end %>
-            </div>
-            <div class="text-result">
-              <h1><%= @events.third.name %></h1>
-              <h2><%= @events.third.category %> <%= @events.third.venue.name %></h2>
-              <% if @events.third.category == "Cinéma" %>
-              <h3>Film -<%= @events.third.tags.second.name.capitalize %></h3>
-              <% end %>
-              <%= link_to "Voir les détails", event_path(@events.third) %>
-            </div>
-          </div>
-
+    <div class="text-result">
+      <h1><%= @events.second.name %></h1>
+      <h2><%= @events.second.category %> <%= @events.second.venue.name %></h2>
+      <% if @events.second.category == "Cinéma" %>
+      <h3>Film -<%= @events.second.tags.second.name.capitalize %></h3>
+      <% end %>
+    </div>
+    <div class="button-result">
+      <%= link_to "Voir les détails", event_path(@events.second) %>
     </div>
   </div>
-  <a class="carousel-control-prev left-arrow" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next right-arrow" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<div class="bullets">
-  <ol class="carousel-indicators bullet">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-</div>
+
+  <div class="primary-result hide result3">
+
+    <div class="photo-result">
+      <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
+      <%= cl_image_tag @events.third.venue.photo %>
+      <% elsif @events.third.category == "Cinéma" %>
+      <%= image_tag @events.third.photo_url %>
+      <% else %>
+      <%= cl_image_tag @events.third.venue.photo %>
+      <% end %>
+    </div>
+
+    <div class="text-result">
+      <h1><%= @events.third.name %></h1>
+      <h2><%= @events.third.category %> <%= @events.third.venue.name %></h2>
+      <% if @events.third.category == "Cinéma" %>
+      <h3>Film -<%= @events.third.tags.second.name.capitalize %></h3>
+      <% end %>
+    </div>
+    <div class="button-result">
+      <%= link_to "Voir les détails", event_path(@events.third) %>
+    </div>
   </div>
+
+  <%= link_to "#", class: "right-arrow" do %>
+    <i class="fas fa-chevron-right arrow"></i>
+  <% end %>
+
+</div>
