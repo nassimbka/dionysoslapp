@@ -28,10 +28,10 @@ class Events::SearchController < ApplicationController
       answers: ["sportif", "tranquille"]
     },
 
-    "concert" => {
-      question: "Quel type de musique?",
-      answers: ["electro", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
-    },
+    # "concert" => {
+    #   question: "Quel type de musique?",
+    #   answers: ["electro", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
+    # },
 
     "bar_ambiance" => {
       question: "Quel type de musique?",
@@ -97,7 +97,7 @@ class Events::SearchController < ApplicationController
     },
 
     "combien_coute" => {
-      "payant" => "concert",
+      "payant" => nil,
       "gratuit / prix libre" => "bar_ambiance"
     },
 
@@ -106,7 +106,7 @@ class Events::SearchController < ApplicationController
     #   "activite_tranquile" => nil
     # },
 
-    "concert" => nil, # {
+    # "concert" => nil, # {
     #   "electro" => nil,
     #   "rock" => nil,
     #   "rap" => nil,

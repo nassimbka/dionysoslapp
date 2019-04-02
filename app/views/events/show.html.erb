@@ -1,87 +1,113 @@
-<%= session[:search] %>
-<%= @event.picture %>
-<div class="show-event-container">
-  <div class="title-event text-center">
-    <h1><%= @event.name %></h1>
-    <h2><%= @event.category.capitalize %></h2>
-  </div>
-  <div class= "container-fluid">
-    <div class="row mx-0 px-4">
-      <% if @event.category == "Cinéma" %>
-        <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
-          <% if @event.photo_url == "/design/images/mascotteNb.png" %>
-            <div class="event-photo-present" style="background-image: url('<%= cl_image_path @event.venue.photo %>');">
-            </div>
-          <% elsif @event.category == "Cinéma" %>
-            <div class="cinema-photo">
-              <div class="event-photo-cinema" style="background-image: url('<%= image_path @event.photo_url%>'); ">
-              </div>
-            </div>
+<div class="wrapper-show" style="background-image: linear-gradient(rgba(20,20,20,0.5),rgba(20,20,20,0.5)), url(<%= image_path "homegifs/homegif.gif" %>);">
+
+  <% if @event.category == "Cinéma" || @event.category == "Concert" %>
+    <div class="container-cinema">
+      <div class="title-show">
+        <h1><%= @event.name %></h1>
+        <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
+      </div>
+
+      <div class="result-presentation">
+        <div class="result-photo">
+          <%= image_tag @event.photo_url %>
+        </div>
+        <div class="result-details">
+          <span class="mb-5"><h2><%= @event.venue.name %></h3></span>
+          <h3><i class="fas fa-home"></i>&nbsp <%= @event.venue.address %></h3>
+          <h3><i class="far fa-clock"></i>&nbsp <%= @event.beginning_hour %></h3>
+          <h3><i class="fas fa-globe"></i>&nbsp <%= link_to "Site web", @event.url %></h3>
+          <% if @event.venue.phone_number.present? %>
+          <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
         </div>
-        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-          <div class="event-details">
-            <div class="event-details-content">
-              <h2><%= @event.name %></h2>
-              <h3><%= @event.venue.name %></h3>
-              <br>
-              <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
-              <br>
-              <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
-              <%= link_to share_event_path, method: :post do %>
-                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      <% categories_culture = ['Exposition', 'Film / Projection', 'Danse', 'Conférence', 'Théâtre']
-      if categories_culture.include?(@event.category)%>
-        <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
-          <% if @event.picture.present? %>
-            <div class="event-photo-present" style="background-image: url('<%= image_path @event.picture %>');">
-          <% end %>
-          <%= @event.picture %>
-        </div>
-        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-          <div class="event-details">
-            <div class="event-details-content">
-              <h2><%= @event.name %></h2>
-              <h3><%= @event.venue.name %></h3>
-              <br>
-              <h3>Film -<%= @event.tags.second.name.capitalize %></h3>
-              <br>
-              <center><h3>Horaires:</h3> <h4><%= @event.beginning_hour %></h4></center>
-              <%= link_to share_event_path, method: :post do %>
-                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% else %>
-        <div class="col-lg-4 offset-2 order-sm-2 col-sm-12 order-lg-1">
-          <div class="event-photo-venue" style="background-image: url('<%= cl_image_path @event.venue.photo %>');">
-        </div>
-        <div class="col-lg-4 order-sm-1 col-sm-12 order-lg-2">
-          <div class="event-details">
-            <div class="event-details-content">
-              <h3><%= @event.venue.name %></h3>
-              <br>
-              <br>
-              <h3>Adresse: <%= @event.venue.address %></h3>
-              <br>
-              <h3>Telephone: <%= @event.venue.phone_number %></h3>
-              <br>
-              <br>
-              <%= link_to share_event_path, method: :post do %>
-                <h2><i class="far fa-envelope"></i> Recevoir par email</h2>
-              <% end %>
-            </div>
-          </div>
-        </div>
+      </div>
+
+        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
+          <i class="far fa-envelope"></i> Recevoir les détails par email
+        <% end %>
+
+      <div class="result-resume">
+       <p><%= @event.description %></p>
+      </div>
+      <%= link_to root_path, class: "link-to-rejouer" do %>
+        Rejouer
       <% end %>
     </div>
 
+  <% elsif @event.category == "Théâtre" %>
+    <div class="container-bar">
+      <div class="title-show-bar">
+         <h3><%= @event.category.capitalize %></h3>
+         <h1><%= @event.venue.name %></h1>
+      </div>
+
+      <div class="result-presentation">
+        <div class="result-photo">
+          <%= image_tag @event.photo_url %>
+        </div>
+        <div class="result-details">
+          <h3><i class="fas fa-home"></i>&nbsp <%= @event.venue.address %></h3>
+          <h3><i class="far fa-clock"></i>&nbsp <%= @event.beginning_hour %> - <%= @event.end_hour %></h3>
+          <h3><i class="fas fa-globe"></i>&nbsp <%= link_to "Site web", @event.url %></h3>
+          <% if @event.venue.phone_number.present? %>
+          <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
+          <% end %>
+        </div>
+      </div>
+
+        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
+          <i class="far fa-envelope"></i> Recevoir les détails par email
+        <% end %>
+
+      <div class="result-resume-theatre">
+       <p><%= @event.description %></p>
+      </div>
+      <%= link_to root_path, class: "link-to-rejouer" do %>
+        Rejouer
+      <% end %>
+    </div>
+
+  <% else %>
+    <div class="container-bar">
+      <div class="title-show-bar">
+         <h3><%= @event.category.capitalize %></h3>
+         <h1><%= @event.venue.name %></h1>
+      </div>
+
+      <div class="result-presentation">
+        <div class="result-photo">
+          <% if @event.category == "concert" %>
+            <%= image_tag @event.photo_url %>
+          <% else %>
+          <%= cl_image_tag @event.venue.photo, height: 200, width: 300, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="result-details">
+          <h3><i class="fas fa-home"></i>&nbsp <%= @event.venue.address %></h3>
+          <h3><i class="far fa-clock"></i>&nbsp <%= @event.beginning_hour %> - <%= @event.end_hour %></h3>
+          <h3><i class="fas fa-globe"></i>&nbsp <%= link_to "Site web", @event.url %></h3>
+          <% if @event.venue.phone_number.present? %>
+          <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
+          <% end %>
+        </div>
+      </div>
+
+        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
+          <i class="far fa-envelope"></i> Recevoir les détails par email
+        <% end %>
+
+      <div class="result-resume-bar">
+       <p><%= @event.description %></p>
+      </div>
+      <%= link_to root_path, class: "link-to-rejouer" do %>
+        Rejouer
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="retour-link">
+    <%= link_to events_path(params: {skip_search: true}), class: "back-link" do %>
+      <i class="fas fa-arrow-left"></i> Retour
+    <% end %>
   </div>
-  <div class="retour-event"></div>
 </div>
