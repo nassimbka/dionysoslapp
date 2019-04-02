@@ -117,22 +117,37 @@ kolocs = Venue.create!(name: "Les Koloc's", kind: "bar", address: "59 Quai de la
 event_tags[kolocs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
 chat_noir = Venue.create!(name: "Le Chat Noir", kind: "bar", address: "13 allée Duguay-TROUIN, 44000 Nantes", url: "http://www.chat-noir-nantes.fr", photo: File.open(Rails.root.join('db/fixtures/venues/chat_noir.jpg')), phone_number: '06 61 68 66 20')
-event_tags[kolocs.id] = ["posée", "social", "comptoir", "musique", "rock", "musiques du monde"]
+event_tags[chat_noir.id] = ["posée", "social", "comptoir", "musique", "rock", "musiques du monde"]
 
 chien_stupide = Venue.create!(name: "Le Chien Stupide", kind: "bar", address: "4 Rue des Carmélites, 44000 Nantes", url: "https://www.facebook.com/auchienstupide/", photo: File.open(Rails.root.join('db/fixtures/venues/chien_stupide.jpg')), phone_number: '02 40 20 58 39')
-event_tags[kolocs.id] = ["posée", "social", "comptoir", "musique", "rock"]
+event_tags[chien_stupide.id] = ["posée", "social", "comptoir", "musique", "rock"]
 
-chien_stupide = Venue.create!(name: "Le Chien Stupide", kind: "bar", address: "4 Rue des Carmélites, 44000 Nantes", url: "https://www.facebook.com/auchienstupide/", photo: File.open(Rails.root.join('db/fixtures/venues/chien_stupide.jpg')), phone_number: '02 40 20 58 39')
-event_tags[kolocs.id] = ["posée", "social", "comptoir", "musique", "rock"]
+scene_michelet = Venue.create!(name: "La Scène Michelet", kind: "bar", address: "1 Boulevard Henry Orrion, 44000 Nantes", url: "http://www.scenemichelet.com/", photo: File.open(Rails.root.join('db/fixtures/venues/scene_michelet.jpg')), phone_number: '02 40 74 13 13')
+event_tags[scene_michelet.id] = ["posée", "social", "comptoir", "musique", "rock", "dynamique", "gratuit / prix libre", "payant"]
 
+prohibition = Venue.create!(name: "Prohibition", kind: "nightclub", address: "7 rue de la Baclerie, 44000 Nantes", url: "http://barprohibition.com/", photo: File.open(Rails.root.join('db/fixtures/venues/prohibition.jpg')), phone_number: '02 40 47 14 00')
+event_tags[prohibition.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro" "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
+altercafe = Venue.create!(name: "Altercafé", kind: "nightclub", address: "21 quai des Antilles - Ile de Nantes, 44200", url: "http://altercafe.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/altercafe.jpg')), phone_number: '02 28 20 01 06')
+event_tags[altercafe.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "payant", "gratuit / prix libre"]
 
+havana = Venue.create!(name: "Havana-café", kind: "bar", address: "2 rue de la Juiverie, Quartier Bouffay, 44000 Nantes", url: "http://www.havana-cafe-nantes.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/havana.jpg')), phone_number: '07 82 52 30 15')
+event_tags[havana.id] = ["posée", "social", "comptoir", "latino", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
+la_calle = Venue.create!(name: "La Calle", kind: "bar", address: "21 Quai des Antilles à Nantes, 44200 Nantes", url: "http://www.barlacalle.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/la_calle.jpg')), phone_number: '02 51 82 72 18')
+event_tags[la_calle.id] = ["latino", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
+el_latino = Venue.create!(name: "El Latino", kind: "bar", address: "1 rue Marie Curie, Saint-Sébastien-sur-Loire", url: "http://www.el-latino.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/el_latino.jpg')), phone_number: '02 51 79 03 67')
+event_tags[el_latino.id] = ["latino", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
+melocotton = Venue.create!(name: "Melocotton", kind: "bar", address: "9, rue de l'heronnière, 44000 Nantes", url: "https://www.facebook.com/melocottoncafeconcert/", photo: File.open(Rails.root.join('db/fixtures/venues/melocotton.jpg')), phone_number: '09 53 30 50 81')
+event_tags[melocotton.id] = ["posée", "social", "comptoir", "musique", "jazz"]
 
+triolet = Venue.create!(name: "Le Triolet", kind: "bar", address: "8, rue de l'hermitage, 44100 Nantes", url: "https://www.facebook.com/letriolet/", photo: File.open(Rails.root.join('db/fixtures/venues/triolet.jpg')), phone_number: '02 40 69 32 30')
+event_tags[triolet.id] = ["posée", "social", "comptoir", "musique", "jazz", "musiques du monde"]
 
-
+ferrailleur = Venue.create!(name: "Le Ferrailleur", kind: "bar", address: "Quai des Antilles, 44200 Nantes", url: "http://www.leferrailleur.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/ferrailleur.jpg')), phone_number: '02 52 10 45 25')
+event_tags[ferrailleur.id] = ["musique", "rock", "dynamique", "gratuit / prix libre", "payant", "musiques du monde", "hip-Hop"]
 
 aux_ptits_joueurs = Venue.create!(name: "Aux Ptits Joueurs", kind: "bar", address: "23 Rue du Port Guichard 44000 Nantes", url: "https://www.facebook.com/ptitsjoueurs/", photo: File.open(Rails.root.join('db/fixtures/venues/petits.jpg')), phone_number: '02 51 83 51 34') # typique/traditionnel, boule nantaise, boire, manger un bout, concert, jeux
 event_tags[aux_ptits_joueurs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "activité", "tranquille", "posée", "social", "comptoir", "musique"]
@@ -167,12 +182,219 @@ event_tags[lasergame_evolution.id] = ["dynamique", "groupe", "activité", "sport
 puts "Generating generic events..."
 # /////////////////// Generic Events /////////22///////
 
-c’est surtout un bar à l’ambiance décontractée où tout le monde se sent à l’aise. La déco est sympa, très colorée, la carte écrite à la craie sur le mur est certes un peu difficile à déchiffrer mais vraiment originale ! Le bar est fréquenté principalement par des étudiants, mais pourtant jeunes et moins jeunes se mélangent parfaitement, créant ainsi une atmosphère très conviviale.
+ferrailleur_event = Event.create!(
+  price: 0,
+  name: "Soirée à Le Triolet",
+  category: "Bar",
+  venue: ferrailleur,
+  beginning_hour: '17:00',
+  end_hour: '02:00',
+  description: "Le Ferrailleur a été créé en 2007 sur le site du Hangar 21, mieux connu sous le nom du « Hangar à Bananes » construit après la
+              première guerre mondiale, lorsque le commerce de la banane était en plein essor. Depuis son ouverture, le café-concert nantais est
+              rapidement devenu une référence de la scène rock/metal française. En effet l’équipe du Ferrailleur poursuit le pari d’un lieu dédié
+              à la découverte et à la diversité au travers d’une programmation éclectique : Rock, Metal, Electro, Hiphop, post rock… ",
+  url: ferrailleur.url
+)
+
+event_tags[ferrailleur.id].each do |tag_name|
+  EventTag.create!(
+    event: ferrailleur_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+triolet_event = Event.create!(
+  price: 0,
+  name: "Soirée à Le Triolet",
+  category: "Bar",
+  venue: triolet,
+  beginning_hour: '17:00',
+  end_hour: '02:00',
+  description: "Le Triolet possède assurément l'une des meilleures vues de Nantes. A l'intérieur, les murs de pierre soulignent le côté
+            authentique de ce bistrot, où de nombreux concerts ont lieu. A votre disposition deux salles, une plutôt pub, et l'autre plus
+            intimiste avec poufs et tables basses. Diffusion d'événements sportifs, football, rugby ou moto. La carte vous propose des
+            bières du Québec, des pressions pures malt et une multitude de shooters.",
+  url: triolet.url
+)
+
+event_tags[triolet.id].each do |tag_name|
+  EventTag.create!(
+    event: triolet_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+melocotton_event = Event.create!(
+  price: 0,
+  name: "Soirée au Melocotton",
+  category: "Bar",
+  venue: melocotton,
+  beginning_hour: '16:00',
+  end_hour: '02:00',
+  description: "Le Melocotton est un café-concert très riche puisque la programmation s’étend quasiment sur toute la semaine. Le mardi une
+              JAM session est organisée. Tous les mercredi c’est soirée poker.Le Melocotton Nantes est un café-concert comme on en trouve peu
+              sur Nantes! Situé derrière Graslin. Importante gamme de vins, bières, de rhums mais aussi de whiskies pour les plus costauds!",
+  url: melocotton.url
+)
+
+event_tags[melocotton.id].each do |tag_name|
+  EventTag.create!(
+    event: melocotton_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+melocotton_event = Event.create!(
+  price: 0,
+  name: "Soirée au Melocotton",
+  category: "Bar",
+  venue: melocotton,
+  beginning_hour: '16:00',
+  end_hour: '02:00',
+  description: "Le Melocotton est un café-concert très riche puisque la programmation s’étend quasiment sur toute la semaine. Le mardi une
+              JAM session est organisée. Tous les mercredi c’est soirée poker.Le Melocotton Nantes est un café-concert comme on en trouve peu
+              sur Nantes! Situé derrière Graslin. Importante gamme de vins, bières, de rhums mais aussi de whiskies pour les plus costauds!",
+  url: melocotton.url
+)
+
+event_tags[melocotton.id].each do |tag_name|
+  EventTag.create!(
+    event: melocotton_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+el_latino_event = Event.create!(
+  price: 0,
+  name: "Soirée @ El Lation",
+  category: "Bar",
+  venue: el_latino,
+  beginning_hour: '18:00',
+  end_hour: '04:00',
+  description: "Ce café cubain vous accueille depuis 2009 à Saint-Sebastien sur Loire! Cours de Salsa/Bachata/Kizomba la semaine,
+              ambiance déjantée le week-end: Tenue correcte exigée, esprit festif obligatoire! Cocktails classiques avec notamment plusieurs
+              déclinaisons de l'inévitable mojito ou glacés, avec ou sans alcool, vieux rhums, bières, softs...",
+  url: el_latino.url
+)
+
+event_tags[el_latino.id].each do |tag_name|
+  EventTag.create!(
+    event: el_latino_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+la_calle_event = Event.create!(
+  price: 0,
+  name: "Soirée @ La Calle",
+  category: "Bar",
+  venue: la_calle,
+  beginning_hour: '18:00',
+  end_hour: '04:00',
+  description: "Ce café cubain installé au Hangar à Bananes sur l'île de Nantes est un bon remède contre la morosité. Décoration exotique,
+              terrasse avec vue sur la Loire à travers les bambous et autres plantes vertes. Une bonne adresse pour faire une pause dépaysante
+              dans l'après-midi et se déhancher le soir. Cocktails classiques avec notamment plusieurs déclinaisons de l'inévitable mojito ou
+              glacés, avec ou sans alcool, vieux rhums, bières, softs...",
+  url: la_calle.url
+)
+
+event_tags[la_calle.id].each do |tag_name|
+  EventTag.create!(
+    event: la_calle_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+havana_event = Event.create!(
+  price: 0,
+  name: "Soirée au Havana Café",
+  category: "Bar",
+  venue: havana,
+  beginning_hour: '18:00',
+  end_hour: '04:00',
+  description: " Bienvenue au Havana Café, le bar Salsa 100% latino à Nantes! Le Havana Café de Nantes, c'est 2 bars deux ambiances dj Mix 7/7
+              dans une belle salle cubaine doublé d'un sous-sol en cave voûtée de pierres apparentes pour vous accueillir dans une ambiance
+              unique rythmée au son des musiques latines. Venez déguster nos fameux cocktails et spécialités du bar Havana Café : mojito,
+              cuba libre et rhums du monde...",
+  url: havana.url
+)
+
+event_tags[havana.id].each do |tag_name|
+  p tag_name
+  EventTag.create!(
+    event: havana_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+altercafe_event = Event.create!(
+  price: 0,
+  name: "Soirée au Altercafé",
+  category: "Nightclub",
+  venue: altercafe,
+  beginning_hour: '15:00',
+  end_hour: '04:00',
+  description: "Niché dans le Hangar à Bananes de Nantes, l’Altercafé est devenu un des rendez-vous nantais pour les amateurs et initiés de
+              concerts et clubs. Scène entièrement refaite, lightshows de pointe, concerts live et programmation variée ont fait de cet endroit
+              hybride et polyvalent un lieu d’expression, de rencontre et d’ouverture. On le sait, les directeurs artistiques (DA) travaillent
+              d’arrache-pied pour vous offrir les meilleurs plateaux",
+  url: altercafe.url
+)
+
+event_tags[altercafe.id].each do |tag_name|
+  EventTag.create!(
+    event: altercafe_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+prohibition_event = Event.create!(
+  price: 0,
+  name: "Soirée au Prohibition",
+  category: "Bar Clandestin",
+  venue: prohibition,
+  beginning_hour: '18:00',
+  end_hour: '03:00',
+  description: "En plein cœur de Bouffay, le Prohibition séduit les amateurs de sport à l’heure de l’apéro et poursuit la fête jusqu’au petit
+              matin sur sa piste de danse. Un incontournable à fréquenter sans modération. Le Prohibition s’inspire des bars clandestins de la
+              fameuse époque éponyme où l’alcool était interdit aux Etats-Unis. Des briques rouges jusqu’aux cocktails le Prohib’ nous entraine
+              dans les rues de New-York.",
+  url: prohibition.url
+)
+
+event_tags[prohibition.id].each do |tag_name|
+  EventTag.create!(
+    event: prohibition_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+scene_michelet_event = Event.create!(
+  price: 0,
+  name: "Soirée Au Chien Stupide",
+  category: "Bar Rock",
+  venue: scene_michelet,
+  beginning_hour: '17:00',
+  end_hour: '02:00',
+  description: "Depuis 2007 nous avons transformé cette vieille bâtisse, et au fur et à mesure des années, La Scène Michelet s'est offert une
+              nouvelle jeunesse. Dans le quartier, le lieu a su se faire accepter et c'est désormais une salle à part entière, marquée par sa
+              forte identité Rock, incarnée par sa devanture impressionnante réalisée par le collectif Eta Sigma. C'est avec plaisir et fierté
+              que nous vous accueillons dans nos 3 espaces : le bar (avec ses 10 bières à la pression), la salle de concert et la terrasse.
+              Celle-ci est en partie couverte, un espace tranquille et agréable qui fait l’unanimité des habitués du lieu.",
+  url: scene_michelet.url
+)
+
+event_tags[scene_michelet.id].each do |tag_name|
+  EventTag.create!(
+    event: scene_michelet_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
 
 chien_stupide_event = Event.create!(
   price: 0,
   name: "Soirée Au Chien Stupide",
-  category: "Bar-Café Culturel",
+  category: "Bar Rock",
   venue: chien_stupide,
   beginning_hour: '11:00',
   end_hour: '02:00',
