@@ -73,15 +73,6 @@ ConversionWord.create!(name: "aventure", tag: Tag.find_by(name: "action"))
 ConversionWord.create!(name: "film-d-animation", tag: Tag.find_by(name: "dessins animés"))
 
 
-
-
-# tranquille => posé
-# couple => groupe
-# documentaire => culture
-# spectacle de danse => culture
-# faire un gros travail de word conversion sur culture pour se retrouver avec plus de résultats
-# ecrire "posée" dans les tags
-
 puts "Generating venues..."
 # /////////////////// Venues ////////////////
 event_tags = {}
@@ -125,6 +116,24 @@ event_tags[lieu_unique.id] = ["dynamique", "solo", "groupe", "musique", "gratuit
 kolocs = Venue.create!(name: "Les Koloc's", kind: "bar", address: "59 Quai de la Fosse, 44000 Nantes", url: "https://www.facebook.com/kolocs/", photo: File.open(Rails.root.join('db/fixtures/venues/kolocs.jpg')), phone_number: '02 51 83 51 34') #bar ambiance, faire la fête
 event_tags[kolocs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
+chat_noir = Venue.create!(name: "Le Chat Noir", kind: "bar", address: "13 allée Duguay-TROUIN, 44000 Nantes", url: "http://www.chat-noir-nantes.fr", photo: File.open(Rails.root.join('db/fixtures/venues/chat_noir.jpg')), phone_number: '06 61 68 66 20')
+event_tags[kolocs.id] = ["posée", "social", "comptoir", "musique", "rock", "musiques du monde"]
+
+chien_stupide = Venue.create!(name: "Le Chien Stupide", kind: "bar", address: "4 Rue des Carmélites, 44000 Nantes", url: "https://www.facebook.com/auchienstupide/", photo: File.open(Rails.root.join('db/fixtures/venues/chien_stupide.jpg')), phone_number: '02 40 20 58 39')
+event_tags[kolocs.id] = ["posée", "social", "comptoir", "musique", "rock"]
+
+chien_stupide = Venue.create!(name: "Le Chien Stupide", kind: "bar", address: "4 Rue des Carmélites, 44000 Nantes", url: "https://www.facebook.com/auchienstupide/", photo: File.open(Rails.root.join('db/fixtures/venues/chien_stupide.jpg')), phone_number: '02 40 20 58 39')
+event_tags[kolocs.id] = ["posée", "social", "comptoir", "musique", "rock"]
+
+
+
+
+
+
+
+
+
+
 aux_ptits_joueurs = Venue.create!(name: "Aux Ptits Joueurs", kind: "bar", address: "23 Rue du Port Guichard 44000 Nantes", url: "https://www.facebook.com/ptitsjoueurs/", photo: File.open(Rails.root.join('db/fixtures/venues/petits.jpg')), phone_number: '02 51 83 51 34') # typique/traditionnel, boule nantaise, boire, manger un bout, concert, jeux
 event_tags[aux_ptits_joueurs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "activité", "tranquille", "posée", "social", "comptoir", "musique"]
 
@@ -158,6 +167,30 @@ event_tags[lasergame_evolution.id] = ["dynamique", "groupe", "activité", "sport
 puts "Generating generic events..."
 # /////////////////// Generic Events /////////22///////
 
+c’est surtout un bar à l’ambiance décontractée où tout le monde se sent à l’aise. La déco est sympa, très colorée, la carte écrite à la craie sur le mur est certes un peu difficile à déchiffrer mais vraiment originale ! Le bar est fréquenté principalement par des étudiants, mais pourtant jeunes et moins jeunes se mélangent parfaitement, créant ainsi une atmosphère très conviviale.
+
+chien_stupide_event = Event.create!(
+  price: 0,
+  name: "Soirée Au Chien Stupide",
+  category: "Bar-Café Culturel",
+  venue: chien_stupide,
+  beginning_hour: '11:00',
+  end_hour: '02:00',
+  description: "Au Chien Stupide c’est surtout un bar à l’ambiance décontractée où tout le monde se sent à l’aise. La déco est sympa, très
+              colorée, la carte écrite à la craie sur le mur est certes un peu difficile à déchiffrer mais vraiment originale! Le bar est
+              fréquenté principalement par des étudiants, mais pourtant jeunes et moins jeunes se mélangent parfaitement, créant ainsi une
+              atmosphère très conviviale.",
+  url: chien_stupide.url
+)
+
+event_tags[chien_stupide.id].each do |tag_name|
+  EventTag.create!(
+    event: chien_stupide_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+
 zygobar_event = Event.create!(
   price: 0,
   name: "Soirée au Zygobar",
@@ -178,8 +211,6 @@ event_tags[zygobar.id].each do |tag_name|
     tag: Tag.find_by!(name: tag_name)
   )
 end
-
-# /////////////////// Generic Events ////////////////
 
 be2m_event = Event.create!(
   price: 0,
@@ -326,7 +357,7 @@ corneille_event = Event.create!(
   name: "Soirée @ Bateau-Lavoir",
   category: "Bar rooftop",
   venue: corneille,
-  bcorneille: '16:00',
+  beginning_hour: '16:00',
   end_hour: '02:00',
   description: "Cocktails sur-mesure, snacking généreux de midi à minuit, long happy hours, ambiance musicale et festive. Un intérieur
                 original mêlant pierres de taille apparentes et décoration contemporaine. Une agréable terrasse, chauffée en hiver, au
@@ -346,7 +377,7 @@ berlin1989_event = Event.create!(
   name: "Soirée au Berlin1989",
   category: "Bar d’inspiration teutonne",
   venue: berlin1989,
-  bcorneille: '11:30',
+  beginning_hour: '11:30',
   end_hour: '01:00',
   description: "Le Bistro Berlin 1989 est un lieu en hommage à cette capitale dont nous kiffons le fouillis, l’âme, la cuisine et la bière,
               sans tomber dans le piège de la hype et des stéréotypes. A la fois biergarten & restaurant, nous avons imaginé un rêve, pour
@@ -366,7 +397,7 @@ labo_event = Event.create!(
   name: "Soirée @ Le Labo",
   category: "Bar-rhumerie",
   venue: labo,
-  bcorneille: '18:00',
+  beginning_hour: '18:00',
   end_hour: '02:00',
   description: "Un bar rhumerie qui propose un large choix de cocktails servis dans des tubes à essai, des béchers et autres verres de laboratoire.
               Aux beaux jours, une terrasse est dressée pour profiter du soleil. Une bonne adresse pour boire un verre dans cette rue Léon Blum un
@@ -386,7 +417,7 @@ lieu_unique_event = Event.create!(
   name: "Soirée @ Le Lieu Unique",
   category: "Bar d’exploration artistique",
   venue: lieu_unique,
-  bcorneille: '18:00',
+  beginning_hour: '18:00',
   end_hour: '02:30',
   description: "Au bord du canal Saint-Félix, l’ex-usine LU revit depuis l'anné 2000 au rythme d’un centre d’arts atypique. Scène nationale de
               Nantes, le lieu unique est un espace d’exploration artistique, de bouillonnement culturel et de convivialité qui mélange
@@ -407,7 +438,7 @@ kolocs_event = Event.create!(
   name: "Soirée @ Les Kolocs",
   category: "Bar Ambiance",
   venue: kolocs,
-  bcorneille: '18:00',
+  beginning_hour: '18:00',
   end_hour: '02:00',
   description: "Quand vous passerez sur le quai de la Fosse à Nantes, poussez la porte des Koloc’s. On vous assure que vous ne le regretterez pas!
               Ici, on est accueilli dans un décor fait de bois, de tags sur les murs et de lumières tamisées. Un mélange d’inspirations qui
@@ -423,12 +454,34 @@ event_tags[kolocs.id].each do |tag_name|
   )
 end
 
+chat_noir_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Le Chat Noir",
+  category: "Bar Rock",
+  venue: chat_noir,
+  beginning_hour: '17:00',
+  end_hour: '02:00',
+  description: "Le Chat Noir, c’est avant tout un café concerts déjà bien connu des nantais. Les dimanches soirs, des concerts, principalement de
+            blues. Les lundis, soirée jeux. Le mardi, les concerts « semi-acoustiques » sont très réguliers. Chaque mercredi se déroulent
+            deux rendez-vous incontournables: l’initiation à la langue des signes de 18h30 à 19h30, et la scène ouverte musicale. Les vendredi
+            et samedi laissent place à des soirées mix, vinyles, avec un style musical allant du funk, groove, vintage au rock, en passant
+            par la musique balkanique et festive! Un esprit guinguette qu’on aime cultiver ici!!!",
+  url: chat_noir.url
+)
+
+event_tags[chat_noir.id].each do |tag_name|
+  EventTag.create!(
+    event: chat_noir_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
 aux_ptits_joueurs_event = Event.create!(
   price: 0,
   name: "Soirée Aux P'tits Joueurs",
   category: "Bar de jeux",
   venue: aux_ptits_joueurs,
-  bcorneille: '18:00',
+  beginning_hour: '18:00',
   end_hour: '02:00',
   description: "Aux p’tits joueurs est un bistrot rétro où l’on peut jouer et assister à des concerts. Le jeu de prédilection des habitants
               de la Cité des Ducs a été sauvegardé: La boule nantaise! À l’époque, l’activité distrayait les travailleurs sur les péniches,
@@ -447,9 +500,9 @@ end
 macadam_event = Event.create!(
   price: 0,
   name: "Soirée au Macadam",
-  category: "Bar de jeux",
+  category: "Dance & Night Club",
   venue: macadam,
-  bcorneille: '18:00',
+  beginning_hour: '22:00',
   end_hour: '05:00',
   description: "Le Macadam c'est un lieu où l'on vient danser et découvrir les musiques électroniques dans toute leur diversité: house music,
               dub, hardcore, danse ou psytrance. Un dimanche par mois, de 7h à 22h, Gloria - All day long permet de venir s'éclater en
@@ -469,7 +522,7 @@ bowl_center_event = Event.create!(
   name: "Soirée au Bowl Center",
   category: "Bowling",
   venue: bowl_center,
-  bcorneille: '12:00',
+  beginning_hour: '12:00',
   end_hour: '03:00',
   description: "Le bowling pour tous. 32 pistes de bowling avec un équipement haut de gamme fluorescent, des écrans vidéo au-dessus de chacune
               des pistes de bowling, des jeux de lumières… Peu de centres de bowling en France vous offrent un tel spectacle!
@@ -485,188 +538,128 @@ event_tags[bowl_center.id].each do |tag_name|
   )
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+eurobowl_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Eurobowl",
+  category: "Bowling",
+  venue: eurobowl,
+  beginning_hour: '12:00',
+  end_hour: '03:00',
+  description: "Détendez-vous sur les 26 pistes de bowling équipées de jeux de lumières et d’un show fluo, 14 écrans géants. Salle de billard,
+              Pool, Snooker, Américain. Salle Arcade équipée de jeux vidéo. Eurobowl : un espace dédié aux loisirs 7j/7",
+  url: eurobowl.url
+)
+
+event_tags[eurobowl.id].each do |tag_name|
+  EventTag.create!(
+    event: eurobowl_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+tadam_escape_event = Event.create!(
+  price: 0,
+  name: "Soirée au Tadam Escape",
+  category: "Escape Game",
+  venue: tadam_escape,
+  beginning_hour: '12:00',
+  end_hour: '23:00',
+  description: "Un Escape Game dont toutes les missions s’adaptent sur 4 niveaux différents (Enfant / Débutant / Intermédiaire / Expert),
+              pour les petits, pour les familles, entre potes, entre collègues et même pour les pros de l’évasion! Un live Escape Game est
+              un jeu d’évasion grandeur nature. Il s’agit d’une activité de loisir. Vous n’avez besoin d’aucune connaissance particulière,
+              ni de force physique. C’est un jeu de coopération, de réflexion, d’observation et de logique.",
+  url: tadam_escape.url
+)
+
+event_tags[tadam_escape.id].each do |tag_name|
+  EventTag.create!(
+    event: tadam_escape_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+onirium_event = Event.create!(
+  price: 0,
+  name: "Soirée au Onirium",
+  category: "Escape Game",
+  venue: onirium,
+  beginning_hour: '12:00',
+  end_hour: '24:00',
+  description: "S’évader d’une pièce dans un temps limité, et ce grâce à l’intellect plutôt que par la force? C’est l’aventure que vous propose
+              de vivre l’Onirium. Pour une équipe de 3 à 12 joueurs, il s’agira d’une incursion d’une heure dans un univers original, inédit,
+              à mi-chemin entre un Cluedo grandeur nature, Da Vinci Code ou Fort Boyard, entre énigmes et manipulations diverses. Qui, enfant,
+              n’a jamais rêvé de se glisser dans la peau d’un espion, sorcier, aventurier ou autre personnages fascinant?",
+  url: onirium.url
+)
+
+event_tags[onirium.id].each do |tag_name|
+  EventTag.create!(
+    event: onirium_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+patinoire_petit_port_event = Event.create!(
+  price: 0,
+  name: "Soirée au Patinoire",
+  category: "Patinoire",
+  venue: patinoire_petit_port,
+  beginning_hour: '12:00',
+  end_hour: '23:30',
+  description: "Située dans un espace de loisirs (piscine et patinoire), à quelques minutes du centre-ville de Nantes, la patinoire du Petit
+              Port vous accueille toute l’année. De multiples loisirs sur glace sont proposés pour petits et grands: animations, séances à
+              thème, jardin dʼenfants... De nombreuses occasions pour faire du sport et se détendre entre amis ou en famille.",
+  url: patinoire_petit_port.url
+)
+
+event_tags[patinoire_petit_port.id].each do |tag_name|
+  EventTag.create!(
+    event: patinoire_petit_port_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+city_kart_event = Event.create!(
+  price: 0,
+  name: "Soirée au City Kart",
+  category: "Karting",
+  venue: city_kart,
+  beginning_hour: '12:00',
+  end_hour: '20:00',
+  description: "Avec City Kart, quelque soit l'activité Sport Automobile que vous souhaitez faire ou offrir: Karting Indoor ou Simulateurs de
+              Formule 1 à St-Sébastien ou Karting Outdoor à Sautron, pour les adultes ou pour les enfants dès 7 ans, particuliers et entreprises,
+              toute notre équipe de passionnés se fera un plaisir de vous accompagner. Prenez un maximum de plaisir au volant de nos karts
+              thermiques et défiez le chronomètre pour un moment d'adrénaline pur! ",
+  url: city_kart.url
+)
+
+event_tags[city_kart.id].each do |tag_name|
+  EventTag.create!(
+    event: city_kart_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+lasergame_evolution_event = Event.create!(
+  price: 0,
+  name: "Soirée au City Kart",
+  category: "Lasergame",
+  venue: lasergame_evolution,
+  beginning_hour: '12:00',
+  end_hour: '23:00',
+  description: "Le Laser Game Evolution® de Saint-Herblain est heureux de vous accueillir et de vous apporter les meilleures conditions de jeu.
+              Venez découvrir la précision du matériel LV2 100% laser, ainsi que nos 4 zone multi-niveaux. Le centre de Saint-Herblain peut
+              accueillir jusqu'à 60 joueurs en même temps dans 4 labyrinthes, allant de 50m² à 650m² par salle pour une surface totale de 1500m²
+              de labyrinthes.",
+  url: lasergame_evolution.url
+)
+
+event_tags[lasergame_evolution.id].each do |tag_name|
+  EventTag.create!(
+    event: lasergame_evolution_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
 
 puts "Generating dynamic venues..."
 # /////////////////// Dynamic Venues ////////////////
@@ -707,11 +700,14 @@ event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
 cinematographe = Venue.create!(name: "Le Cinématographe", kind: "cinéma", address: "12bis Rue des Carmélites, 44000 Nantes", url: "https://www.lecinematographe.com/", photo: File.open(Rails.root.join('db/fixtures/venues/cinema.jpg')), phone_number: '02 51 83 51 34') # cinéma, culture
 event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
 
-puts "Generating dynamic events..."
+puts "Fetching Cinema"
 # TODO dynamic events with scraping
-
 FetchCinemaEventsService.new.call
+
+puts "Fetching Culture"
 FetchCultureRecordsService.new.call
+
+puts "Fetching Concerts"
 FetchConcertsService.new.call
 
 puts "Seeds generated!"
