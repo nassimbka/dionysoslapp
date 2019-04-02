@@ -89,40 +89,37 @@ event_tags = {}
 zygobar = Venue.create!(name: "Le Zygobar", kind: "bar", address: "35 rue des Olivettes, 44000 Nantes", url: "https://www.facebook.com/zygo.bar/", photo: File.open(Rails.root.join('db/fixtures/venues/zygobar.jpg')), phone_number: '02 51 83 51 34') # jazz, culture, bar à ambiance, theme
 event_tags[zygobar.id] = ["posée", "social", "comptoir", "musique", "jazz"]
 
-be2m = Venue.create!(name: "Bé2M", kind: "bar", address: "32 bis rue Fouré, 44 000 Nantes", url: "https://www.lafourchette.com/restaurant/be2m/391641?cc=15284-c78", photo: File.open(Rails.root.join('db/fixtures/venues/be2m.jpg')), phone_number: '02 51 83 51 34') # bar à vin, tapas, posé, manger un bout
+be2m = Venue.create!(name: "Bé2M", kind: "bar", address: "32 bis rue Fouré, 44000 Nantes", url: "https://www.lafourchette.com/restaurant/be2m/391641?cc=15284-c78", photo: File.open(Rails.root.join('db/fixtures/venues/be2m.jpg')), phone_number: '02 51 83 51 34') # bar à vin, tapas, posé, manger un bout
 event_tags[be2m.id] = ["posée", "social", "comptoir", "boisson"]
 
-santeuil = Venue.create!(name: "Santeuil Café", kind: "bar", address: "5 rue Santeuil, 44 000 Nantes", url: "https://www.instagram.com/santeuilcafe/?utm_source=ig_embed", photo: File.open(Rails.root.join('db/fixtures/venues/santeuil.jpg')), phone_number: '02 51 83 51 34') # bar à cocktail, soirée blind test tous les derniers mercredi du mois
+santeuil = Venue.create!(name: "Santeuil Café", kind: "bar", address: "5 rue Santeuil, 44000 Nantes", url: "https://www.instagram.com/santeuilcafe/?utm_source=ig_embed", photo: File.open(Rails.root.join('db/fixtures/venues/santeuil.jpg')), phone_number: '02 51 83 51 34') # bar à cocktail, soirée blind test tous les derniers mercredi du mois
 event_tags[santeuil.id] = ["posée", "social", "comptoir", "boisson"]
 
-cantine_du_voyage = Venue.create!(name: "La Cantine du Voyage", kind: "bar", address: "Quai des Antilles, 44 000 Nantes", url: "https://www.levoyageanantes.fr/etapes/la-cantine-du-voyage-2/", photo: File.open(Rails.root.join('db/fixtures/venues/cantine_voyage.jpg')), phone_number: '02 51 83 51 34') # lifestyle, jouer, ouverte uniquement du 04/04/2019 au 13/10/2019
+cantine_du_voyage = Venue.create!(name: "La Cantine du Voyage", kind: "bar", address: "Quai des Antilles, 44000 Nantes", url: "https://www.levoyageanantes.fr/etapes/la-cantine-du-voyage-2/", photo: File.open(Rails.root.join('db/fixtures/venues/cantine_voyage.jpg')), phone_number: '02 51 83 51 34') # lifestyle, jouer, ouverte uniquement du 04/04/2019 au 13/10/2019
 event_tags[cantine_du_voyage.id] = ["posée", "social", "comptoir", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
 
-bubar = Venue.create!(name: "Le Bubar", kind: "bar", address: "5 rue Louis Blanc, 44 200 Nantes", url: "https://www.facebook.com/bubarnantes/", photo: File.open(Rails.root.join('db/fixtures/venues/bubar.jpg')), phone_number: '02 51 83 51 34') # bar à bières,
+bubar = Venue.create!(name: "Le Bubar", kind: "bar", address: "5 rue Louis Blanc, 44200 Nantes", url: "https://www.facebook.com/bubarnantes/", photo: File.open(Rails.root.join('db/fixtures/venues/bubar.jpg')), phone_number: '02 51 83 51 34') # bar à bières,
 event_tags[bubar.id] = ["posée", "social", "comptoir", "boisson"]
 
-nid = Venue.create!(name: "Le Nid", kind: "bar", address: "Tour de Bretagne, Place de Bretagne, 44 047 Nantes", url: "https://www.facebook.com/LeNidNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/le_nid.jpg')), phone_number: '02 51 83 51 34') # rooftop, lounge, concerts
+nid = Venue.create!(name: "Le Nid", kind: "bar", address: "Tour de Bretagne, Place de Bretagne, 44047 Nantes", url: "https://www.facebook.com/LeNidNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/le_nid.jpg')), phone_number: '02 51 83 51 34') # rooftop, lounge, concerts
 event_tags[nid.id] = ["posée", "social", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
 
-vertigo = Venue.create!(name: "Le Vertigo", kind: "bar", address: "3 mail du Front Populaire, 44 200 Nantes", url: "https://www.facebook.com/VertigoNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/vertigo.jpg')), phone_number: '02 51 83 51 34') # bar, rooftop, plusieurs ambiances
+vertigo = Venue.create!(name: "Le Vertigo", kind: "bar", address: "3 mail du Front Populaire, 44200 Nantes", url: "https://www.facebook.com/VertigoNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/vertigo.jpg')), phone_number: '02 51 83 51 34') # bar, rooftop, plusieurs ambiances
 event_tags[vertigo.id] = ["posée", "social", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
 
-bateau_lavoir = Venue.create!(name: "Le Bateau Lavoir", kind: "bar", address: "Quai Ceineray, 44 000 Nantes", url: "https://www.facebook.com/bateaulavoirNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/lavoir.jpg')), phone_number: '02 51 83 51 34') # péniche, guinguette
+bateau_lavoir = Venue.create!(name: "Le Bateau Lavoir", kind: "bar", address: "Quai Ceineray, 44000 Nantes", url: "https://www.facebook.com/bateaulavoirNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/lavoir.jpg')), phone_number: '02 51 83 51 34') # péniche, guinguette
 event_tags[bateau_lavoir.id] = ["posée", "social", "comptoir"]
 
-corneille = Venue.create!(name: "Le Corneille", kind: "bar", address: "24 rue Scribe, 44 000 Nantes", url: "http://www.aperorestodisco.com/bar-nantes-9629-le-corneille.html", photo: File.open(Rails.root.join('db/fixtures/venues/corneille.jpg')), phone_number: '02 51 83 51 34') # bar classique
+corneille = Venue.create!(name: "Le Corneille", kind: "bar", address: "24 rue Scribe, 44000 Nantes", url: "http://www.aperorestodisco.com/bar-nantes-9629-le-corneille.html", photo: File.open(Rails.root.join('db/fixtures/venues/corneille.jpg')), phone_number: '02 51 83 51 34') # bar classique
 event_tags[corneille.id] = ["posée", "social", "comptoir"]
 
-berlin1989 = Venue.create!(name: "Berlin 1989", kind: "bar", address: "95 bd Gabriel Lauriol, 44 300 Nantes", url: "https://berlin1989.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/berlin.jpg')), phone_number: '02 51 83 51 34') #bar à thème, manger un bout, espace extérieur
+berlin1989 = Venue.create!(name: "Berlin 1989", kind: "bar", address: "95 bd Gabriel Lauriol, 44300 Nantes", url: "https://berlin1989.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/berlin.jpg')), phone_number: '02 51 83 51 34') #bar à thème, manger un bout, espace extérieur
 event_tags[berlin1989.id] = ["posée", "social", "comptoir"]
 
-flemings = Venue.create!(name: "Fleming’s irish pub", kind: "bar", address: "22 rue des Carmes, 44 000 Nantes", url: "http://www.flemings-irish-pub.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/flemmings.jpg')), phone_number: '02 51 83 51 34') #Irish pub, whisky, sportsbar
-event_tags[flemings.id] = ["posée", "social", "comptoir", "boisson"]
-
-labo = Venue.create!(name: "Le Labo", kind: "bar", address: "19 rue Léon Blum, 44 000 Nantes", url: "http://www.lelabo-nantes.com/", photo: File.open(Rails.root.join('db/fixtures/venues/labo.jpg')), phone_number: '02 51 83 51 34') # bar à cocktails
+labo = Venue.create!(name: "Le Labo", kind: "bar", address: "19 rue Léon Blum, 44000 Nantes", url: "http://www.lelabo-nantes.com/", photo: File.open(Rails.root.join('db/fixtures/venues/labo.jpg')), phone_number: '02 51 83 51 34') # bar à cocktails
 event_tags[labo.id] = ["posée", "social", "comptoir", "boisson"]
 
-lieu_unique = Venue.create!(name: "Le Lieu Unique", kind: "bar", address: "2 rue de la biscuiterie, 44 000 Nantes", url: "", photo: File.open(Rails.root.join('db/fixtures/venues/lieu.jpg')), phone_number: '02 51 83 51 34') #bar ambiance, culture, manger un bout
+lieu_unique = Venue.create!(name: "Le Lieu Unique", kind: "bar", address: "2 rue de la biscuiterie, 44000 Nantes", url: "", photo: File.open(Rails.root.join('db/fixtures/venues/lieu.jpg')), phone_number: '02 51 83 51 34') #bar ambiance, culture, manger un bout
 event_tags[lieu_unique.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "social", "culture"]
 
 kolocs = Venue.create!(name: "Les Koloc's", kind: "bar", address: "59 Quai de la Fosse, 44000 Nantes", url: "https://www.facebook.com/kolocs/", photo: File.open(Rails.root.join('db/fixtures/venues/kolocs.jpg')), phone_number: '02 51 83 51 34') #bar ambiance, faire la fête
@@ -159,26 +156,517 @@ event_tags[lasergame_evolution.id] = ["dynamique", "groupe", "activité", "sport
 
 
 puts "Generating generic events..."
-# /////////////////// Generic Events ////////////////
-Venue.all.each do |venue|
-  event = Event.create!(
-    price: 0,
-    name: "Soirée @ #{venue.name}",
-    category: venue.kind,
-    venue: venue,
-    beginning_hour: '19h00',
-    end_hour: '02h15',
-    description: "Soirée trop cool @ #{venue.name}",
-    url: venue.url
-  )
+# /////////////////// Generic Events /////////22///////
 
-  event_tags[venue.id].each do |tag_name|
-    EventTag.create!(
-      event: event,
-      tag: Tag.find_by!(name: tag_name)
-    )
-  end
+zygobar_event = Event.create!(
+  price: 0,
+  name: "Soirée au Zygobar",
+  category: "Bar-Café Culturel",
+  venue: zygobar,
+  beginning_hour: '18:00',
+  end_hour: '02:00',
+  description: "Le Zygo Bar vous fait (re)découvrir l’âme des vrais cafés-concerts! Vous y trouverez tout le nécessaire pour vous détendre:
+                un cadre convivial et chaleureux, bières et vins de qualité, une terrasse couverte pour prendre l’air… et un concert quasiment
+                tous les soirs! Le «Zygo» est situé au 35 rue des Olivettes (quartier Madeleine/Champ de Mars) et est ouvert du mardi au samedi
+                de 17h à 2h du matin. Les concerts sont généralement en entrée libre la semaine et payants le week-end (de 4€ à 6€).",
+  url: zygobar.url
+)
+
+event_tags[zygobar.id].each do |tag_name|
+  EventTag.create!(
+    event: zygobar_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
 end
+
+# /////////////////// Generic Events ////////////////
+
+be2m_event = Event.create!(
+  price: 0,
+  name: "Soirée au Bé2M",
+  category: "Bar à vins",
+  venue: be2m,
+  beginning_hour: '18:00',
+  end_hour: '01:00',
+  description: "Situé à 5 minutes à pied du château des Ducs de Bretagne, le Bé2M est un restaurant, bar et cave à vins idéal pour voyager dans
+              une ambiance jazzy et chaleureuse. Ici, les produits d’excellence composant nos planches ou nos assiettes sont mis à l’honneur et
+              les vins sont sélectionnés avec soin par Mathieu, propriétaire et sommelier des lieux.
+              Que ce soit pour boire un verre en musique ou déguster une assiette, le Bé2M est un autre lieu unique.",
+  url: be2m.url
+)
+
+event_tags[be2m.id].each do |tag_name|
+  EventTag.create!(
+    event: be2m_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+santeuil_event = Event.create!(
+  price: 0,
+  name: "Soirée au Santeuil",
+  category: "Bar à cocktail",
+  venue: santeuil,
+  beginning_hour: '16:00',
+  end_hour: '02:00',
+  description: "Un café de quartier très sympathique qui propose des cocktails fruités ainsi que des soirées avec DJ et de la musique festive.
+              Vous pouvez y passer une soirée détendue et sans soucis, le bar ferme à 2h du matin. Vous pouvez même grignoter de délicieux tapas!",
+  url: santeuil.url
+)
+
+event_tags[santeuil.id].each do |tag_name|
+  EventTag.create!(
+    event: santeuil_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+cantine_du_voyage_event = Event.create!(
+  price: 0,
+  name: "Soirée à La Cantine du Voyage",
+  category: "Bar éphémère",
+  venue: cantine_du_voyage,
+  beginning_hour: '12:00',
+  end_hour: '24:00',
+  description: "Lieu de villégiature des Nantais, espace éphémère surprenant et convivial pour les visiteurs qui la découvrent, La Cantine du
+                Voyage est devenue une étape incontournable du Voyage à Nantes avec son espace de restauration de 300 couverts,
+                son très grand bar, ses baby-foot, son terrain de pétanque et sa librairie-boutique.",
+  url: cantine_du_voyage.url
+)
+
+event_tags[cantine_du_voyage.id].each do |tag_name|
+  EventTag.create!(
+    event: cantine_du_voyage_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+bubar_event = Event.create!(
+  price: 0,
+  name: "Soirée au Bubar",
+  category: "Bar microbrasserie",
+  venue: bubar,
+  beginning_hour: '17:00',
+  end_hour: '02:00',
+  description: "Le Bubar est un bar microbrasserie, située quartier République à Nantes. Les bières maison du Bubar sont artisanales, non
+              filtrées et non pasteurisées! Bien sûr, planches apéro avec le saucisson au mètre et autre encas sont de la partie. Une bonne
+              musique, des concerts, des retransmissions sportives, le canapé, les jeux de fléchettes, tout est fait pour se sentir chez soi.",
+  url: bubar.url
+)
+
+event_tags[bubar.id].each do |tag_name|
+  EventTag.create!(
+    event: bubar_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+nid_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Le Nid",
+  category: "Bar rooftop",
+  venue: nid,
+  beginning_hour: '14:00',
+  end_hour: '02:00',
+  description: "Perché au sommet de la Tour Bretagne, le Nid a pris son envol en juin 2012. Etape majeure du Voyage à Nantes,
+              l’œuvre-bar onirique imaginée par le Nantais Jean Jullien offre une vue imprenable sur Nantes et invite l’imaginaire.
+              Avec plus d’1,8 million de visiteurs depuis son ouverture, le Nid est l’un des toits-terrasses les plus prisés de France.",
+  url: nid.url
+)
+
+event_tags[nid.id].each do |tag_name|
+  EventTag.create!(
+    event: nid_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+vertigo_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Le Vertigo",
+  category: "Bar rooftop",
+  venue: vertigo,
+  beginning_hour: '12:00',
+  end_hour: '02:00',
+  description: "Le Vertigo vous accueille dans une ambiance conviviale pour profiter de la vue imprenable sur la Cité des Ducs au coucher du
+                soleil, autour d’un verre ou d’un repas alliant raffinement et plaisir. Venez déguster nos cocktails maison qui agiteront vos
+                papilles dans une ambiance musicale chaleureuse et éclectique, la tête dans les nuages.",
+  url: vertigo.url
+)
+
+event_tags[vertigo.id].each do |tag_name|
+  EventTag.create!(
+    event: vertigo_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+bateau_lavoir_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Bateau-Lavoir",
+  category: "Bar rooftop",
+  venue: bateau_lavoir,
+  beginning_hour: '16:00',
+  end_hour: '22:30',
+  description: "Le Bateau-lavoir est une guinguette du centre-ville de Nantes où l’on peut aller tous les jours pour se faire du bien au
+              moral et aux yeux. L’accent est mis sur la créativité à travers les concerts, les expositions, les spectacles de cabaret,
+              les rencontres avec des vignerons et la consommation responsable et à petite échelle.",
+  url: bateau_lavoir.url
+)
+
+event_tags[bateau_lavoir.id].each do |tag_name|
+  EventTag.create!(
+    event: bateau_lavoir_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+corneille_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Bateau-Lavoir",
+  category: "Bar rooftop",
+  venue: corneille,
+  bcorneille: '16:00',
+  end_hour: '02:00',
+  description: "Cocktails sur-mesure, snacking généreux de midi à minuit, long happy hours, ambiance musicale et festive. Un intérieur
+                original mêlant pierres de taille apparentes et décoration contemporaine. Une agréable terrasse, chauffée en hiver, au
+                calme d'une rue piétonne pavée. Un service efficace et aux petits oignons.",
+  url: corneille.url
+)
+
+event_tags[corneille.id].each do |tag_name|
+  EventTag.create!(
+    event: corneille_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+berlin1989_event = Event.create!(
+  price: 0,
+  name: "Soirée au Berlin1989",
+  category: "Bar d’inspiration teutonne",
+  venue: berlin1989,
+  bcorneille: '11:30',
+  end_hour: '01:00',
+  description: "Le Bistro Berlin 1989 est un lieu en hommage à cette capitale dont nous kiffons le fouillis, l’âme, la cuisine et la bière,
+              sans tomber dans le piège de la hype et des stéréotypes. A la fois biergarten & restaurant, nous avons imaginé un rêve, pour
+              vous et pour nous. Une brasserie différente et militante, il fallait rentrer en France pour raconter ça.",
+  url: berlin1989.url
+)
+
+event_tags[berlin1989.id].each do |tag_name|
+  EventTag.create!(
+    event: berlin1989_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+labo_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Le Labo",
+  category: "Bar-rhumerie",
+  venue: labo,
+  bcorneille: '18:00',
+  end_hour: '02:00',
+  description: "Un bar rhumerie qui propose un large choix de cocktails servis dans des tubes à essai, des béchers et autres verres de laboratoire.
+              Aux beaux jours, une terrasse est dressée pour profiter du soleil. Une bonne adresse pour boire un verre dans cette rue Léon Blum un
+              tantinet à l'écart du centre, mais riche en lieux et en ambiances.",
+  url: labo.url
+)
+
+event_tags[labo.id].each do |tag_name|
+  EventTag.create!(
+    event: labo_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+lieu_unique_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Le Lieu Unique",
+  category: "Bar d’exploration artistique",
+  venue: lieu_unique,
+  bcorneille: '18:00',
+  end_hour: '02:30',
+  description: "Au bord du canal Saint-Félix, l’ex-usine LU revit depuis l'anné 2000 au rythme d’un centre d’arts atypique. Scène nationale de
+              Nantes, le lieu unique est un espace d’exploration artistique, de bouillonnement culturel et de convivialité qui mélange
+              les genres, les cultures et les publics. Son credo : l’esprit de curiosité dans les différents domaines de l’art, le lieu unique
+              abrite à côté de ces espaces dédiés à la création, un ensemble de services : bar, restaurant, librairie, hammam, crèche… ",
+  url: lieu_unique.url
+)
+
+event_tags[lieu_unique.id].each do |tag_name|
+  EventTag.create!(
+    event: lieu_unique_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+kolocs_event = Event.create!(
+  price: 0,
+  name: "Soirée @ Les Kolocs",
+  category: "Bar Ambiance",
+  venue: kolocs,
+  bcorneille: '18:00',
+  end_hour: '02:00',
+  description: "Quand vous passerez sur le quai de la Fosse à Nantes, poussez la porte des Koloc’s. On vous assure que vous ne le regretterez pas!
+              Ici, on est accueilli dans un décor fait de bois, de tags sur les murs et de lumières tamisées. Un mélange d’inspirations qui
+              confère énormément de chaleur au lieu! L’autre atout des Koloc’s? Sa terrasse qui fait office de coin fumeur et sur laquelle
+              vous allez adorer passer de longues soirées d’été. ",
+  url: kolocs.url
+)
+
+event_tags[kolocs.id].each do |tag_name|
+  EventTag.create!(
+    event: kolocs_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+aux_ptits_joueurs_event = Event.create!(
+  price: 0,
+  name: "Soirée Aux P'tits Joueurs",
+  category: "Bar de jeux",
+  venue: aux_ptits_joueurs,
+  bcorneille: '18:00',
+  end_hour: '02:00',
+  description: "Aux p’tits joueurs est un bistrot rétro où l’on peut jouer et assister à des concerts. Le jeu de prédilection des habitants
+              de la Cité des Ducs a été sauvegardé: La boule nantaise! À l’époque, l’activité distrayait les travailleurs sur les péniches,
+              si vous regardez bien, le terrain a la forme d’une cale de péniche!. Ici, cuisine traditionnelle se mêle aux tournois de
+              boules nantaises, à des concerts tous les vendredis soirs, des tournois de poker tous les mercredis et même des expositions.",
+  url: aux_ptits_joueurs.url
+)
+
+event_tags[aux_ptits_joueurs.id].each do |tag_name|
+  EventTag.create!(
+    event: aux_ptits_joueurs_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+macadam_event = Event.create!(
+  price: 0,
+  name: "Soirée au Macadam",
+  category: "Bar de jeux",
+  venue: macadam,
+  bcorneille: '18:00',
+  end_hour: '05:00',
+  description: "Le Macadam c'est un lieu où l'on vient danser et découvrir les musiques électroniques dans toute leur diversité: house music,
+              dub, hardcore, danse ou psytrance. Un dimanche par mois, de 7h à 22h, Gloria - All day long permet de venir s'éclater en
+              sortant des sentiers battus avec succession de DJ! Amusez-vous, surprenez-nous!, tel est le crédo de Macadam.",
+  url: macadam.url
+)
+
+event_tags[macadam.id].each do |tag_name|
+  EventTag.create!(
+    event: macadam_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+bowl_center_event = Event.create!(
+  price: 0,
+  name: "Soirée au Bowl Center",
+  category: "Bowling",
+  venue: bowl_center,
+  bcorneille: '12:00',
+  end_hour: '03:00',
+  description: "Le bowling pour tous. 32 pistes de bowling avec un équipement haut de gamme fluorescent, des écrans vidéo au-dessus de chacune
+              des pistes de bowling, des jeux de lumières… Peu de centres de bowling en France vous offrent un tel spectacle!
+              En plus du bowling, vous pourrez profiter du bar, d’un espace billards, de jeux d’arcades, des restaurants et des animations
+              sonores et visuelles.",
+  url: bowl_center.url
+)
+
+event_tags[bowl_center.id].each do |tag_name|
+  EventTag.create!(
+    event: bowl_center_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 puts "Generating dynamic venues..."
 # /////////////////// Dynamic Venues ////////////////
