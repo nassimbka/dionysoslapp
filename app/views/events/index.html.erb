@@ -44,7 +44,7 @@
 
     <div class="text-result">
       <h1><%= @events.first.name %></h1>
-      <h2><%= @events.first.category %> <%= @events.first.venue.name %></h2>
+      <h2><%= @events.first.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.first.venue.name %></h2><% end %>
       <% if @events.first.category == "Cinéma" %>
       <h3>Film - <%= @events.first.genre.capitalize %></h3>
       <% end %>
@@ -68,7 +68,7 @@
 
     <div class="text-result">
       <h1><%= @events.second.name %></h1>
-      <h2><%= @events.second.category %> <%= @events.second.venue.name %></h2>
+      <h2><%= @events.second.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.second.venue.name %></h2><% end %>
       <% if @events.second.category == "Cinéma" %>
       <h3>Film - <%= @events.second.genre.capitalize %></h3>
       <% end %>
@@ -92,11 +92,9 @@
 
     <div class="text-result">
       <h1><%= @events.third.name %></h1>
-      <h2><%= @events.third.category %> <%= @events.third.venue.name %></h2>
+      <h2><%= @events.third.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.third.venue.name %></h2><% end %>
       <% if @events.third.category == "Cinéma" %>
       <h3>Film - <%= @events.third.genre.capitalize %></h3>
-      <% elsif @events.third.category == "concert" %>
-      <h3>Concert - <%= @events.third.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">
