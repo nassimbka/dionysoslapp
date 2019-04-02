@@ -1,4 +1,4 @@
-<div class="wrapper-loading" >
+<div class="wrapper-loading" data-skip-search="<%= params[:skip_search].present? %>" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= image_path "homegifs/homegif.gif" %>);">
 
   <h1 class="hide" id="tagline-end-loading">Nous avons trouvé des soirées se rapprochant de vos réponses!</h1>
 
@@ -35,7 +35,7 @@
     <div class="photo-result">
       <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
       <%= cl_image_tag @events.first.venue.photo %>
-      <% elsif @events.first.category == "Cinéma" %>
+      <% elsif @events.first.photo_url.present? %>
       <%= image_tag @events.first.photo_url %>
       <% else %>
       <%= cl_image_tag @events.first.venue.photo %>
@@ -46,7 +46,7 @@
       <h1><%= @events.first.name %></h1>
       <h2><%= @events.first.category %> <%= @events.first.venue.name %></h2>
       <% if @events.first.category == "Cinéma" %>
-      <h3>Film -<%= @events.first.genre.capitalize %></h3>
+      <h3>Film - <%= @events.first.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">
@@ -59,7 +59,7 @@
     <div class="photo-result">
       <% if @events.second.category == "Cinéma" && @events.second.photo_url == "/design/images/mascotteNb.png" %>
       <%= cl_image_tag @events.second.venue.photo %>
-      <% elsif @events.second.category == "Cinéma" %>
+      <% elsif @events.second.photo_url.present? %>
       <%= image_tag @events.second.photo_url %>
       <% else %>
       <%= cl_image_tag @events.second.venue.photo %>
@@ -70,7 +70,7 @@
       <h1><%= @events.second.name %></h1>
       <h2><%= @events.second.category %> <%= @events.second.venue.name %></h2>
       <% if @events.second.category == "Cinéma" %>
-      <h3>Film -<%= @events.second.genre.capitalize %></h3>
+      <h3>Film - <%= @events.second.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">
@@ -83,7 +83,7 @@
     <div class="photo-result">
       <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
       <%= cl_image_tag @events.third.venue.photo %>
-      <% elsif @events.third.category == "Cinéma" %>
+      <% elsif @events.third.photo_url.present? %>
       <%= image_tag @events.third.photo_url %>
       <% else %>
       <%= cl_image_tag @events.third.venue.photo %>
@@ -94,7 +94,9 @@
       <h1><%= @events.third.name %></h1>
       <h2><%= @events.third.category %> <%= @events.third.venue.name %></h2>
       <% if @events.third.category == "Cinéma" %>
-      <h3>Film -<%= @events.third.genre.capitalize %></h3>
+      <h3>Film - <%= @events.third.genre.capitalize %></h3>
+      <% elsif @events.third.category == "concert" %>
+      <h3>Concert - <%= @events.third.genre.capitalize %></h3>
       <% end %>
     </div>
     <div class="button-result">

@@ -20,6 +20,7 @@ class FetchCinemaEventsService
         url:            details[:url],
         photo_url:      details[:photo],
         beginning_hour: details[:date],
+        genre:          details[:genre],
         category:       "Cinéma"
       )
 
