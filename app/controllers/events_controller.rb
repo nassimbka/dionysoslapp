@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @answers = session[:search].values
-
     # # V0 - at least one answer
     # @events = @events.distinct.joins(:tags).where(tags: { name: @answers }).limit(3)
 
@@ -44,11 +43,27 @@ class EventsController < ApplicationController
 
   def share
     @event = Event.find(params[:id])
-    EventMailer.share('nassim106@hotmail.com', params[:id]).deliver_now
-    redirect_to event_path(params[:id])
+
+    if share_params[:notification_way] == "mail"
+      EventMailer.share('nassim106@hotmail.com', params[:id]).deliver_now
+    elsif share_params[:notification_way] == "texto"
+      @client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
+
+      @client.api.account.messages.create(
+        from: '+33644648036',
+        to: share_params[:phone_number],
+        body: "Salutations Nantais! Voici les détails de la soirée que Dionysos à trouvé pour toi ! #{@event.name}, #{@event.venue.address}"
+      )
+    end
   end
 
   def show
     @event = Event.find(params[:id])
+  end
+
+  private
+
+  def share_params
+    params.require(:phone_number).permit(:notification_way, :phone_number)
   end
 end
