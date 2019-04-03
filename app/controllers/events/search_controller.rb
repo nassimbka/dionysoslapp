@@ -170,6 +170,17 @@ class Events::SearchController < ApplicationController
   }
 
   def show # question
+    if params[:reset_session]
+      new_session = { search: {} }
+
+      session[:search].each do |step, answer|
+        new_session[:search][step] = answer
+        break if step == params[:step]
+      end
+
+      session[:search] = new_session[:search]
+    end
+
     @step = params[:step].presence || FIRST_STEP  # => On garde en @step le  hash "posee_dynamique" avec ses questions et ses answers
     session[:search] = nil if @step == FIRST_STEP # => On RESET le wizzard
 
