@@ -16,7 +16,12 @@ class ConcertsApi
     if events
       events.each do |event|
           concert = {}
+          # concert[:event] = {
+          # }
+
+        if !event['start']['time'].nil?
           concert[:event] = {
+            beginning_hour: event['start']['time'][0...-3],
             nom:            event['displayName'].split('(')[0].rstrip,
             price:          'payant',
             category:       'concert',
@@ -26,13 +31,17 @@ class ConcertsApi
             url:            event['uri'],
             picture:        get_picture_url(event)
           }
-        if !event['start']['time'].nil?
-          concert[:event] = {
-            beginning_hour: event['start']['time'][0...-3]
-          }
         else
           concert[:event] = {
-            beginning_hour: '20:00'
+            beginning_hour: '20:00',
+            nom:            event['displayName'].split('(')[0].rstrip,
+            price:          'payant',
+            category:       'concert',
+            date:           event['start']['date'],
+            end_hour:       '',
+            description:    event_description(event),
+            url:            event['uri'],
+            picture:        get_picture_url(event)
           }
         end
 
@@ -74,31 +83,20 @@ class ConcertsApi
   end
 
   def event_address(event)
-    lattitude = event['location']['lat']
-    longitude = event['location']['lng']
+    url = event["uri"]
+    html_file = open(url).read
+    html_doc  = Nokogiri::HTML(html_file)
 
-    if lattitude && longitude
-      result = Geocoder.search([lattitude, longitude]).first.data
-      if result["address"]["house_number"]
-        "#{result["address"]["house_number"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
-      else
-        "#{result["address"]["neighbourhood"]}, #{result["address"]["road"]}, #{result["address"]["postcode"]} #{result["address"]["city"]}"
+    scrapped_address = html_doc.search('p.venue-hcard > span')
+    if scrapped_address != nil
+      address_elements = scrapped_address.first.search('span').map do |s|
+        s.text.strip
       end
+      cleaned_address = "#{address_elements[0]}, #{address_elements[1]} #{address_elements[2]} #{address_elements[3]}".strip
+      cleaned_address
     else
       "Adresse non-communiquée par l'établissement."
     end
+
   end
 end
-
-  # p "---------ici les address des venues" #
-
-  # events.each do |event| # ici tentative avortée de récupérer les adresses en scrapant les pages de venues
-  #   url = event['venue']["uri"]
-  #   html_file = open(url).read
-  #   html_doc  = Nokogiri::HTML(html_file)
-  #   p '!!!'
-  #   doc = html_doc.search('p.venue-hcard span').first.children.each do |child|
-  #     p child.text
-  #   end
-  # end
-

@@ -34,7 +34,7 @@ class FetchCultureRecordsService
           theatre_tags = [
             Tag.find_by(name: 'théâtre'),
             Tag.find_by(name: "posée"),
-            Tag.find_by(name: "regarder")
+            Tag.find_by(name: "spectateur")
           ]
           event.update!(category: "Théâtre")
         elsif category.casecmp?("Humour")
@@ -51,7 +51,7 @@ class FetchCultureRecordsService
         if category.casecmp?("Danse")
           culture_tags = [
               Tag.find_by(name: "posée"),
-              Tag.find_by(name: "social"),
+              Tag.find_by(name: "acteur"),
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "danse")
             ]
@@ -59,7 +59,7 @@ class FetchCultureRecordsService
         elsif category.casecmp?("Film / Projection")
           culture_tags = [
               Tag.find_by(name: "posée"),
-              Tag.find_by(name: "social"),
+              Tag.find_by(name: "acteur"),
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "documentaire")
             ]
@@ -67,7 +67,7 @@ class FetchCultureRecordsService
         elsif category.casecmp?("Expositions")
           culture_tags = [
               Tag.find_by(name: "posée"),
-              Tag.find_by(name: "social"),
+              Tag.find_by(name: "acteur"),
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "exposition")
             ]
@@ -75,7 +75,7 @@ class FetchCultureRecordsService
         elsif category.casecmp?("Conférence")
           culture_tags = [
               Tag.find_by(name: "posée"),
-              Tag.find_by(name: "social"),
+              Tag.find_by(name: "acteur"),
               Tag.find_by(name: "culture"),
               Tag.find_by(name: "conférence")
             ]

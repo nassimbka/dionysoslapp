@@ -40,7 +40,7 @@ class Events::SearchController < ApplicationController
 
     "changer_idees_rencontre" => {
       question: "Regarder ou discuter?", # a changer
-      answers: ["regarder", "social"]
+      answers: ["spectateur", "acteur"]
     },
 
     "culture_comptoir" => {
@@ -121,8 +121,8 @@ class Events::SearchController < ApplicationController
     # },
 
     "changer_idees_rencontre" => {
-      "social" => "culture_comptoir",
-      "regarder" => "cinema_theatre"
+      "acteur" => "culture_comptoir",
+      "spectateur" => "cinema_theatre"
     },
 
     "culture_comptoir" => {

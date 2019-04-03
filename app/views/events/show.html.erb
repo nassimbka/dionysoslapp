@@ -4,13 +4,21 @@
     <div class="container-cinema">
       <div class="title-show">
         <h1><%= @event.name %></h1>
-        <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
+        <% if @event.genre == "Film" %>
+          <h3>Film d'Animation</h3>
+        <% else %>
+          <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
+        <% end %>
       </div>
-
       <div class="result-presentation">
         <div class="result-photo">
-          <%= image_tag @event.photo_url %>
+          <% if @event.photo_url == "/design/images/mascotteNb.png" %>
+            <%= image_tag @event.venue.photo %>
+          <% else %>
+            <%= image_tag @event.photo_url %>
+          <% end %>
         </div>
+
         <div class="result-details">
           <span class="mb-5"><h2><%= @event.venue.name %></h3></span>
           <h3><i class="fas fa-home"></i>&nbsp <%= @event.venue.address %></h3>
@@ -19,6 +27,10 @@
           <% if @event.venue.phone_number.present? %>
           <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
+          <h3>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>"><i class="fab fa-twitter-square"></i></a>
+          </h3>
         </div>
       </div>
 
@@ -60,6 +72,10 @@
           <% if @event.venue.phone_number.present? %>
           <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
+          <h3>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>"><i class="fab fa-twitter-square"></i></a>
+          </h3>
         </div>
       </div>
 
@@ -84,7 +100,7 @@
 
       <div class="result-presentation">
         <div class="result-photo">
-          <% if @event.category == "concert" %>
+          <% if @event.photo_url.present? %>
             <%= image_tag @event.photo_url %>
           <% else %>
           <%= cl_image_tag @event.venue.photo, height: 200, width: 300, crop: :fill %>
@@ -97,6 +113,10 @@
           <% if @event.venue.phone_number.present? %>
           <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
+          <h3>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>"><i class="fab fa-twitter-square"></i></a>
+          </h3>
         </div>
       </div>
 
