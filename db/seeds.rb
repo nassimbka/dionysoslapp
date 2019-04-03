@@ -126,7 +126,7 @@ scene_michelet = Venue.create!(name: "La Scène Michelet", kind: "bar", address:
 event_tags[scene_michelet.id] = ["posée", "social", "comptoir", "musique", "rock", "dynamique", "gratuit / prix libre", "payant"]
 
 prohibition = Venue.create!(name: "Prohibition", kind: "nightclub", address: "7 rue de la Baclerie, 44000 Nantes", url: "http://barprohibition.com/", photo: File.open(Rails.root.join('db/fixtures/venues/prohibition.jpg')), phone_number: '02 40 47 14 00')
-event_tags[prohibition.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro" "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
+event_tags[prohibition.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
 altercafe = Venue.create!(name: "Altercafé", kind: "nightclub", address: "21 quai des Antilles - Ile de Nantes, 44200", url: "http://altercafe.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/altercafe.jpg')), phone_number: '02 28 20 01 06')
 event_tags[altercafe.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "payant", "gratuit / prix libre"]
