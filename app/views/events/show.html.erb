@@ -4,9 +4,12 @@
     <div class="container-cinema">
       <div class="title-show">
         <h1><%= @event.name %></h1>
-        <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
+        <% if @event.genre == "Film" %>
+          <h3>Film d'Animation</h3>
+        <% else %>
+          <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
+        <% end %>
       </div>
-
       <div class="result-presentation">
         <div class="result-photo">
           <% if @event.photo_url == "/design/images/mascotteNb.png" %>
@@ -81,7 +84,7 @@
 
       <div class="result-presentation">
         <div class="result-photo">
-          <% if @event.category == "concert" %>
+          <% if @event.photo_url.present? %>
             <%= image_tag @event.photo_url %>
           <% else %>
           <%= cl_image_tag @event.venue.photo, height: 200, width: 300, crop: :fill %>

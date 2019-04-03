@@ -92,51 +92,60 @@
 }
 
 .result-resume {
-  border: 2px solid $orange;
-  padding: 30px;
-  margin-left: 40px;
-  margin-right: 40px;
+  // border: 2px solid $orange;
+  // padding: 30px;
+  // margin-left: 40px;
+  // margin-right: 40px;
+  margin: 30px 40px 0px 40px;
 
   width: auto;
-  height: 140;
+  height: 160px;
+  overflow: auto;
   font-weight: bolder;
   text-align: justify;
   p {
     color: white;
     margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: lighter;
   }
 }
 
 .result-resume-theatre{
-  border: 2px solid $orange;
+  // border: 2px solid $orange;
   padding: 30px;
-  height: 140;
   margin-left: 40px;
   margin-right: 40px;
 
   width: auto;
+  height: 160px ;
+  overflow: auto;
   font-weight: bolder;
   text-align: justify;
   p {
     color: white;
     margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: lighter;
   }
 }
 
 .result-resume-bar {
-  border: 2px solid $orange;
-  padding: 30px;
-  height: 140;
+  // border: 2px solid $orange;
+  padding: 20px;
   margin-left: 40px;
   margin-right: 40px;
 
   width: auto;
+  height: 160px;
+  overflow: auto;
   font-weight: bolder;
   text-align: justify;
   p {
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: white;
     margin-bottom: 0;
+    font-weight: lighter;
   }
 }
 
