@@ -15,18 +15,26 @@ class ConcertsApi
 
     if events
       events.each do |event|
-        concert = {}
-        concert[:event] = {
-          nom:            event['displayName'].split('(')[0].rstrip,
-          price:          'payant',
-          category:       'concert',
-          date:           event['start']['date'],
-          beginning_hour: event['start']['time'][0...-3],
-          end_hour:       '',
-          description:    event_description(event),
-          url:            event['uri'],
-          picture:        get_picture_url(event)
-        }
+          concert = {}
+          concert[:event] = {
+            nom:            event['displayName'].split('(')[0].rstrip,
+            price:          'payant',
+            category:       'concert',
+            date:           event['start']['date'],
+            end_hour:       '',
+            description:    event_description(event),
+            url:            event['uri'],
+            picture:        get_picture_url(event)
+          }
+        if !event['start']['time'].nil?
+          concert[:event] = {
+            beginning_hour: event['start']['time'][0...-3]
+          }
+        else
+          concert[:event] = {
+            beginning_hour: '20:00'
+          }
+        end
 
         concert[:venue] = {
           name:         event['venue']['displayName'],
