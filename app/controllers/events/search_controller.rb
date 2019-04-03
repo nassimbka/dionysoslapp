@@ -35,7 +35,7 @@ class Events::SearchController < ApplicationController
 
     "bar_ambiance" => {
       question: "Quel type de musique?",
-      answers: ["electro", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
+      answers: ["electro", "rock", "hip-Hop", "latino"]
     },
 
     "changer_idees_rencontre" => {
@@ -55,7 +55,7 @@ class Events::SearchController < ApplicationController
 
     "bar_pose_musique" => {
       question: "Quel type de musique?",
-      answers: ["soul", "rock", "hip-Hop", "latino", "jazz", "musiques du monde"]
+      answers: ["rock", "latino", "jazz", "musiques du monde"]
     },
 
     "type_culture" => {
