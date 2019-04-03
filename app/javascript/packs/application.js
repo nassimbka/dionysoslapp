@@ -17,8 +17,12 @@ const impatientGif = document.querySelector('.impatient-gif');
 const tagLineEndLoading = document.getElementById('tagline-end-loading')
 const resultWrapper = document.querySelector('.wrapper-index')
 const linkResult = document.querySelector('.link-to-events')
+
 const loadingWrapper = document.querySelector('.wrapper-loading')
 
+if (loadingWrapper) {
+  showLoadingAnimation()
+}
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -59,8 +63,9 @@ function showLoadingAnimation() {
   }
 }
 
-
-showLoadingAnimation()
+// if (params[:action] === "index") {
+  // showLoadingAnimation()
+// }
 
 
 const result1 = document.querySelector('.result1');
@@ -73,15 +78,20 @@ const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
 
 let slideIndex = 0
-showSlides(slideIndex);
 
-leftArrow.addEventListener(("click"), (event)=> {
-  plusSlides(-1);
-})
+if (result1) {
+  showSlides(slideIndex);
+}
 
-rightArrow.addEventListener(("click"), (event)=> {
-  plusSlides(1);
-})
+function carousselHomeMade() {
+  leftArrow.addEventListener(("click"), (event)=> {
+    plusSlides(-1);
+  })
+
+  rightArrow.addEventListener(("click"), (event)=> {
+    plusSlides(1);
+  })
+}
 
 
 function plusSlides(n) {
@@ -101,4 +111,23 @@ function showSlides(n) {
       slides[i].classList.add('hide');
   }
   slides[slideIndex-1].classList.remove('hide');
+}
+
+const phoneNumberForm = document.querySelector('.phone-number')
+const btnTwilio = document.querySelector('.btn-twilio')
+
+if (btnTwilio) {
+
+  btnTwilio.addEventListener(("click"), (event) => {
+    event.preventDefault();
+    phoneNumberForm.classList.remove("hide");
+  });
+
+  const sendBtn = document.querySelector('.send')
+  const msgSendEffectued = document.querySelector('.send-effectued')
+
+  sendBtn.addEventListener(('click'), (event) => {
+    msgSendEffectued.innerHTML = '<p style="color: green; font-size: 20px;">Ton sms à bien été envoyé !</p>'
+    phoneNumberForm.classList.add('hide');
+  })
 }

@@ -34,9 +34,17 @@
         </div>
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
+        <%= link_to share_event_path, method: :post, class: 'link-to-email btn-email' do %>
           <i class="far fa-envelope"></i> Recevoir les détails par email
         <% end %>
+
+        <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+          <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+        <% end %>
+
+        <div class="send-effectued"></div>
+
+        <%= render 'twilio/phone_number' %>
 
       <div class="result-resume">
        <p><%= @event.description %></p>

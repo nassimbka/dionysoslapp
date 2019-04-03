@@ -189,3 +189,29 @@
     }
   }
 }
+
+.phone-number {
+  margin-top: 10px;
+}
+
+.form-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.form-group {
+  margin-bottom: 0 !important;
+}
+
+.button-twilio-form {
+  color: $orange;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.send {
+  margin: 0 15px;
+}
