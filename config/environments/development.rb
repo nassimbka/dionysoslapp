@@ -1,4 +1,7 @@
 Rails.application.configure do
+  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method     = :postmark
+  config.action_mailer.postmark_settings   = { api_key: ENV['POSTMARK_API_KEY'] }
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -47,8 +50,6 @@ Rails.application.configure do
 
   # Copy paste of mailing lecture ==> binds action mailer and letter opener
 
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
