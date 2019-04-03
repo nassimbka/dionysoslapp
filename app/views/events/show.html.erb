@@ -83,6 +83,14 @@
           <i class="far fa-envelope"></i> Recevoir les détails par email
         <% end %>
 
+        <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+          <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+        <% end %>
+
+        <div class="send-effectued"></div>
+
+        <%= render 'twilio/phone_number' %>
+
       <div class="result-resume-theatre">
        <p><%= @event.description %></p>
       </div>
@@ -124,12 +132,22 @@
           <i class="far fa-envelope"></i> Recevoir les détails par email
         <% end %>
 
+        <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+          <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+        <% end %>
+
+        <div class="send-effectued"></div>
+
+        <%= render 'twilio/phone_number' %>
+
       <div class="result-resume-bar">
        <p><%= @event.description %></p>
       </div>
+
       <%= link_to root_path, class: "link-to-rejouer" do %>
         Rejouer
       <% end %>
+
     </div>
   <% end %>
 
