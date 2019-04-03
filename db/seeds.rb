@@ -320,7 +320,6 @@ havana_event = Event.create!(
 )
 
 event_tags[havana.id].each do |tag_name|
-  p tag_name
   EventTag.create!(
     event: havana_event,
     tag: Tag.find_by!(name: tag_name)
@@ -376,11 +375,11 @@ scene_michelet_event = Event.create!(
   venue: scene_michelet,
   beginning_hour: '17:00',
   end_hour: '02:00',
-  description: "Depuis 2007 nous avons transformé cette vieille bâtisse, et au fur et à mesure des années, La Scène Michelet s'est offert une
+  description: "Une vieille bâtisse transformé, La Scène Michelet s'est offert une
               nouvelle jeunesse. Dans le quartier, le lieu a su se faire accepter et c'est désormais une salle à part entière, marquée par sa
               forte identité Rock, incarnée par sa devanture impressionnante réalisée par le collectif Eta Sigma. C'est avec plaisir et fierté
-              que nous vous accueillons dans nos 3 espaces : le bar (avec ses 10 bières à la pression), la salle de concert et la terrasse.
-              Celle-ci est en partie couverte, un espace tranquille et agréable qui fait l’unanimité des habitués du lieu.",
+              que nous vous accueillons dans nos 3 espaces : le bar (avec ses 10 bières à la pression), la salle de concert et la terrasse,
+              un espace tranquille et agréable qui fait l’unanimité des habitués du lieu.",
   url: scene_michelet.url
 )
 
@@ -683,8 +682,8 @@ chat_noir_event = Event.create!(
   venue: chat_noir,
   beginning_hour: '17:00',
   end_hour: '02:00',
-  description: "Le Chat Noir, c’est avant tout un café concerts déjà bien connu des nantais. Les dimanches soirs, des concerts, principalement de
-            blues. Les lundis, soirée jeux. Le mardi, les concerts « semi-acoustiques » sont très réguliers. Chaque mercredi se déroulent
+  description: "Le Chat Noir, c’est un café concerts déjà bien connu des nantais. Les dimanches soirs, des concerts, principalement de
+            blues. Les lundis, soirée jeux. Le mardi, les concerts «semi-acoustiques» sont très réguliers. Chaque mercredi se déroulent
             deux rendez-vous incontournables: l’initiation à la langue des signes de 18h30 à 19h30, et la scène ouverte musicale. Les vendredi
             et samedi laissent place à des soirées mix, vinyles, avec un style musical allant du funk, groove, vintage au rock, en passant
             par la musique balkanique et festive! Un esprit guinguette qu’on aime cultiver ici!!!",

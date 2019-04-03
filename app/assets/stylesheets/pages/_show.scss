@@ -93,16 +93,21 @@
 
 .result-resume {
   // border: 2px solid $orange;
-  padding: 30px;
-  margin-left: 40px;
-  margin-right: 40px;
+  // padding: 30px;
+  // margin-left: 40px;
+  // margin-right: 40px;
+  margin: 30px 40px 0px 40px;
 
   width: auto;
+  height: 160px;
+  overflow: auto;
   font-weight: bolder;
   text-align: justify;
   p {
     color: white;
     margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: lighter;
   }
 }
 
@@ -113,27 +118,34 @@
   margin-right: 40px;
 
   width: auto;
+  height: 160px ;
+  overflow: auto;
   font-weight: bolder;
   text-align: justify;
   p {
     color: white;
     margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: lighter;
   }
 }
 
 .result-resume-bar {
   // border: 2px solid $orange;
-  padding: 30px;
+  padding: 20px;
   margin-left: 40px;
   margin-right: 40px;
 
   width: auto;
+  height: 160px;
+  overflow: auto;
   font-weight: bolder;
   text-align: justify;
   p {
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: white;
     margin-bottom: 0;
+    font-weight: lighter;
   }
 }
 
