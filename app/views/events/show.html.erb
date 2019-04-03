@@ -13,7 +13,7 @@
       <div class="result-presentation">
         <div class="result-photo">
           <% if @event.photo_url == "/design/images/mascotteNb.png" %>
-            <%= image_tag @event.venue.photo %>
+            <%= cl_image_tag @event.venue.photo %>
           <% else %>
             <%= image_tag @event.photo_url %>
           <% end %>
