@@ -47,11 +47,11 @@ puts "Generating tags..."
   "one-man-show",
   "payant",
   "posée",
-  "regarder",
+  "spectateur",
   "rock",
   "dessins animés",
   "science-fiction",
-  "social",
+  "acteur",
   "solo",
   "soul",
   "sportif",
@@ -70,7 +70,7 @@ ConversionWord.create!(name: "epouvante-horreur", tag: Tag.find_by(name: "horreu
 ConversionWord.create!(name: "comedie-dramatique", tag: Tag.find_by(name: "drame"))
 ConversionWord.create!(name: "fantastique", tag: Tag.find_by(name: "science-fiction"))
 ConversionWord.create!(name: "aventure", tag: Tag.find_by(name: "action"))
-ConversionWord.create!(name: "film-d-animation", tag: Tag.find_by(name: "dessins animés"))
+ConversionWord.create!(name: "film", tag: Tag.find_by(name: "dessins animés"))
 
 
 puts "Generating venues..."
@@ -78,61 +78,61 @@ puts "Generating venues..."
 event_tags = {}
 # generic bar
 zygobar = Venue.create!(name: "Le Zygobar", kind: "bar", address: "35 rue des Olivettes, 44000 Nantes", url: "https://www.facebook.com/zygo.bar/", photo: File.open(Rails.root.join('db/fixtures/venues/zygobar.jpg')), phone_number: '02 51 83 51 34') # jazz, culture, bar à ambiance, theme
-event_tags[zygobar.id] = ["posée", "social", "comptoir", "musique", "jazz"]
+event_tags[zygobar.id] = ["posée", "acteur", "comptoir", "musique", "jazz"]
 
 be2m = Venue.create!(name: "Bé2M", kind: "bar", address: "32 bis rue Fouré, 44000 Nantes", url: "https://www.lafourchette.com/restaurant/be2m/391641?cc=15284-c78", photo: File.open(Rails.root.join('db/fixtures/venues/be2m.jpg')), phone_number: '02 51 83 51 34') # bar à vin, tapas, posé, manger un bout
-event_tags[be2m.id] = ["posée", "social", "comptoir", "boisson"]
+event_tags[be2m.id] = ["posée", "acteur", "comptoir", "boisson"]
 
 santeuil = Venue.create!(name: "Santeuil Café", kind: "bar", address: "5 rue Santeuil, 44000 Nantes", url: "https://www.instagram.com/santeuilcafe/?utm_source=ig_embed", photo: File.open(Rails.root.join('db/fixtures/venues/santeuil.jpg')), phone_number: '02 51 83 51 34') # bar à cocktail, soirée blind test tous les derniers mercredi du mois
-event_tags[santeuil.id] = ["posée", "social", "comptoir", "boisson"]
+event_tags[santeuil.id] = ["posée", "acteur", "comptoir", "boisson"]
 
 cantine_du_voyage = Venue.create!(name: "La Cantine du Voyage", kind: "bar", address: "Quai des Antilles, 44000 Nantes", url: "https://www.levoyageanantes.fr/etapes/la-cantine-du-voyage-2/", photo: File.open(Rails.root.join('db/fixtures/venues/cantine_voyage.jpg')), phone_number: '02 51 83 51 34') # lifestyle, jouer, ouverte uniquement du 04/04/2019 au 13/10/2019
-event_tags[cantine_du_voyage.id] = ["posée", "social", "comptoir", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
+event_tags[cantine_du_voyage.id] = ["posée", "acteur", "comptoir", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
 
 bubar = Venue.create!(name: "Le Bubar", kind: "bar", address: "5 rue Louis Blanc, 44200 Nantes", url: "https://www.facebook.com/bubarnantes/", photo: File.open(Rails.root.join('db/fixtures/venues/bubar.jpg')), phone_number: '02 51 83 51 34') # bar à bières,
-event_tags[bubar.id] = ["posée", "social", "comptoir", "boisson"]
+event_tags[bubar.id] = ["posée", "acteur", "comptoir", "boisson"]
 
 nid = Venue.create!(name: "Le Nid", kind: "bar", address: "Tour de Bretagne, Place de Bretagne, 44047 Nantes", url: "https://www.facebook.com/LeNidNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/le_nid.jpg')), phone_number: '02 51 83 51 34') # rooftop, lounge, concerts
-event_tags[nid.id] = ["posée", "social", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
+event_tags[nid.id] = ["posée", "acteur", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
 
 vertigo = Venue.create!(name: "Le Vertigo", kind: "bar", address: "3 mail du Front Populaire, 44200 Nantes", url: "https://www.facebook.com/VertigoNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/vertigo.jpg')), phone_number: '02 51 83 51 34') # bar, rooftop, plusieurs ambiances
-event_tags[vertigo.id] = ["posée", "social", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
+event_tags[vertigo.id] = ["posée", "acteur", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
 
 bateau_lavoir = Venue.create!(name: "Le Bateau Lavoir", kind: "bar", address: "Quai Ceineray, 44000 Nantes", url: "https://www.facebook.com/bateaulavoirNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/lavoir.jpg')), phone_number: '02 51 83 51 34') # péniche, guinguette
-event_tags[bateau_lavoir.id] = ["posée", "social", "comptoir"]
+event_tags[bateau_lavoir.id] = ["posée", "acteur", "comptoir"]
 
 corneille = Venue.create!(name: "Le Corneille", kind: "bar", address: "24 rue Scribe, 44000 Nantes", url: "http://www.aperorestodisco.com/bar-nantes-9629-le-corneille.html", photo: File.open(Rails.root.join('db/fixtures/venues/corneille.jpg')), phone_number: '02 51 83 51 34') # bar classique
-event_tags[corneille.id] = ["posée", "social", "comptoir"]
+event_tags[corneille.id] = ["posée", "acteur", "comptoir"]
 
 berlin1989 = Venue.create!(name: "Berlin 1989", kind: "bar", address: "95 bd Gabriel Lauriol, 44300 Nantes", url: "https://berlin1989.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/berlin.jpg')), phone_number: '02 51 83 51 34') #bar à thème, manger un bout, espace extérieur
-event_tags[berlin1989.id] = ["posée", "social", "comptoir"]
+event_tags[berlin1989.id] = ["posée", "acteur", "comptoir"]
 
 labo = Venue.create!(name: "Le Labo", kind: "bar", address: "19 rue Léon Blum, 44000 Nantes", url: "http://www.lelabo-nantes.com/", photo: File.open(Rails.root.join('db/fixtures/venues/labo.jpg')), phone_number: '02 51 83 51 34') # bar à cocktails
-event_tags[labo.id] = ["posée", "social", "comptoir", "boisson"]
+event_tags[labo.id] = ["posée", "acteur", "comptoir", "boisson"]
 
 lieu_unique = Venue.create!(name: "Le Lieu Unique", kind: "bar", address: "2 rue de la biscuiterie, 44000 Nantes", url: "", photo: File.open(Rails.root.join('db/fixtures/venues/lieu.jpg')), phone_number: '02 51 83 51 34') #bar ambiance, culture, manger un bout
-event_tags[lieu_unique.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "social", "culture"]
+event_tags[lieu_unique.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "acteur", "culture"]
 
 kolocs = Venue.create!(name: "Les Koloc's", kind: "bar", address: "59 Quai de la Fosse, 44000 Nantes", url: "https://www.facebook.com/kolocs/", photo: File.open(Rails.root.join('db/fixtures/venues/kolocs.jpg')), phone_number: '02 51 83 51 34') #bar ambiance, faire la fête
 event_tags[kolocs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
 chat_noir = Venue.create!(name: "Le Chat Noir", kind: "bar", address: "13 allée Duguay-TROUIN, 44000 Nantes", url: "http://www.chat-noir-nantes.fr", photo: File.open(Rails.root.join('db/fixtures/venues/chat_noir.jpg')), phone_number: '06 61 68 66 20')
-event_tags[chat_noir.id] = ["posée", "social", "comptoir", "musique", "rock", "musiques du monde"]
+event_tags[chat_noir.id] = ["posée", "acteur", "comptoir", "musique", "rock", "musiques du monde"]
 
 chien_stupide = Venue.create!(name: "Le Chien Stupide", kind: "bar", address: "4 Rue des Carmélites, 44000 Nantes", url: "https://www.facebook.com/auchienstupide/", photo: File.open(Rails.root.join('db/fixtures/venues/chien_stupide.jpg')), phone_number: '02 40 20 58 39')
-event_tags[chien_stupide.id] = ["posée", "social", "comptoir", "musique", "rock"]
+event_tags[chien_stupide.id] = ["posée", "acteur", "comptoir", "musique", "rock"]
 
 scene_michelet = Venue.create!(name: "La Scène Michelet", kind: "bar", address: "1 Boulevard Henry Orrion, 44000 Nantes", url: "http://www.scenemichelet.com/", photo: File.open(Rails.root.join('db/fixtures/venues/scene_michelet.jpg')), phone_number: '02 40 74 13 13')
-event_tags[scene_michelet.id] = ["posée", "social", "comptoir", "musique", "rock", "dynamique", "gratuit / prix libre", "payant"]
+event_tags[scene_michelet.id] = ["posée", "acteur", "comptoir", "musique", "rock", "dynamique", "gratuit / prix libre", "payant"]
 
 prohibition = Venue.create!(name: "Prohibition", kind: "nightclub", address: "7 rue de la Baclerie, 44000 Nantes", url: "http://barprohibition.com/", photo: File.open(Rails.root.join('db/fixtures/venues/prohibition.jpg')), phone_number: '02 40 47 14 00')
-event_tags[prohibition.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
+event_tags[prohibition.id] = ["posée", "acteur", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
 altercafe = Venue.create!(name: "Altercafé", kind: "nightclub", address: "21 quai des Antilles - Ile de Nantes, 44200", url: "http://altercafe.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/altercafe.jpg')), phone_number: '02 28 20 01 06')
-event_tags[altercafe.id] = ["posée", "social", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "payant", "gratuit / prix libre"]
+event_tags[altercafe.id] = ["posée", "acteur", "comptoir", "musique", "hip-Hop", "electro", "dynamique", "solo", "groupe", "musique", "payant", "gratuit / prix libre"]
 
 havana = Venue.create!(name: "Havana-café", kind: "bar", address: "2 rue de la Juiverie, Quartier Bouffay, 44000 Nantes", url: "http://www.havana-cafe-nantes.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/havana.jpg')), phone_number: '07 82 52 30 15')
-event_tags[havana.id] = ["posée", "social", "comptoir", "latino", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
+event_tags[havana.id] = ["posée", "acteur", "comptoir", "latino", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
 la_calle = Venue.create!(name: "La Calle", kind: "bar", address: "21 Quai des Antilles à Nantes, 44200 Nantes", url: "http://www.barlacalle.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/la_calle.jpg')), phone_number: '02 51 82 72 18')
 event_tags[la_calle.id] = ["latino", "boisson", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
@@ -141,16 +141,16 @@ el_latino = Venue.create!(name: "El Latino", kind: "bar", address: "1 rue Marie 
 event_tags[el_latino.id] = ["latino", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre"]
 
 melocotton = Venue.create!(name: "Melocotton", kind: "bar", address: "9, rue de l'heronnière, 44000 Nantes", url: "https://www.facebook.com/melocottoncafeconcert/", photo: File.open(Rails.root.join('db/fixtures/venues/melocotton.jpg')), phone_number: '09 53 30 50 81')
-event_tags[melocotton.id] = ["posée", "social", "comptoir", "musique", "jazz"]
+event_tags[melocotton.id] = ["posée", "acteur", "comptoir", "musique", "jazz"]
 
 triolet = Venue.create!(name: "Le Triolet", kind: "bar", address: "8, rue de l'hermitage, 44100 Nantes", url: "https://www.facebook.com/letriolet/", photo: File.open(Rails.root.join('db/fixtures/venues/triolet.jpg')), phone_number: '02 40 69 32 30')
-event_tags[triolet.id] = ["posée", "social", "comptoir", "musique", "jazz", "musiques du monde"]
+event_tags[triolet.id] = ["posée", "acteur", "comptoir", "musique", "jazz", "musiques du monde"]
 
 ferrailleur = Venue.create!(name: "Le Ferrailleur", kind: "bar", address: "Quai des Antilles, 44200 Nantes", url: "http://www.leferrailleur.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/ferrailleur.jpg')), phone_number: '02 52 10 45 25')
 event_tags[ferrailleur.id] = ["musique", "rock", "dynamique", "gratuit / prix libre", "payant", "musiques du monde", "hip-Hop"]
 
 aux_ptits_joueurs = Venue.create!(name: "Aux Ptits Joueurs", kind: "bar", address: "23 Rue du Port Guichard 44000 Nantes", url: "https://www.facebook.com/ptitsjoueurs/", photo: File.open(Rails.root.join('db/fixtures/venues/petits.jpg')), phone_number: '02 51 83 51 34') # typique/traditionnel, boule nantaise, boire, manger un bout, concert, jeux
-event_tags[aux_ptits_joueurs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "activité", "tranquille", "posée", "social", "comptoir", "musique"]
+event_tags[aux_ptits_joueurs.id] = ["dynamique", "solo", "groupe", "musique", "gratuit / prix libre", "activité", "tranquille", "posée", "acteur", "comptoir", "musique"]
 
 # generic nightclub
 macadam = Venue.create!(name: "Macadam", kind: "nightclub", address: "17 rue Jules Launay - Nantes", url: "https://www.facebook.com/macadam.nantes/", photo: File.open(Rails.root.join('db/fixtures/venues/macadam.jpg')), phone_number: '02 51 83 51 34') # danser, se défouler, club, électro
@@ -887,7 +887,7 @@ puts "Generating dynamic venues..."
 # /////////////////// Dynamic Venues ////////////////
 # every thursday evening
 musee_darts_de_nantes = Venue.create!(name: "Musée d'arts de Nantes", kind: "musée", address: "10 Rue Georges Clemenceau, 44000 Nantes", url: "https://museedartsdenantes.nantesmetropole.fr/en/home.html", photo: File.open(Rails.root.join('db/fixtures/venues/musee.jpg')), phone_number: '02 51 83 51 34') # tous les jeudis nocturne gratuite de 19 a 21, musée, culture, posé
-event_tags[musee_darts_de_nantes.id] = ["posée", "social", "culture", "exposition"]
+event_tags[musee_darts_de_nantes.id] = ["posée", "acteur", "culture", "exposition"]
 
 event = Event.create!(
   price: 0,
@@ -910,17 +910,17 @@ end
 
 # dynamic events
 theatre_de_jeanne = Venue.create!(name: "Théâtre de Jeanne", kind: "théâtre", address: "5 rue des Salorges 44000 Nantes", url: "www.theatre-jeanne.com", photo: File.open(Rails.root.join('db/fixtures/venues/jeanne.jpg')), phone_number: '02 51 83 51 34') #théâtre, culture, posé, seul, en groupe
-event_tags[theatre_de_jeanne.id] = ["posée", "regarder", "théâtre"]
+event_tags[theatre_de_jeanne.id] = ["posée", "spectateur", "théâtre"]
 
 katorza = Venue.create!(name: "Katorza", kind: "cinéma", address: "3 Rue Corneille, 44000 Nantes", url: "www.katorza.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/katorza.jpg'))) # cinéma
-event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
+event_tags[katorza.id] = ["posée", "spectateur", "cinéma"]
 
 gaumont = Venue.create!(name: "Gaumont Nantes", kind: "cinéma", address: "12 place du commerce, 44000 Nantes ", url: "https://www.cinemaspathegaumont.com/cinemas/cinema-gaumont-nantes", photo: File.open(Rails.root.join('db/fixtures/venues/gaumont.jpg'))) # cinéma
 
-event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
+event_tags[katorza.id] = ["posée", "spectateur", "cinéma"]
 
 cinematographe = Venue.create!(name: "Le Cinématographe", kind: "cinéma", address: "12bis Rue des Carmélites, 44000 Nantes", url: "https://www.lecinematographe.com/", photo: File.open(Rails.root.join('db/fixtures/venues/cinema.jpg')), phone_number: '02 51 83 51 34') # cinéma, culture
-event_tags[katorza.id] = ["posée", "regarder", "cinéma"]
+event_tags[katorza.id] = ["posée", "spectateur", "cinéma"]
 
 puts "Fetching Cinema"
 # TODO dynamic events with scraping

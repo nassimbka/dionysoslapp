@@ -5,7 +5,7 @@ class FetchCinemaEventsService
     films_tags = [
       Tag.find_by(name: 'cinéma'),
       Tag.find_by(name: "posée"),
-      Tag.find_by(name: "regarder")
+      Tag.find_by(name: "spectateur")
     ]
 
     films = CinemaScraper.new.scrape
