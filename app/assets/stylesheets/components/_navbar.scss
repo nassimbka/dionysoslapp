@@ -47,3 +47,17 @@
     text-decoration: none;
   }
 }
+
+.steps-navbar {
+  a {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: $light-gray;
+    margin-right: 25px;
+  }
+
+  a:hover {
+    color: $orange;
+  }
+}
