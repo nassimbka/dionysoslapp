@@ -210,6 +210,10 @@
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
+  &:hover {
+    text-decoration: none;
+    color: $white
+  }
 }
 
 .send {
@@ -220,5 +224,11 @@
   display: flex;
   justify-content: center;
   align-item: center;
+}
+
+.share-presentation-result {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
