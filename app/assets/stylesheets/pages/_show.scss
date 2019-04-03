@@ -92,12 +92,13 @@
 }
 
 .result-resume {
-  // border: 2px solid $orange;
+  border: 2px solid $orange;
   padding: 30px;
   margin-left: 40px;
   margin-right: 40px;
 
   width: auto;
+  height: 140;
   font-weight: bolder;
   text-align: justify;
   p {
@@ -107,8 +108,9 @@
 }
 
 .result-resume-theatre{
-  // border: 2px solid $orange;
+  border: 2px solid $orange;
   padding: 30px;
+  height: 140;
   margin-left: 40px;
   margin-right: 40px;
 
@@ -122,8 +124,9 @@
 }
 
 .result-resume-bar {
-  // border: 2px solid $orange;
+  border: 2px solid $orange;
   padding: 30px;
+  height: 140;
   margin-left: 40px;
   margin-right: 40px;
 
