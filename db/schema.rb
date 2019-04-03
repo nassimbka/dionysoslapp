@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_073319) do
+ActiveRecord::Schema.define(version: 2019_04_01_071349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_073319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_url"
-<<<<<<< HEAD
-    t.string "cinema_genre"
-=======
     t.string "genre"
->>>>>>> e6962ec634cc463c2fec708f733ae2880b67ff2b
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
