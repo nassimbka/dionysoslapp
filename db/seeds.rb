@@ -70,7 +70,7 @@ ConversionWord.create!(name: "epouvante-horreur", tag: Tag.find_by(name: "horreu
 ConversionWord.create!(name: "comedie-dramatique", tag: Tag.find_by(name: "drame"))
 ConversionWord.create!(name: "fantastique", tag: Tag.find_by(name: "science-fiction"))
 ConversionWord.create!(name: "aventure", tag: Tag.find_by(name: "action"))
-ConversionWord.create!(name: "film-d-animation", tag: Tag.find_by(name: "dessins animés"))
+ConversionWord.create!(name: "film", tag: Tag.find_by(name: "dessins animés"))
 
 
 puts "Generating venues..."
