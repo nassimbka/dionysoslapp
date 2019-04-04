@@ -911,7 +911,7 @@ end
 
 lasergame_evolution_event = Event.create!(
   price: 0,
-  name: "Soirée au City Kart",
+  name: "Soirée au Laser Game Evolution",
   category: "Lasergame",
   venue: lasergame_evolution,
   beginning_hour: '12:00',
