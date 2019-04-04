@@ -194,6 +194,10 @@
   margin-top: 10px;
 }
 
+.email {
+  padding-top: 3px;
+}
+
 .form-inputs {
   display: flex;
   align-items: center;
@@ -216,7 +220,18 @@
   }
 }
 
+.button-actionMailer-form {
+  color: $orange;
+  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
 .send {
+  margin: 0 15px;
+}
+
+.send2 {
   margin: 0 15px;
 }
 

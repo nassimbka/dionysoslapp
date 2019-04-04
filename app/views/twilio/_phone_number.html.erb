@@ -1,8 +1,8 @@
 <div class="phone-number hide">
-<%= simple_form_for :phone_number, url: share_event_path(@event), method: :post do |f| %>
+<%= simple_form_for :notification, url: share_event_path(@event), method: :post do |f| %>
   <div class="form-inputs">
     <%= f.input :phone_number, label: false, placeholder: 'Drop ton 06 !' %>
-    <%= f.input :notification_way, as: :hidden, input_html: {value: "texto"} %>
+    <%= f.input :mode, as: :hidden, input_html: {value: "texto"} %>
     <%= f.button :submit, 'Envoyer', class: 'button-twilio-form send' %>
     <%= link_to "Annuler", event_path(@event), class: 'button-twilio-form' %>
   </div>

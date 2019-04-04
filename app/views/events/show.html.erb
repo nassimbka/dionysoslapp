@@ -20,7 +20,7 @@
           <h3>Film d'Animation</h3>
         <% else %>
           <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
-        <% end %>
+        <% end %>email
       </div>
       <div class="result-presentation">
         <div class="result-photo">
@@ -47,9 +47,18 @@
         </div>
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email btn-email' do %>
+
+        <!-- Bouton et form actionMailer -->
+
+        <%= link_to '#', class: 'link-to-email btn-email' do %>
           <i class="far fa-envelope"></i> Recevoir les détails par email
         <% end %>
+
+        <div class="send-effectued"></div>
+
+        <%= render 'event_mailer/email_form' %>
+
+        <!-- Bouton et form twilio -->
 
         <%= link_to '#', class: 'link-to-email btn-twilio' do %>
           <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
@@ -88,23 +97,32 @@
         </div>
       </div>
 
+      <!-- Bouton et form actionMailer -->
+
+      <%= link_to '#', class: 'link-to-email btn-email' do %>
+        <i class="far fa-envelope"></i> Recevoir les détails par email
+      <% end %>
+
+      <div class="send-effectued"></div>
+
+      <%= render 'event_mailer/email_form' %>
+
+      <!-- Bouton et form twilio -->
+
+      <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+        <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+      <% end %>
+
+      <div class="send-effectued"></div>
+
+      <%= render 'twilio/phone_number' %>
+
       <div class="result-share"> <!-- Div cree par Patri pour mettre buttons de share -->
           <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-facebook"></i></a>
           <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-twitter-square"></i></a>
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
-          <i class="far fa-envelope"></i> Recevoir les détails par email
-        <% end %>
-
-        <%= link_to '#', class: 'link-to-email btn-twilio' do %>
-          <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
-        <% end %>
-
-        <div class="send-effectued"></div>
-
-        <%= render 'twilio/phone_number' %>
-
+      
       <div class="result-resume-theatre">
        <p><%= @event.description %></p>
       </div>
@@ -144,17 +162,23 @@
 
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
-          <i class="far fa-envelope"></i> Recevoir les détails par email
-        <% end %>
+      <!-- Bouton et form actionMailer -->
 
-        <%= link_to '#', class: 'link-to-email btn-twilio' do %>
-          <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
-        <% end %>
+      <%= link_to '#', class: 'link-to-email btn-email' do %>
+        <i class="far fa-envelope"></i> Recevoir les détails par email
+      <% end %>
 
-        <div class="send-effectued"></div>
+      <div class="send-effectued"></div>
 
-        <%= render 'twilio/phone_number' %>
+      <%= render 'event_mailer/email_form' %>
+
+      <!-- Bouton et form twilio -->
+
+      <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+        <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+      <% end %>
+
+      <div class="send-effectued"></div>
 
       <div class="result-resume-bar">
        <p><%= @event.description %></p>
