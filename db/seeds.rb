@@ -156,6 +156,12 @@ event_tags[aux_ptits_joueurs.id] = ["dynamique", "solo", "groupe", "musique", "g
 macadam = Venue.create!(name: "Macadam", kind: "nightclub", address: "17 rue Jules Launay - Nantes", url: "https://www.facebook.com/macadam.nantes/", photo: File.open(Rails.root.join('db/fixtures/venues/macadam.jpg')), phone_number: '02 51 83 51 34') # danser, se défouler, club, électro
 event_tags[macadam.id] = ["dynamique", "solo", "groupe", "musique", "payant", "electro"]
 
+warehouse = Venue.create!(name: "Warehouse", kind: "nightclub", address: "21 Quai des Antilles, 44200 Nantes", url: "https://www.warehouse-nantes.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/warehouse.jpg')), phone_number: '02 40 99 01 30') # danser, se défouler, club, électro
+event_tags[warehouse.id] = ["dynamique", "solo", "groupe", "musique", "payant", "electro"]
+
+new_factory = Venue.create!(name: "New Factory", kind: "nightclub", address: "12 rue de Rieux, 44000 Nantes", url: "https://www.new-factory.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/new_factory.jpg')), phone_number: '02 52 10 45 25') # danser, se défouler, club, électro
+event_tags[new_factory.id] = ["dynamique", "solo", "groupe", "musique", "payant", "electro"]
+
 # generic activity
 bowl_center = Venue.create!(name: "BowlCenter", kind: "bowling", address: "151 Rue du Moulin de la Rousselière, 44800 Saint-Herblain", url: "https://nantes.bowlcenter.fr/", photo: File.open(Rails.root.join('db/fixtures/venues/bowl.jpg')), phone_number: '02 51 83 51 34') # activité, groupe, posé
 event_tags[bowl_center.id] = ["dynamique", "groupe", "activité", "tranquille"]
@@ -724,7 +730,7 @@ macadam_event = Event.create!(
   category: "Dance & Night Club",
   venue: macadam,
   beginning_hour: '22:00',
-  end_hour: '05:00',
+  end_hour: '07:00',
   description: "Le Macadam c'est un lieu où l'on vient danser et découvrir les musiques électroniques dans toute leur diversité: house music,
               dub, hardcore, danse ou psytrance. Un dimanche par mois, de 7h à 22h, Gloria - All day long permet de venir s'éclater en
               sortant des sentiers battus avec succession de DJ! Amusez-vous, surprenez-nous!, tel est le crédo de Macadam.",
@@ -734,6 +740,48 @@ macadam_event = Event.create!(
 event_tags[macadam.id].each do |tag_name|
   EventTag.create!(
     event: macadam_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+warehouse_event = Event.create!(
+  price: 0,
+  name: "Soirée au Warehouse",
+  category: "Dance & Night Club",
+  venue: warehouse,
+  beginning_hour: '22:00',
+  end_hour: '07:00',
+  description: "Programmation musicale de haute voltige, identité du lieu complètement renouvelée... Le Warehouse réinvestit les 3500 m2 de
+              l'ancien LC Club, avec une proposition neuve. Plus qu'une simple boite de nuit, le Warehouse est en fait une salle de concerts et
+              de spectacle, dont la programmation est - pour l'instant en tous cas - centrée autour de soirées électro animées par des DJs de
+              renom.",
+  url: warehouse.url
+)
+
+event_tags[warehouse.id].each do |tag_name|
+  EventTag.create!(
+    event: warehouse_event,
+    tag: Tag.find_by!(name: tag_name)
+  )
+end
+
+new_factory_event = Event.create!(
+  price: 0,
+  name: "Soirée @ New Factory",
+  category: "Dance & Night Club",
+  venue: new_factory,
+  beginning_hour: '22:00',
+  end_hour: '07:00',
+  description: "Ouvert depuis mars 2017, le New Factory a remplacé le Cookoo. Avec un nouveau concept : le club t’entraine de l’apéro (à partir
+  de 18 heures, faut pas déconner non plus !), jusqu’au bout de la nuit ( et jusqu’à l’insomnie…). La boîte a fait peau neuve, en arborant une
+  nouvelle déco industrielle et urbaine, mais reste l’un des clubs les moins chers de Nantes, 5€ l’entrée (mais sans conso) ! Gros coup de coeur:
+  Le Bonbon valide la terrasse ouverte dès 18h avec sa propre ambiance afterwork. ",
+  url: new_factory.url
+)
+
+event_tags[new_factory.id].each do |tag_name|
+  EventTag.create!(
+    event: new_factory_event,
     tag: Tag.find_by!(name: tag_name)
   )
 end
@@ -883,29 +931,6 @@ event_tags[lasergame_evolution.id].each do |tag_name|
 end
 
 puts "Generating dynamic venues..."
-# /////////////////// Dynamic Venues ////////////////
-# every thursday evening
-musee_darts_de_nantes = Venue.create!(name: "Musée d'arts de Nantes", kind: "musée", address: "10 Rue Georges Clemenceau, 44000 Nantes", url: "https://museedartsdenantes.nantesmetropole.fr/en/home.html", photo: File.open(Rails.root.join('db/fixtures/venues/musee.jpg')), phone_number: '02 51 83 51 34') # tous les jeudis nocturne gratuite de 19 a 21, musée, culture, posé
-event_tags[musee_darts_de_nantes.id] = ["posée", "acteur", "culture", "exposition"]
-
-event = Event.create!(
-  price: 0,
-  name: "Les nocturnes du Musée d'arts de Nantes",
-  category: "Musée",
-  venue: musee_darts_de_nantes,
-  beginning_hour: '19h00',
-  end_hour: '21h00',
-  description: "Tous les jeudis de 19h à 21h, le musée est en entrée libre ! Après le travail ou pour débuter la soirée, profitez de ces deux heures entre amis ou en famille pour découvrir le musée ! ",
-  url: "https://museedartsdenantes.nantesmetropole.fr/nocturnes",
-  picture: musee_darts_de_nantes.photo
-)
-
-event_tags[musee_darts_de_nantes.id].each do |tag_name|
-  EventTag.create!(
-    event: event,
-    tag: Tag.find_by!(name: tag_name)
-  )
-end
 
 # dynamic events
 theatre_de_jeanne = Venue.create!(name: "Théâtre de Jeanne", kind: "théâtre", address: "5 rue des Salorges 44000 Nantes", url: "www.theatre-jeanne.com", photo: File.open(Rails.root.join('db/fixtures/venues/jeanne.jpg')), phone_number: '02 51 83 51 34') #théâtre, culture, posé, seul, en groupe
