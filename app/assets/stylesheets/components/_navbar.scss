@@ -36,6 +36,9 @@
 
 .link-orange a {
   color: $white;
+  &:hover {
+    color: $orange;
+  }
 }
 
 .step-bar {

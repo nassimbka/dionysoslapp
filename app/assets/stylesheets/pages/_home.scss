@@ -51,8 +51,9 @@
   text-align: center;
   h2 {
     color: $orange;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 3em;
+    font-family: $headers-font;
+    font-size: 3.5em;
+    font-weight: 300;
   }
   margin: 25px 0;
 }

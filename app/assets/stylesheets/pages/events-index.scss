@@ -46,7 +46,8 @@
 }
 
 #tagline-end-loading {
-  font-family: 'Permanent Marker', cursive;
+  font-family: $headers-font;
+  font-weight: 300;
   margin-bottom: 25px;
   font-size: 45px;
   color: $orange;
@@ -187,18 +188,19 @@
   //   color: $orange;
   //   font-size: 25px;
   // }
-  margin-top: 40px;
-  font-family: 'Oswald', sans-serif;
   text-decoration: none;
-  color: $orange;
-  border: 3px solid $orange;
-  padding: 10px 15px;
-  h1 {
-    color: $orange;
-    font-size: 40px;
-  }
+  // color: $orange;
+  border-bottom: 4px solid $orange;
+  color: $white;
+  margin-top: 40px;
+  padding: 10px 20px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 40px;
   &:hover {
-    background-color: rgba(150, 150, 150, 0.2);
+    color: $white;
+    border-radius: 8px;
+    background-color: $orange;
+    transition: all .5s ease;
     text-decoration: none;
   }
 }
