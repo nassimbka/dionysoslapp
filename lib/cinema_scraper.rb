@@ -22,7 +22,7 @@ class CinemaScraper
           date: film.search('li:first-child time').text.delete("\n").gsub("\r", " "),
           photo: result_method[:photo],
           resume: result_method[:resume],
-          url: url,
+          url: "https://nantes.maville.com#{film.search('.floatL a').attribute('href').value}",
           genre: film.search('.elmt-text a').text.split.first
         }
       end
