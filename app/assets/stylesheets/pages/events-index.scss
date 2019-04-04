@@ -204,3 +204,41 @@
     text-decoration: none;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  h1#tagline-end-loading {
+    font-size: 27px;
+    text-align: center;
+  }
+
+  .tagline-index-loading {
+    h1 {
+      font-size: 1.5em;
+      padding-left: 10px;
+    }
+
+    h3 {
+      font-size: 22px;
+      padding-left: 10px;
+      margin-top: 15px;
+    }
+  }
+
+  a.link-to-events {
+    font-size: 22px;
+  }
+
+  .loading-stepbar li {
+    font-size: 2em;
+  }
+
+  .wrapper-loading .impatient-gif {
+    display: none;
+  }
+
+  .text-result .h1 {
+    font-size: 45px;
+  }
+}
