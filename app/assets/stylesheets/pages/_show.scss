@@ -295,39 +295,39 @@
 }
 
 @media (max-width: 768px) {
-  .answer-card {
-    font-size: 0.75em;
-  }
 
-  .show-container-2, .show-container-3 {
+  .result-presentation {
+    display: flex;
     flex-direction: column;
   }
 
-  .show-container-2 .link-card-2 {
-    height: calc(50vh - 30px) ;
-
+  .wrapper-show {
+    height: auto;
   }
 
-  // .show-container-2, .show-container-3 {
-  //   flex-direction: column;
-
-  // }
-
-  // .show-container-2 .link-card-2 {
-  //   height: calc(50vh - 30px) ;
-
-  // }
-
-  .show-container-3 .link-card-3 {
-    height: calc(33.333333vh - 20px) ;
-
+  .retour-link {
+    position: relative;
+    bottom: 0;
   }
 
-  .show-container-6 .answer-card {
-    // height: calc(33.333333vh - 20px) ;
-    width: 100vw ;
+  .container-bar, .container-cinema {
+    width: 100vw;
   }
 
+  .result-share {
+    flex-direction: column;
+  }
+
+  .result-details {
+    margin-top: 15px;
+  }
+
+  div.result-resume-bar, div.result-resume-theatre {
+    margin: 0;
+    padding: 0;
+  }
+
+  height: 100%;
 }
 
 // @media (max-width: 420px) { => resolution mobile
