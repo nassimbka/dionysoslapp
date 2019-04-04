@@ -27,10 +27,11 @@
           <% if @event.venue.phone_number.present? %>
           <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
-          <h3>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>"><i class="fab fa-twitter-square"></i></a>
-          </h3>
+        </div>
+
+        <div class="result-share"> <!-- Div cree pour mettre buttons de share por Patri -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-twitter-square"></i></a>
         </div>
       </div>
 
@@ -72,11 +73,12 @@
           <% if @event.venue.phone_number.present? %>
           <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
-          <h3>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>"><i class="fab fa-twitter-square"></i></a>
-          </h3>
         </div>
+      </div>
+
+      <div class="result-share"> <!-- Div cree par Patri pour mettre buttons de share -->
+          <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-facebook"></i></a>
+          <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-twitter-square"></i></a>
       </div>
 
         <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
@@ -121,11 +123,13 @@
           <% if @event.venue.phone_number.present? %>
           <h3><i class="fas fa-phone"></i>&nbsp <%= @event.venue.phone_number %></h3>
           <% end %>
-          <h3>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>"><i class="fab fa-twitter-square"></i></a>
-          </h3>
         </div>
+
+        <div class="result-share"> <!-- Div cree par Patri pour mettre buttons de share -->
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-twitter-square"></i></a>
+        </div>
+
       </div>
 
         <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
