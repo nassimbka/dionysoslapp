@@ -1,3 +1,15 @@
+<% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} te suggère #{@event.name}" %>
+<% content_for :meta_description, "#{DEFAULT_META["meta_product_name"]} #{@event.description}" %>
+<% content_for :meta_image do %>
+  <% if @event.photo_url %>
+    <% image_path(@event.photo_url) %>
+  <% elsif @event.venue.photo.present? %>
+    <% cl_image_path @event.venue.photo %>
+  <% else %>
+    <% DEFAULT_META["meta_image"] %>
+  <% end %>
+<% end %>
+
 <div class="wrapper-show" style="background-image: linear-gradient(rgba(20,20,20,0.5),rgba(20,20,20,0.5)), url(<%= image_path "homegifs/homegif.gif" %>);">
 
   <% if @event.category == "Cinéma" || @event.category == "Concert" %>
