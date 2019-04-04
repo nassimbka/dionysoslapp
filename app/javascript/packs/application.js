@@ -122,10 +122,11 @@ if (btnTwilio) {
   btnTwilio.addEventListener(("click"), (event) => {
     event.preventDefault();
     phoneNumberForm.classList.remove("hide");
+    actionMailerForm.classList.add('hide')
   });
 
   const sendBtn = document.querySelector('.send')
-  const msgSendEffectued = document.querySelector('.send-effectued')
+  const msgSendEffectued = document.querySelector('.send-effectued-texto')
 
   sendBtn.addEventListener(('click'), (event) => {
     msgSendEffectued.innerHTML = '<p style="color: green; font-size: 20px;">Ton sms a bien été envoyé !</p>'
@@ -142,10 +143,11 @@ if (btnActionMailer) {
   btnActionMailer.addEventListener(("click"), (event) => {
     event.preventDefault();
     actionMailerForm.classList.remove("hide");
+    phoneNumberForm.classList.add('hide');
   });
 
   const sendBtn = document.querySelector('.send2')
-  const msgSendEffectued = document.querySelector('.send-effectued')
+  const msgSendEffectued = document.querySelector('.send-effectued-mail')
 
   sendBtn.addEventListener(('click'), (event) => {
     msgSendEffectued.innerHTML = '<p style="color: green; font-size: 20px;">Ton mail a bien été envoyé !</p>'

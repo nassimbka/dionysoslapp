@@ -151,13 +151,13 @@
 }
 
 .link-to-email {
-  margin-top: 10px;
-  font-size: 25px;
-  color: $orange;
+  margin: 10px;
+  font-size: 40px;
+  color: lightgrey;
   text-decoration: none;
   &:hover {
     text-decoration: none;
-    color: $white;
+    color: $orange;
   }
 }
 
@@ -195,7 +195,7 @@
 }
 
 .email {
-  padding-top: 3px;
+  padding-top: 5px;
 }
 
 .form-inputs {
@@ -225,6 +225,10 @@
   font-size: 15px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
+  &:hover {
+    text-decoration: none;
+    color: $white
+  }
 }
 
 .send {
@@ -247,3 +251,41 @@
   align-items: center;
 }
 
+// .send-details {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 80px;
+// }
+
+.send-tagline {
+  font-size: 25px;
+  margin: 0 10px;
+  text-align: center;
+  color: $orange;
+}
+
+.fav-social {
+  a {
+    margin: 0 10px;
+    font-size: 40px;
+    color: lightgrey;
+    text-decoration: none;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+.result-share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.send-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+}
