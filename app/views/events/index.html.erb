@@ -44,7 +44,9 @@
 
     <div class="text-result">
       <h1><%= @events.first.name %></h1>
-      <h2><%= @events.first.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.first.venue.name %></h2><% end %>
+      <% if @events.first.category != nil %>
+        <h2><%= @events.first.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.first.venue.name %></h2><% end %>
+      <% end %>
       <% if @events.first.genre == "Film" %>
         <h3>Film d'Animation</h3>
       <% elsif @events.first.category == "Cinéma" %>
@@ -70,7 +72,9 @@
 
     <div class="text-result">
       <h1><%= @events.second.name %></h1>
-      <h2><%= @events.second.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.second.venue.name %></h2><% end %>
+     <% if @events.second.category != nil %>
+            <h2><%= @events.second.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.second.venue.name %></h2><% end %>
+          <% end %>
       <% if @events.second.genre == "Film" %>
        <h3>Film d'Animation</h3>
       <% elsif @events.second.category == "Cinéma" %>
@@ -96,7 +100,9 @@
 
     <div class="text-result">
       <h1><%= @events.third.name %></h1>
-      <h2><%= @events.third.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.third.venue.name %></h2><% end %>
+      <% if @events.third.category != nil %>
+             <h2><%= @events.third.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.third.venue.name %></h2><% end %>
+           <% end %>
       <% if @events.third.genre == "Film" %>
         <h3>Film d'Animation</h3>
       <% elsif @events.third.category == "Cinéma" %>

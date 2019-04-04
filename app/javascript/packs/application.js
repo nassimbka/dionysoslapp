@@ -79,11 +79,12 @@ const rightArrow = document.querySelector('.right-arrow');
 
 let slideIndex = 0
 
-if (result1) {
-  showSlides(slideIndex);
-}
+// if (result1) {
+// }
 
-function carousselHomeMade() {
+// function carousselHomeMade() {
+if (rightArrow) {
+  showSlides(slideIndex);
   leftArrow.addEventListener(("click"), (event)=> {
     plusSlides(-1);
   })
