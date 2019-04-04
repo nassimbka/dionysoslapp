@@ -1,5 +1,5 @@
 <% content_for :meta_title, "#{DEFAULT_META["meta_product_name"]} te suggère #{@event.name}" %>
-<% content_for :meta_description, "#{DEFAULT_META["meta_product_name"]} #{@event.description}" %>
+<% content_for :meta_description, "#{@event.description}" %>
 <% content_for :meta_image do %>
   <% if @event.photo_url %>
     <% image_path(@event.photo_url) %>
@@ -122,7 +122,7 @@
           <a href="https://twitter.com/home?status=<%= request.base_url + event_path(@event) %>" target="_blank" onclick="window.open(this.href,'targetWindow','toolbar=no,location=0,status=no,menubar=no,scrollbars=yes,resizable=yes,width=600,height=250'); return false" ><i class="fab fa-twitter-square"></i></a>
       </div>
 
-      
+
       <div class="result-resume-theatre">
        <p><%= @event.description %></p>
       </div>
