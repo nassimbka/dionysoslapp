@@ -146,11 +146,16 @@
   // border: 8px solid $orange;
   margin-top: 30px;
   h1  {
-    font-size: 55px;
+    font-size: 45px;
     color: $white;
   }
   h3 {
     color: $white;
+  }
+  h2 {
+    font-family: $headers-font;
+    font-size: 35px;
+    font-weight: 300;
   }
 }
 
