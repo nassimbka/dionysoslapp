@@ -292,3 +292,47 @@
   align-items: center;
   width: 350px;
 }
+
+@media (max-width: 768px) {
+  .answer-card {
+    font-size: 0.75em;
+  }
+
+  .show-container-2, .show-container-3 {
+    flex-direction: column;
+  }
+
+  .show-container-2 .link-card-2 {
+    height: calc(50vh - 30px) ;
+
+  }
+
+  // .show-container-2, .show-container-3 {
+  //   flex-direction: column;
+
+  // }
+
+  // .show-container-2 .link-card-2 {
+  //   height: calc(50vh - 30px) ;
+
+  // }
+
+  .show-container-3 .link-card-3 {
+    height: calc(33.333333vh - 20px) ;
+
+  }
+
+  .show-container-6 .answer-card {
+    // height: calc(33.333333vh - 20px) ;
+    width: 100vw ;
+  }
+
+}
+
+// @media (max-width: 420px) { => resolution mobile
+
+// }
+
+// @media (max-width: 768px) {
+
+// }

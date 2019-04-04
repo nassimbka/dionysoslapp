@@ -64,3 +64,19 @@
     background-size: cover;
     background-position: center;
   }
+
+
+@media (max-width: 768px) {
+  .logo-home img {
+    max-width: 80vw;
+  }
+
+  .start-button a {
+    font-size: 1.5em;
+  }
+
+  .text-tagline h2 {
+    font-size: 1.6em;
+  }
+
+}
