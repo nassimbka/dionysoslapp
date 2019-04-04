@@ -44,16 +44,18 @@ class EventsController < ApplicationController
   def share
     @event = Event.find(params[:id])
 
-    if share_params[:notification_way] == "mail"
-      EventMailer.share('nassim106@hotmail.com', params[:id]).deliver_now
-    elsif share_params[:notification_way] == "texto"
+    if share_params_email[:mode] == "mail"
+      EventMailer.share(share_params_email[:email], params[:id]).deliver_now
+      redirect_to event_path(@event)
+    elsif share_params_texto[:mode] == "texto"
       @client = Twilio::REST::Client.new(ENV['account_sid'], ENV['auth_token'])
 
       @client.api.account.messages.create(
         from: '+33644648036',
-        to: share_params[:phone_number],
+        to: share_params_texto[:phone_number],
         body: "Salutations Nantais! Voici les détails de la soirée que Dionysos à trouvé pour toi ! #{@event.name}, #{@event.venue.address}"
       )
+      redirect_to event_path(@event)
     end
   end
 
@@ -63,7 +65,11 @@ class EventsController < ApplicationController
 
   private
 
-  def share_params
-    params.require(:phone_number).permit(:notification_way, :phone_number)
+  def share_params_texto
+    params.require(:notification).permit(:mode, :phone_number)
+  end
+
+  def share_params_email
+    params.require(:notification).permit(:mode, :email)
   end
 end

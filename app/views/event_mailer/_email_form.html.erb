@@ -1,0 +1,10 @@
+<div class="email hide">
+<%= simple_form_for :notification, url: share_event_path(@event), method: :post do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, label: false, placeholder: 'Balance ton mail !' %>
+    <%= f.input :mode, as: :hidden, input_html: {value: "mail"} %>
+    <%= f.button :submit, 'Envoyer', class: 'button-actionMailer-form send2' %>
+    <%= link_to "Annuler", event_path(@event), class: 'button-actionMailer-form' %>
+  </div>
+<% end %>
+</div>

@@ -8,7 +8,7 @@
           <h3>Film d'Animation</h3>
         <% else %>
           <h3><%= @event.category.capitalize %> - <%= @event.genre %></h3>
-        <% end %>
+        <% end %>email
       </div>
       <div class="result-presentation">
         <div class="result-photo">
@@ -34,9 +34,18 @@
         </div>
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email btn-email' do %>
+
+        <!-- Bouton et form actionMailer -->
+
+        <%= link_to '#', class: 'link-to-email btn-email' do %>
           <i class="far fa-envelope"></i> Recevoir les détails par email
         <% end %>
+
+        <div class="send-effectued"></div>
+
+        <%= render 'event_mailer/email_form' %>
+
+        <!-- Bouton et form twilio -->
 
         <%= link_to '#', class: 'link-to-email btn-twilio' do %>
           <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
@@ -79,9 +88,26 @@
         </div>
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
-          <i class="far fa-envelope"></i> Recevoir les détails par email
-        <% end %>
+      <!-- Bouton et form actionMailer -->
+
+      <%= link_to '#', class: 'link-to-email btn-email' do %>
+        <i class="far fa-envelope"></i> Recevoir les détails par email
+      <% end %>
+
+      <div class="send-effectued"></div>
+
+      <%= render 'event_mailer/email_form' %>
+
+      <!-- Bouton et form twilio -->
+
+      <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+        <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+      <% end %>
+
+      <div class="send-effectued"></div>
+
+      <%= render 'twilio/phone_number' %>
+
 
       <div class="result-resume-theatre">
        <p><%= @event.description %></p>
@@ -120,9 +146,25 @@
         </div>
       </div>
 
-        <%= link_to share_event_path, method: :post, class: 'link-to-email' do %>
-          <i class="far fa-envelope"></i> Recevoir les détails par email
-        <% end %>
+      <!-- Bouton et form actionMailer -->
+
+      <%= link_to '#', class: 'link-to-email btn-email' do %>
+        <i class="far fa-envelope"></i> Recevoir les détails par email
+      <% end %>
+
+      <div class="send-effectued"></div>
+
+      <%= render 'event_mailer/email_form' %>
+
+      <!-- Bouton et form twilio -->
+
+      <%= link_to '#', class: 'link-to-email btn-twilio' do %>
+        <i class="fas fa-mobile-alt"></i> Recevoir les détails par SMS
+      <% end %>
+
+      <div class="send-effectued"></div>
+
+      <%= render 'twilio/phone_number' %>
 
       <div class="result-resume-bar">
        <p><%= @event.description %></p>

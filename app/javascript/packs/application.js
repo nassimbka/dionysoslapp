@@ -127,7 +127,27 @@ if (btnTwilio) {
   const msgSendEffectued = document.querySelector('.send-effectued')
 
   sendBtn.addEventListener(('click'), (event) => {
-    msgSendEffectued.innerHTML = '<p style="color: green; font-size: 20px;">Ton sms à bien été envoyé !</p>'
+    msgSendEffectued.innerHTML = '<p style="color: green; font-size: 20px;">Ton sms a bien été envoyé !</p>'
+    phoneNumberForm.classList.add('hide');
+  })
+}
+
+// LE JS DU MAILER FORM
+const actionMailerForm = document.querySelector('.email')
+const btnActionMailer = document.querySelector('.btn-email') // btn-actionMailer?
+
+if (btnActionMailer) {
+
+  btnActionMailer.addEventListener(("click"), (event) => {
+    event.preventDefault();
+    actionMailerForm.classList.remove("hide");
+  });
+
+  const sendBtn = document.querySelector('.send2')
+  const msgSendEffectued = document.querySelector('.send-effectued')
+
+  sendBtn.addEventListener(('click'), (event) => {
+    msgSendEffectued.innerHTML = '<p style="color: green; font-size: 20px;">Ton mail a bien été envoyé !</p>'
     phoneNumberForm.classList.add('hide');
   })
 }
