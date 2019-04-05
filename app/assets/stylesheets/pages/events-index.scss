@@ -244,8 +244,8 @@
     display: none;
   }
 
-  .text-result .h1 {
-    font-size: 45px;
+  .primary-result .text-result h1 {
+    font-size: 30px;
   }
 
 
@@ -263,6 +263,12 @@
 
   .photo-result img {
     height: auto;
-    width: 83vw;
+    width: auto;
+    max-width: 75vw;
+    max-height: 30vh;
+  }
+
+  .button-result a {
+    font-size: 28px;
   }
 }
