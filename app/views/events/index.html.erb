@@ -44,10 +44,10 @@
 
     <div class="text-result">
       <h1><%= @events.first.name %></h1>
-        <% if @events.second.category == "Cinéma" %>
-          <h2><%= @events.second.category.capitalize %> <%= @events.second.venue.name %></h2>
+        <% if @events.first.category == "Cinéma" %>
+          <h2><%= @events.first.category.capitalize %> <%= @events.first.venue.name %></h2>
         <% else %>
-          <h2><%= @events.second.venue.name %></h2>
+          <h2><%= @events.first.venue.name %></h2>
         <% end %>
       <% if @events.first.genre == "Film" %>
         <h3>Film d'Animation</h3>
@@ -104,10 +104,10 @@
 
     <div class="text-result">
       <h1><%= @events.third.name %></h1>
-        <% if @events.second.category == "Cinéma" %>
-          <h2><%= @events.second.category.capitalize %> <%= @events.second.venue.name %></h2>
+        <% if @events.third.category == "Cinéma" %>
+          <h2><%= @events.third.category.capitalize %> <%= @events.third.venue.name %></h2>
         <% else %>
-          <h2><%= @events.second.venue.name %></h2>
+          <h2><%= @events.third.venue.name %></h2>
         <% end %>
       <% if @events.third.genre == "Film" %>
         <h3>Film d'Animation</h3>
