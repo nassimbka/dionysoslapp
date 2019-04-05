@@ -164,10 +164,12 @@
 
       <div class="result-presentation">
         <div class="result-photo">
-          <% if @event.photo_url.present? %>
+          <% if @event.photo_url.present? && @event.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
             <%= image_tag @event.photo_url %>
-          <% else %>
+          <% elsif @event.venue.photo != nil %>
           <%= cl_image_tag @event.venue.photo, height: 200, width: 300, crop: :fill %>
+          <% else %>
+            <% image_tag "concert-default.jpg" %>
           <% end %>
         </div>
         <div class="result-details">
