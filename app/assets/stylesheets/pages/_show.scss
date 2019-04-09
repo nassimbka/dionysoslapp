@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: calc(100vh - 60px);
+  height: 100%;
   background-color: $light-black;
   background-size: cover;
   background-position: center;
@@ -181,9 +181,8 @@
 }
 
 .retour-link {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
+  width: 100%;
+  padding-left: 15px;
   a {
     font-size: 1.8em;
     color: $orange;
