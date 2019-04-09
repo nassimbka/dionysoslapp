@@ -34,11 +34,13 @@
 
     <div class="photo-result">
       <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
-      <%= cl_image_tag @events.first.venue.photo %>
-      <% elsif @events.first.photo_url.present? %>
-      <%= image_tag @events.first.photo_url %>
+        <%= cl_image_tag @events.first.venue.photo %>
+      <% elsif @events.first.photo_url.present? && @events.first.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
+        <%= image_tag @events.first.photo_url %>
+      <% elsif @events.first.venue.photo != nil %>
+       <%= cl_image_tag @events.first.venue.photo %>
       <% else %>
-      <%= cl_image_tag @events.first.venue.photo %>
+        <%= image_tag "concert-default.jpg" %>
       <% end %>
     </div>
 
@@ -64,11 +66,13 @@
 
     <div class="photo-result">
       <% if @events.second.category == "Cinéma" && @events.second.photo_url == "/design/images/mascotteNb.png" %>
-      <%= cl_image_tag @events.second.venue.photo %>
-      <% elsif @events.second.photo_url.present? %>
-      <%= image_tag @events.second.photo_url %>
+        <%= cl_image_tag @events.second.venue.photo %>
+      <% elsif @events.second.photo_url.present? && @events.second.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
+        <%= image_tag @events.second.photo_url %>
+      <% elsif @events.second.venue.photo != nil %>
+       <%= cl_image_tag @events.second.venue.photo %>
       <% else %>
-      <%= cl_image_tag @events.second.venue.photo %>
+        <%= image_tag "concert-default.jpg" %>
       <% end %>
     </div>
 
@@ -94,11 +98,13 @@
 
     <div class="photo-result">
       <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
-      <%= cl_image_tag @events.third.venue.photo %>
-      <% elsif @events.third.photo_url.present? %>
-      <%= image_tag @events.third.photo_url %>
+        <%= cl_image_tag @events.third.venue.photo %>
+      <% elsif @events.third.photo_url.present? && @events.third.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
+        <%= image_tag @events.third.photo_url %>
+      <% elsif @events.third.venue.photo != nil %>
+       <%= cl_image_tag @events.third.venue.photo %>
       <% else %>
-      <%= cl_image_tag @events.third.venue.photo %>
+        <%= image_tag "concert-default.jpg" %>
       <% end %>
     </div>
 
