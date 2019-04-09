@@ -93,10 +93,10 @@ bubar = Venue.create!(name: "Le Bubar", kind: "bar", address: "5 rue Louis Blanc
 event_tags[bubar.id] = ["posée", "acteur", "comptoir", "boisson"]
 
 nid = Venue.create!(name: "Le Nid", kind: "bar", address: "Tour de Bretagne, Place de Bretagne, 44047 Nantes", url: "https://www.facebook.com/LeNidNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/le_nid.jpg')), phone_number: '02 51 83 51 34') # rooftop, lounge, concerts
-event_tags[nid.id] = ["posée", "acteur", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
+event_tags[nid.id] = ["posée", "acteur", "comptoir", "dynamique", "gratuit / prix libre" ]
 
 vertigo = Venue.create!(name: "Le Vertigo", kind: "bar", address: "3 mail du Front Populaire, 44200 Nantes", url: "https://www.facebook.com/VertigoNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/vertigo.jpg')), phone_number: '02 51 83 51 34') # bar, rooftop, plusieurs ambiances
-event_tags[vertigo.id] = ["posée", "acteur", "comptoir", "dynamique", "solo", "groupe", "musique", "gratuit / prix libre" ]
+event_tags[vertigo.id] = ["posée", "acteur", "comptoir", "dynamique", "gratuit / prix libre"]
 
 bateau_lavoir = Venue.create!(name: "Le Bateau Lavoir", kind: "bar", address: "Quai Ceineray, 44000 Nantes", url: "https://www.facebook.com/bateaulavoirNantes/", photo: File.open(Rails.root.join('db/fixtures/venues/lavoir.jpg')), phone_number: '02 51 83 51 34') # péniche, guinguette
 event_tags[bateau_lavoir.id] = ["posée", "acteur", "comptoir"]
