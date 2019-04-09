@@ -181,9 +181,8 @@
 }
 
 .retour-link {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
+  width: 100%;
+  padding-left: 15px;
   a {
     font-size: 1.8em;
     color: $orange;
