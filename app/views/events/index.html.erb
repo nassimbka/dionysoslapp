@@ -1,4 +1,4 @@
-<div class="wrapper-loading" data-skip-search="<%= params[:skip_search].present? %>" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= image_path "homegifs/homegif.gif" %>);">
+<div class="wrapper-loading" data-skip-search="<%= params[:skip_search].present? %>" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "homegifs/homegif.gif" %>);">
 
   <h1 class="hide" id="tagline-end-loading">Nous avons trouvé des soirées se rapprochant de vos réponses!</h1>
 
@@ -24,7 +24,7 @@
 
 </div>
 
-<div class="wrapper-index hide" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%= image_path "homegifs/homegif.gif" %>);">
+<div class="wrapper-index hide" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "homegifs/homegif.gif" %>);">
 
   <%= link_to "#", class: "left-arrow" do %>
     <i class="fas fa-chevron-left arrow"></i>
@@ -34,19 +34,23 @@
 
     <div class="photo-result">
       <% if @events.first.category == "Cinéma" && @events.first.photo_url == "/design/images/mascotteNb.png" %>
-      <%= cl_image_tag @events.first.venue.photo %>
-      <% elsif @events.first.photo_url.present? %>
-      <%= image_tag @events.first.photo_url %>
+        <%= cl_image_tag @events.first.venue.photo %>
+      <% elsif @events.first.photo_url.present? && @events.first.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
+        <%= image_tag @events.first.photo_url %>
+      <% elsif @events.first.venue.photo != nil %>
+       <%= cl_image_tag @events.first.venue.photo %>
       <% else %>
-      <%= cl_image_tag @events.first.venue.photo %>
+        <%= image_tag "concert-default.jpg" %>
       <% end %>
     </div>
 
     <div class="text-result">
       <h1><%= @events.first.name %></h1>
-      <% if @events.first.category != nil %>
-        <h2><%= @events.first.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.first.venue.name %></h2><% end %>
-      <% end %>
+        <% if @events.first.category == "Cinéma" %>
+          <h2><%= @events.first.category.capitalize %> <%= @events.first.venue.name %></h2>
+        <% else %>
+          <h2><%= @events.first.venue.name %></h2>
+        <% end %>
       <% if @events.first.genre == "Film" %>
         <h3>Film d'Animation</h3>
       <% elsif @events.first.category == "Cinéma" %>
@@ -62,19 +66,23 @@
 
     <div class="photo-result">
       <% if @events.second.category == "Cinéma" && @events.second.photo_url == "/design/images/mascotteNb.png" %>
-      <%= cl_image_tag @events.second.venue.photo %>
-      <% elsif @events.second.photo_url.present? %>
-      <%= image_tag @events.second.photo_url %>
+        <%= cl_image_tag @events.second.venue.photo %>
+      <% elsif @events.second.photo_url.present? && @events.second.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
+        <%= image_tag @events.second.photo_url %>
+      <% elsif @events.second.venue.photo != nil %>
+       <%= cl_image_tag @events.second.venue.photo %>
       <% else %>
-      <%= cl_image_tag @events.second.venue.photo %>
+        <%= image_tag "concert-default.jpg" %>
       <% end %>
     </div>
 
     <div class="text-result">
       <h1><%= @events.second.name %></h1>
-     <% if @events.second.category != nil %>
-            <h2><%= @events.second.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.second.venue.name %></h2><% end %>
-          <% end %>
+        <% if @events.second.category == "Cinéma" %>
+          <h2><%= @events.second.category.capitalize %> <%= @events.second.venue.name %></h2>
+        <% else %>
+          <h2><%= @events.second.venue.name %></h2>
+        <% end %>
       <% if @events.second.genre == "Film" %>
        <h3>Film d'Animation</h3>
       <% elsif @events.second.category == "Cinéma" %>
@@ -90,19 +98,23 @@
 
     <div class="photo-result">
       <% if @events.third.category == "Cinéma" && @events.third.photo_url == "/design/images/mascotteNb.png" %>
-      <%= cl_image_tag @events.third.venue.photo %>
-      <% elsif @events.third.photo_url.present? %>
-      <%= image_tag @events.third.photo_url %>
+        <%= cl_image_tag @events.third.venue.photo %>
+      <% elsif @events.third.photo_url.present? && @events.third.photo_url != "http://images.sk-static.com/images/media/profile_images/artists/9937279/huge_avatar" %>
+        <%= image_tag @events.third.photo_url %>
+      <% elsif @events.third.venue.photo != nil %>
+       <%= cl_image_tag @events.third.venue.photo %>
       <% else %>
-      <%= cl_image_tag @events.third.venue.photo %>
+        <%= image_tag "concert-default.jpg" %>
       <% end %>
     </div>
 
     <div class="text-result">
       <h1><%= @events.third.name %></h1>
-      <% if @events.third.category != nil %>
-             <h2><%= @events.third.category.capitalize %> <% unless @events.third.category == "concert" %><%= @events.third.venue.name %></h2><% end %>
-           <% end %>
+        <% if @events.third.category == "Cinéma" %>
+          <h2><%= @events.third.category.capitalize %> <%= @events.third.venue.name %></h2>
+        <% else %>
+          <h2><%= @events.third.venue.name %></h2>
+        <% end %>
       <% if @events.third.genre == "Film" %>
         <h3>Film d'Animation</h3>
       <% elsif @events.third.category == "Cinéma" %>

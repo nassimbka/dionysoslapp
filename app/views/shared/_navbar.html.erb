@@ -3,7 +3,7 @@
     <%= image_tag "logo-navbar.png", class: "nav-logo" %>
   <% end %>
 
-  <div class="steps-navbar">
+  <div class="steps-navbar d-none d-md-block">
     <% if (params[:action] != "index") %>
       <% if session[:search] != nil %>
         <% session[:search].each do |step, answer| %>

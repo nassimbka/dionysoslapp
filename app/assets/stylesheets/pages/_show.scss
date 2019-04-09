@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: calc(100vh - 60px);
+  height: 100%;
   background-color: $light-black;
   background-size: cover;
   background-position: center;
@@ -53,6 +53,7 @@
   }
   h3 {
     font-size: 40px;
+    font-weight:lighter;
   }
 }
 
@@ -180,9 +181,8 @@
 }
 
 .retour-link {
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
+  width: 100%;
+  padding-left: 15px;
   a {
     font-size: 1.8em;
     color: $orange;
@@ -292,3 +292,48 @@
   align-items: center;
   width: 350px;
 }
+
+@media (max-width: 768px) {
+
+  .result-presentation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrapper-show {
+    height: auto;
+  }
+
+  .retour-link {
+    position: relative;
+    bottom: 0;
+    width: 100vw;
+  }
+
+  .container-bar, .container-cinema {
+    width: 100vw;
+  }
+
+  .result-share {
+    flex-direction: column;
+  }
+
+  .result-details {
+    margin-top: 15px;
+  }
+
+  div.result-resume-bar, div.result-resume-theatre {
+    margin: 0;
+    padding: 0;
+  }
+
+  height: 100%;
+}
+
+// @media (max-width: 420px) { => resolution mobile
+
+// }
+
+// @media (max-width: 768px) {
+
+// }
