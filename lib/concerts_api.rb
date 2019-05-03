@@ -88,14 +88,14 @@ class ConcertsApi
     html_doc  = Nokogiri::HTML(html_file)
 
     scrapped_address = html_doc.search('p.venue-hcard > span')
-    if scrapped_address != nil
+    if !scrapped_address.first.nil?
       address_elements = scrapped_address.first.search('span').map do |s|
         s.text.strip
       end
       cleaned_address = "#{address_elements[0]}, #{address_elements[1]} #{address_elements[2]} #{address_elements[3]}".strip
       cleaned_address
     else
-      "Adresse non-communiquée par l'établissement."
+      "Adresse non communiquée par l'établissement."
     end
 
   end
